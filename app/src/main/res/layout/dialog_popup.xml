@@ -1,0 +1,122 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <data>
+        <variable
+            name="viewModel"
+            type="kr.co.devjsky.android.bobjo.ui.base.DialogViewModel" />
+    </data>
+
+
+<LinearLayout
+    android:background="@color/transparent"
+    android:gravity="center"
+
+    android:orientation="vertical"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content">
+
+
+        <LinearLayout
+
+            android:background="@drawable/bg_popup_dialog_01"
+
+            android:orientation="vertical"
+            android:layout_width="540dp"
+            android:layout_height="wrap_content"
+            >
+
+            <ImageButton
+                android:id="@+id/btn_close"
+                android:background="@drawable/ico_close_01"
+                android:layout_gravity="end"
+                android:layout_marginTop="17.16dp"
+                android:layout_marginEnd="13.2dp"
+                android:layout_width="30dp"
+                android:layout_height="30dp"/>
+
+            <TextView
+                android:lineSpacingExtra="9.636sp"
+                android:layout_marginStart="46dp"
+                android:layout_marginEnd="46dp"
+                android:letterSpacing="-0.03"
+                android:fontFamily="@font/noto_sans_kr_bold"
+                android:textColor="@color/black"
+                android:gravity="center"
+                android:textSize="22sp"
+                android:id="@+id/tv_title"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content" />
+            <TextView
+                android:lineSpacingExtra="9.636sp"
+                android:layout_marginTop="26.4dp"
+                android:layout_marginStart="46dp"
+                android:layout_marginEnd="46dp"
+                android:letterSpacing="-0.03"
+                android:fontFamily="@font/noto_sans_kr_medium"
+                android:textColor="@color/dialog_content_color_01"
+                android:gravity="center"
+                android:textSize="19.8sp"
+                android:id="@+id/tv_msg"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content" />
+            <LinearLayout
+                android:gravity="center"
+                android:layout_marginStart="46.596dp"
+                android:layout_marginEnd="46.596dp"
+                android:layout_marginTop="30dp"
+                android:layout_marginBottom="30dp"
+                android:orientation="horizontal"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+                
+                <Button
+
+                    android:id="@+id/btn_left"
+                    android:textColor="@color/white"
+                    android:gravity="center"
+                    android:background="@drawable/bg_popup_dialog_button_01"
+                    android:text="ddddddd"
+                    android:fontFamily="@font/noto_sans_kr_bold"
+                    android:layout_weight="1"
+                    android:layout_width="0dp"
+                    android:layout_height="44dp"/>
+                <Button
+                    android:visibility="gone"
+                    android:id="@+id/btn_center"
+                    android:textColor="@color/dialog_button_text_color_01"
+                    android:gravity="center"
+                    android:background="@drawable/bg_popup_dialog_button_02"
+                    android:text=""
+                    android:fontFamily="@font/noto_sans_kr_bold"
+                    android:layout_width="220dp"
+                    android:layout_height="44dp"/>
+                <Button
+                    android:layout_marginStart="22.836dp"
+                    android:id="@+id/btn_right"
+                    android:textColor="@color/white"
+                    android:gravity="center"
+                    android:background="@drawable/bg_popup_dialog_button_01"
+                    android:text=""
+                    android:fontFamily="@font/noto_sans_kr_bold"
+                    android:layout_weight="1"
+                    android:layout_width="0dp"
+                    android:layout_height="44dp"/>
+
+
+            </LinearLayout>
+
+
+
+
+        </LinearLayout>
+
+
+
+
+</LinearLayout>
+
+
+
+</layout>

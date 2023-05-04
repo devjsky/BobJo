@@ -1,0 +1,91 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+        <variable
+            name="viewModel"
+            type="kr.co.devjsky.android.bobjo.ui.base.DialogViewModel" />
+
+    </data>
+
+
+    <LinearLayout
+
+        android:id="@+id/layout_body"
+        android:gravity="center"
+        android:background="@color/transparent"
+        android:orientation="vertical"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content">
+
+        <LinearLayout
+            android:gravity="center"
+            android:background="@drawable/bg_popup_dialog_01"
+
+            android:orientation="vertical"
+            android:layout_width="340dp"
+            android:layout_height="match_parent"
+            android:padding="20dp"
+
+            >
+            <ImageView
+                android:id="@+id/iv_close"
+                android:layout_gravity="end"
+                android:adjustViewBounds="true"
+                android:src="@drawable/ico_close_01"
+                android:layout_width="30dp"
+                android:layout_height="30dp"/>
+<TextView
+    android:textSize="22sp"
+    android:letterSpacing="-0.03"
+    android:fontFamily="@font/noto_sans_kr_bold"
+    android:text="빠른 동작"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"/>
+            <TextView
+                android:text="추가할 종류를 선택해 주세요."
+                android:lineSpacingExtra="10sp"
+                android:layout_marginTop="20dp"
+                android:layout_marginStart="20dp"
+                android:layout_marginEnd="20dp"
+                android:layout_marginBottom="20dp"
+                android:letterSpacing="-0.03"
+                android:fontFamily="@font/noto_sans_kr_medium"
+                android:textColor="@color/dialog_content_color_01"
+                android:gravity="center"
+                android:textSize="20sp"
+                android:id="@+id/tv_msg"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content" />
+            <Button
+                android:id="@+id/btn_add_dayoff"
+                android:textSize="18sp"
+                android:textColor="@color/white"
+                android:background="@drawable/bg_sub_menu_dialog_button_02"
+                android:text="휴일 추가"
+                android:fontFamily="@font/noto_sans_kr_bold"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"/>
+            <Button
+                android:layout_marginTop="10dp"
+                android:textSize="18sp"
+                android:textColor="@color/dialog_button_text_color_01"
+                android:background="@drawable/bg_sub_menu_dialog_button_01"
+                android:text="오픈 출근 추가"
+                android:fontFamily="@font/noto_sans_kr_bold"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"/>
+
+
+
+        </LinearLayout>
+
+
+
+    </LinearLayout>
+
+
+
+</layout>

@@ -1,0 +1,141 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+        <variable
+            name="viewModel"
+            type="kr.co.devjsky.android.bobjo.ui.schedule.viewmodel.ScheduleViewModel" />
+
+    </data>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        tools:context=".ui.schedule.activity.ScheduleAddActivity">
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/layout_top_menu"
+            android:background="@drawable/bg_top_menu"
+            android:orientation="horizontal"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/bottom_menu_height">
+            <ImageView
+                android:src="@drawable/ico_back_01"
+                android:visibility="visible"
+                android:layout_marginStart="10dp"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                android:id="@+id/iv_back"
+                android:layout_width="20dp"
+                android:layout_height="20dp"/>
+            <TextView
+                android:letterSpacing="-0.03"
+                app:layout_constraintStart_toEndOf="@id/iv_back"
+                app:layout_constraintEnd_toStartOf="@id/iv_empty_02"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                android:fontFamily="@font/noto_sans_kr_bold"
+                android:id="@+id/tv_top_menu_title"
+                android:gravity="center"
+                android:textSize="18sp"
+                android:textColor="@color/black"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content" />
+            <View
+                android:visibility="invisible"
+                android:layout_marginStart="10dp"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                android:id="@+id/iv_empty_02"
+                android:layout_width="20dp"
+                android:layout_height="20dp"/>
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+        <LinearLayout
+            android:paddingTop="20dp"
+            android:layout_below="@+id/layout_top_menu"
+            android:orientation="vertical"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+                <TextView
+                    android:textColor="@color/black"
+                    android:letterSpacing="-0.03"
+                    android:fontFamily="@font/noto_sans_kr_bold"
+                    android:text="메모 그룹"
+                    android:textSize="20sp"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"/>
+                <HorizontalScrollView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+                    <LinearLayout
+                        android:paddingEnd="10dp"
+                        android:paddingStart="10dp"
+                        android:gravity="center|start"
+                        android:orientation="horizontal"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content">
+                        <LinearLayout
+                            android:id="@+id/layout_category_group_memo"
+                            android:gravity="center"
+                            android:orientation="horizontal"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content">
+                            <ImageView
+                                android:id="@+id/iv_category_group_memo"
+                                android:src="@drawable/bg_radio_unchecked_01"
+                                android:adjustViewBounds="true"
+                                android:layout_width="20dp"
+                                android:layout_height="20dp"/>
+                            <TextView
+                                android:fontFamily="@font/noto_sans_kr_regular"
+                                android:gravity="center"
+                                android:textSize="16sp"
+                                android:layout_marginStart="6dp"
+                                android:text="메모"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"/>
+
+                        </LinearLayout>
+                        <LinearLayout
+                            android:layout_marginStart="10dp"
+                            android:id="@+id/layout_category_group_dayoff"
+                            android:gravity="center"
+                            android:orientation="horizontal"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content">
+                            <ImageView
+                                android:id="@+id/iv_category_group_dayoff"
+                                android:src="@drawable/bg_radio_unchecked_01"
+                                android:adjustViewBounds="true"
+                                android:layout_width="20dp"
+                                android:layout_height="20dp"/>
+                            <TextView
+                                android:fontFamily="@font/noto_sans_kr_regular"
+                                android:gravity="center"
+                                android:textSize="16sp"
+                                android:layout_marginStart="6dp"
+                                android:text="휴무"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"/>
+
+                        </LinearLayout>
+
+
+                    </LinearLayout>
+
+                </HorizontalScrollView>
+
+
+
+        </LinearLayout>
+
+
+
+
+    </RelativeLayout>
+</layout>

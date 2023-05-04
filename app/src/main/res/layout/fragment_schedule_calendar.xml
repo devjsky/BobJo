@@ -1,0 +1,2402 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <data>
+        <variable
+            name="viewModel"
+            type="kr.co.devjsky.android.bobjo.ui.schedule.viewmodel.ScheduleViewModel" />
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <TextView
+            android:layout_marginTop="10dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            android:textSize="20sp"
+            android:textColor="@color/black"
+            android:gravity="center"
+            android:letterSpacing="-0.03"
+            android:fontFamily="@font/noto_sans_kr_bold"
+            app:layout_constraintTop_toTopOf="parent"
+            android:id="@+id/tv_millis"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"/>
+        <LinearLayout
+            android:layout_marginStart="10dp"
+            android:layout_marginEnd="10dp"
+            android:layout_marginBottom="10dp"
+            android:layout_marginTop="10dp"
+            app:layout_constraintTop_toBottomOf="@+id/tv_millis"
+            app:layout_constraintBottom_toBottomOf="parent"
+            android:orientation="vertical"
+            android:layout_width="match_parent"
+            android:layout_height="0dp">
+            <LinearLayout
+                android:paddingTop="4dp"
+                android:paddingBottom="4dp"
+                android:orientation="horizontal"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <LinearLayout
+                    android:gravity="top|start"
+                    android:layout_weight="1"
+                    android:orientation="vertical"
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent">
+
+                    <TextView
+
+                        android:textColor="@color/calendar_sunday_color_01"
+                        android:layout_gravity="center|top"
+                        android:textSize="13sp"
+                        android:fontFamily="@font/noto_sans_kr_medium"
+                        android:text="일"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"/>
+
+                </LinearLayout>
+                <LinearLayout
+                    android:gravity="top|start"
+                    android:layout_weight="1"
+                    android:orientation="vertical"
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent">
+
+                    <TextView
+                        android:textColor="@color/black"
+                        android:layout_gravity="center|top"
+                        android:textSize="13sp"
+                        android:fontFamily="@font/noto_sans_kr_medium"
+                        android:text="월"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"/>
+
+                </LinearLayout>
+                <LinearLayout
+                    android:gravity="top|start"
+                    android:layout_weight="1"
+                    android:orientation="vertical"
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent">
+
+                    <TextView
+                        android:textColor="@color/black"
+                        android:layout_gravity="center|top"
+                        android:textSize="13sp"
+                        android:fontFamily="@font/noto_sans_kr_medium"
+                        android:text="화"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"/>
+
+                </LinearLayout>
+                <LinearLayout
+                    android:gravity="top|start"
+                    android:layout_weight="1"
+                    android:orientation="vertical"
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent">
+
+                    <TextView
+                        android:textColor="@color/black"
+                        android:layout_gravity="center|top"
+                        android:textSize="13sp"
+                        android:fontFamily="@font/noto_sans_kr_medium"
+                        android:text="수"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"/>
+
+                </LinearLayout>
+                <LinearLayout
+                    android:gravity="top|start"
+                    android:layout_weight="1"
+                    android:orientation="vertical"
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent">
+
+                    <TextView
+                        android:textColor="@color/black"
+                        android:layout_gravity="center|top"
+                        android:textSize="13sp"
+                        android:fontFamily="@font/noto_sans_kr_medium"
+                        android:text="목"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"/>
+
+                </LinearLayout>
+                <LinearLayout
+                    android:gravity="top|start"
+                    android:layout_weight="1"
+                    android:orientation="vertical"
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent">
+
+                    <TextView
+                        android:textColor="@color/black"
+                        android:layout_gravity="center|top"
+                        android:textSize="13sp"
+                        android:fontFamily="@font/noto_sans_kr_medium"
+                        android:text="금"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"/>
+
+                </LinearLayout>
+                <LinearLayout
+                    android:gravity="top|start"
+                    android:layout_weight="1"
+                    android:orientation="vertical"
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent">
+
+                    <TextView
+                        android:textColor="@color/calendar_saturday_color_01"
+                        android:layout_gravity="center|top"
+                        android:textSize="13sp"
+                        android:fontFamily="@font/noto_sans_kr_medium"
+                        android:text="토"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"/>
+
+                </LinearLayout>
+
+            </LinearLayout>
+            <View
+                app:layout_constraintBottom_toBottomOf="parent"
+                android:background="@color/calendar_line_color_01"
+                android:layout_width="match_parent"
+                android:layout_height="0.5dp"/>
+            <LinearLayout
+
+                android:layout_weight="1"
+                android:orientation="horizontal"
+                android:layout_width="match_parent"
+                android:layout_height="0dp">
+
+                <RelativeLayout
+                    android:id="@+id/layout_day_1_1"
+                    android:layout_weight="1"
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent">
+               <LinearLayout
+                   android:orientation="vertical"
+                   android:layout_width="match_parent"
+                   android:layout_height="match_parent">
+                   <TextView
+                       android:layout_marginTop="4dp"
+                       android:layout_marginBottom="4dp"
+                       android:id="@+id/tv_day_1_1"
+                       android:layout_width="wrap_content"
+                       android:layout_height="wrap_content"
+                       android:layout_gravity="center|top"
+                       android:fontFamily="@font/noto_sans_kr_medium"
+                       android:textColor="@color/calendar_sunday_color_01"
+                       android:textSize="13sp" />
+
+                   <LinearLayout
+                       android:id="@+id/layout_event_1_1"
+                       android:orientation="vertical"
+                       android:layout_width="match_parent"
+                       android:layout_height="match_parent">
+
+
+                   </LinearLayout>
+                   
+               </LinearLayout>
+
+                    <LinearLayout
+                        android:focusable="true"
+                        android:clickable="true"
+                        android:translationZ="10dp"
+                        android:id="@+id/layout_multi_check_1_1"
+                        android:visibility="gone"
+                        android:background="@color/transparent"
+                        android:gravity="center"
+                        android:orientation="vertical"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent">
+                        <ImageView
+                            android:adjustViewBounds="true"
+                            android:src="@drawable/bg_radio_unchecked_01"
+                            android:layout_width="20dp"
+                            android:layout_height="20dp"/>
+                    </LinearLayout>
+
+                    
+                </RelativeLayout>
+                <RelativeLayout
+                    android:id="@+id/layout_day_2_1"
+                    android:layout_weight="1"
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent">
+                    <LinearLayout
+                        android:orientation="vertical"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent">
+                        <TextView
+                            android:layout_marginTop="4dp"
+                            android:layout_marginBottom="4dp"
+                            android:id="@+id/tv_day_2_1"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="center|top"
+                            android:fontFamily="@font/noto_sans_kr_medium"
+                            android:textColor="@color/black"
+                            android:textSize="13sp" />
+
+                        <LinearLayout
+                            android:id="@+id/layout_event_2_1"
+                            android:orientation="vertical"
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent">
+
+
+                        </LinearLayout>
+
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:focusable="true"
+                        android:clickable="true"
+                        android:translationZ="10dp"
+                        android:id="@+id/layout_multi_check_2_1"
+                        android:visibility="gone"
+                        android:background="@color/transparent"
+                        android:gravity="center"
+                        android:orientation="vertical"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent">
+                        <ImageView
+                            android:adjustViewBounds="true"
+                            android:src="@drawable/bg_radio_unchecked_01"
+                            android:layout_width="20dp"
+                            android:layout_height="20dp"/>
+                    </LinearLayout>
+
+
+                </RelativeLayout>
+                <RelativeLayout
+                    android:id="@+id/layout_day_3_1"
+                    android:layout_weight="1"
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent">
+                    <LinearLayout
+                        android:orientation="vertical"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent">
+                        <TextView
+                            android:layout_marginTop="4dp"
+                            android:layout_marginBottom="4dp"
+                            android:id="@+id/tv_day_3_1"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="center|top"
+                            android:fontFamily="@font/noto_sans_kr_medium"
+                            android:textColor="@color/black"
+                            android:textSize="13sp" />
+
+                        <LinearLayout
+                            android:id="@+id/layout_event_3_1"
+                            android:orientation="vertical"
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent">
+
+
+                        </LinearLayout>
+
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:focusable="true"
+                        android:clickable="true"
+                        android:translationZ="10dp"
+                        android:id="@+id/layout_multi_check_3_1"
+                        android:visibility="gone"
+                        android:background="@color/transparent"
+                        android:gravity="center"
+                        android:orientation="vertical"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent">
+                        <ImageView
+                            android:adjustViewBounds="true"
+                            android:src="@drawable/bg_radio_unchecked_01"
+                            android:layout_width="20dp"
+                            android:layout_height="20dp"/>
+                    </LinearLayout>
+
+
+                </RelativeLayout>
+                <RelativeLayout
+                    android:id="@+id/layout_day_4_1"
+                    android:layout_weight="1"
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent">
+                    <LinearLayout
+                        android:orientation="vertical"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent">
+                        <TextView
+                            android:layout_marginTop="4dp"
+                            android:layout_marginBottom="4dp"
+                            android:id="@+id/tv_day_4_1"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="center|top"
+                            android:fontFamily="@font/noto_sans_kr_medium"
+                            android:textColor="@color/black"
+                            android:textSize="13sp" />
+
+                        <LinearLayout
+                            android:id="@+id/layout_event_4_1"
+                            android:orientation="vertical"
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent">
+
+
+                        </LinearLayout>
+
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:focusable="true"
+                        android:clickable="true"
+                        android:translationZ="10dp"
+                        android:id="@+id/layout_multi_check_4_1"
+                        android:visibility="gone"
+                        android:background="@color/transparent"
+                        android:gravity="center"
+                        android:orientation="vertical"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent">
+                        <ImageView
+                            android:adjustViewBounds="true"
+                            android:src="@drawable/bg_radio_unchecked_01"
+                            android:layout_width="20dp"
+                            android:layout_height="20dp"/>
+                    </LinearLayout>
+
+
+                </RelativeLayout>
+                <RelativeLayout
+                    android:id="@+id/layout_day_5_1"
+                    android:layout_weight="1"
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent">
+                    <LinearLayout
+                        android:orientation="vertical"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent">
+                        <TextView
+                            android:layout_marginTop="4dp"
+                            android:layout_marginBottom="4dp"
+                            android:id="@+id/tv_day_5_1"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="center|top"
+                            android:fontFamily="@font/noto_sans_kr_medium"
+                            android:textColor="@color/black"
+                            android:textSize="13sp" />
+
+                        <LinearLayout
+                            android:id="@+id/layout_event_5_1"
+                            android:orientation="vertical"
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent">
+
+
+                        </LinearLayout>
+
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:focusable="true"
+                        android:clickable="true"
+                        android:translationZ="10dp"
+                        android:id="@+id/layout_multi_check_5_1"
+                        android:visibility="gone"
+                        android:background="@color/transparent"
+                        android:gravity="center"
+                        android:orientation="vertical"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent">
+                        <ImageView
+                            android:adjustViewBounds="true"
+                            android:src="@drawable/bg_radio_unchecked_01"
+                            android:layout_width="20dp"
+                            android:layout_height="20dp"/>
+                    </LinearLayout>
+
+
+                </RelativeLayout>
+                <RelativeLayout
+                    android:id="@+id/layout_day_6_1"
+                    android:layout_weight="1"
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent">
+                    <LinearLayout
+                        android:orientation="vertical"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent">
+                        <TextView
+                            android:layout_marginTop="4dp"
+                            android:layout_marginBottom="4dp"
+                            android:id="@+id/tv_day_6_1"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="center|top"
+                            android:fontFamily="@font/noto_sans_kr_medium"
+                            android:textColor="@color/black"
+                            android:textSize="13sp" />
+
+                        <LinearLayout
+                            android:id="@+id/layout_event_6_1"
+                            android:orientation="vertical"
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent">
+
+
+                        </LinearLayout>
+
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:focusable="true"
+                        android:clickable="true"
+                        android:translationZ="10dp"
+                        android:id="@+id/layout_multi_check_6_1"
+                        android:visibility="gone"
+                        android:background="@color/transparent"
+                        android:gravity="center"
+                        android:orientation="vertical"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent">
+                        <ImageView
+                            android:adjustViewBounds="true"
+                            android:src="@drawable/bg_radio_unchecked_01"
+                            android:layout_width="20dp"
+                            android:layout_height="20dp"/>
+                    </LinearLayout>
+
+
+                </RelativeLayout>
+                <RelativeLayout
+                    android:id="@+id/layout_day_7_1"
+                    android:layout_weight="1"
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent">
+                    <LinearLayout
+                        android:orientation="vertical"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent">
+                        <TextView
+                            android:layout_marginTop="4dp"
+                            android:layout_marginBottom="4dp"
+                            android:id="@+id/tv_day_7_1"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="center|top"
+                            android:fontFamily="@font/noto_sans_kr_medium"
+                            android:textColor="@color/calendar_saturday_color_01"
+                            android:textSize="13sp" />
+
+                        <LinearLayout
+                            android:id="@+id/layout_event_7_1"
+                            android:orientation="vertical"
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent">
+
+
+                        </LinearLayout>
+
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:focusable="true"
+                        android:clickable="true"
+                        android:translationZ="10dp"
+                        android:id="@+id/layout_multi_check_7_1"
+                        android:visibility="gone"
+                        android:background="@color/transparent"
+                        android:gravity="center"
+                        android:orientation="vertical"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent">
+                        <ImageView
+                            android:adjustViewBounds="true"
+                            android:src="@drawable/bg_radio_unchecked_01"
+                            android:layout_width="20dp"
+                            android:layout_height="20dp"/>
+                    </LinearLayout>
+
+
+                </RelativeLayout>
+
+
+            </LinearLayout>
+            <View
+                app:layout_constraintBottom_toBottomOf="parent"
+                android:background="@color/calendar_line_color_01"
+                android:layout_width="match_parent"
+                android:layout_height="0.5dp"/>
+            <LinearLayout
+
+                android:layout_weight="1"
+                android:orientation="horizontal"
+                android:layout_width="match_parent"
+                android:layout_height="0dp">
+
+                <RelativeLayout
+                    android:id="@+id/layout_day_1_2"
+                    android:layout_weight="1"
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent">
+                    <LinearLayout
+                        android:orientation="vertical"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent">
+                        <TextView
+                            android:layout_marginTop="4dp"
+                            android:layout_marginBottom="4dp"
+                            android:id="@+id/tv_day_1_2"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="center|top"
+                            android:fontFamily="@font/noto_sans_kr_medium"
+                            android:textColor="@color/calendar_sunday_color_01"
+                            android:textSize="13sp" />
+
+                        <LinearLayout
+                            android:id="@+id/layout_event_1_2"
+                            android:orientation="vertical"
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent">
+
+
+                        </LinearLayout>
+
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:focusable="true"
+                        android:clickable="true"
+                        android:translationZ="10dp"
+                        android:id="@+id/layout_multi_check_1_2"
+                        android:visibility="gone"
+                        android:background="@color/transparent"
+                        android:gravity="center"
+                        android:orientation="vertical"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent">
+                        <ImageView
+                            android:adjustViewBounds="true"
+                            android:src="@drawable/bg_radio_unchecked_01"
+                            android:layout_width="20dp"
+                            android:layout_height="20dp"/>
+                    </LinearLayout>
+
+
+                </RelativeLayout>
+                <RelativeLayout
+                    android:id="@+id/layout_day_2_2"
+                    android:layout_weight="1"
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent">
+                    <LinearLayout
+                        android:orientation="vertical"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent">
+                        <TextView
+                            android:layout_marginTop="4dp"
+                            android:layout_marginBottom="4dp"
+                            android:id="@+id/tv_day_2_2"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="center|top"
+                            android:fontFamily="@font/noto_sans_kr_medium"
+                            android:textColor="@color/black"
+                            android:textSize="13sp" />
+
+                        <LinearLayout
+                            android:id="@+id/layout_event_2_2"
+                            android:orientation="vertical"
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent">
+
+
+                        </LinearLayout>
+
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:focusable="true"
+                        android:clickable="true"
+                        android:translationZ="10dp"
+                        android:id="@+id/layout_multi_check_2_2"
+                        android:visibility="gone"
+                        android:background="@color/transparent"
+                        android:gravity="center"
+                        android:orientation="vertical"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent">
+                        <ImageView
+                            android:adjustViewBounds="true"
+                            android:src="@drawable/bg_radio_unchecked_01"
+                            android:layout_width="20dp"
+                            android:layout_height="20dp"/>
+                    </LinearLayout>
+
+
+                </RelativeLayout>
+                <RelativeLayout
+                    android:id="@+id/layout_day_3_2"
+                    android:layout_weight="1"
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent">
+                    <LinearLayout
+                        android:orientation="vertical"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent">
+                        <TextView
+                            android:layout_marginTop="4dp"
+                            android:layout_marginBottom="4dp"
+                            android:id="@+id/tv_day_3_2"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="center|top"
+                            android:fontFamily="@font/noto_sans_kr_medium"
+                            android:textColor="@color/black"
+                            android:textSize="13sp" />
+
+                        <LinearLayout
+                            android:id="@+id/layout_event_3_2"
+                            android:orientation="vertical"
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent">
+
+
+                        </LinearLayout>
+
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:focusable="true"
+                        android:clickable="true"
+                        android:translationZ="10dp"
+                        android:id="@+id/layout_multi_check_3_2"
+                        android:visibility="gone"
+                        android:background="@color/transparent"
+                        android:gravity="center"
+                        android:orientation="vertical"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent">
+                        <ImageView
+                            android:adjustViewBounds="true"
+                            android:src="@drawable/bg_radio_unchecked_01"
+                            android:layout_width="20dp"
+                            android:layout_height="20dp"/>
+                    </LinearLayout>
+
+
+                </RelativeLayout>
+                <RelativeLayout
+                    android:id="@+id/layout_day_4_2"
+                    android:layout_weight="1"
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent">
+                    <LinearLayout
+                        android:orientation="vertical"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent">
+                        <TextView
+                            android:layout_marginTop="4dp"
+                            android:layout_marginBottom="4dp"
+                            android:id="@+id/tv_day_4_2"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="center|top"
+                            android:fontFamily="@font/noto_sans_kr_medium"
+                            android:textColor="@color/black"
+                            android:textSize="13sp" />
+
+                        <LinearLayout
+                            android:id="@+id/layout_event_4_2"
+                            android:orientation="vertical"
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent">
+
+
+                        </LinearLayout>
+
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:focusable="true"
+                        android:clickable="true"
+                        android:translationZ="10dp"
+                        android:id="@+id/layout_multi_check_4_2"
+                        android:visibility="gone"
+                        android:background="@color/transparent"
+                        android:gravity="center"
+                        android:orientation="vertical"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent">
+                        <ImageView
+                            android:adjustViewBounds="true"
+                            android:src="@drawable/bg_radio_unchecked_01"
+                            android:layout_width="20dp"
+                            android:layout_height="20dp"/>
+                    </LinearLayout>
+
+
+                </RelativeLayout>
+                <RelativeLayout
+                    android:id="@+id/layout_day_5_2"
+                    android:layout_weight="1"
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent">
+                    <LinearLayout
+                        android:orientation="vertical"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent">
+                        <TextView
+                            android:layout_marginTop="4dp"
+                            android:layout_marginBottom="4dp"
+                            android:id="@+id/tv_day_5_2"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="center|top"
+                            android:fontFamily="@font/noto_sans_kr_medium"
+                            android:textColor="@color/black"
+                            android:textSize="13sp" />
+
+                        <LinearLayout
+                            android:id="@+id/layout_event_5_2"
+                            android:orientation="vertical"
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent">
+
+
+                        </LinearLayout>
+
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:focusable="true"
+                        android:clickable="true"
+                        android:translationZ="10dp"
+                        android:id="@+id/layout_multi_check_5_2"
+                        android:visibility="gone"
+                        android:background="@color/transparent"
+                        android:gravity="center"
+                        android:orientation="vertical"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent">
+                        <ImageView
+                            android:adjustViewBounds="true"
+                            android:src="@drawable/bg_radio_unchecked_01"
+                            android:layout_width="20dp"
+                            android:layout_height="20dp"/>
+                    </LinearLayout>
+
+
+                </RelativeLayout>
+                <RelativeLayout
+                    android:id="@+id/layout_day_6_2"
+                    android:layout_weight="1"
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent">
+                    <LinearLayout
+                        android:orientation="vertical"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent">
+                        <TextView
+                            android:layout_marginTop="4dp"
+                            android:layout_marginBottom="4dp"
+                            android:id="@+id/tv_day_6_2"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="center|top"
+                            android:fontFamily="@font/noto_sans_kr_medium"
+                            android:textColor="@color/black"
+                            android:textSize="13sp" />
+
+                        <LinearLayout
+                            android:id="@+id/layout_event_6_2"
+                            android:orientation="vertical"
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent">
+
+
+                        </LinearLayout>
+
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:focusable="true"
+                        android:clickable="true"
+                        android:translationZ="10dp"
+                        android:id="@+id/layout_multi_check_6_2"
+                        android:visibility="gone"
+                        android:background="@color/transparent"
+                        android:gravity="center"
+                        android:orientation="vertical"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent">
+                        <ImageView
+                            android:adjustViewBounds="true"
+                            android:src="@drawable/bg_radio_unchecked_01"
+                            android:layout_width="20dp"
+                            android:layout_height="20dp"/>
+                    </LinearLayout>
+
+
+                </RelativeLayout>
+                <RelativeLayout
+                    android:id="@+id/layout_day_7_2"
+                    android:layout_weight="1"
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent">
+                    <LinearLayout
+                        android:orientation="vertical"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent">
+                        <TextView
+                            android:layout_marginTop="4dp"
+                            android:layout_marginBottom="4dp"
+                            android:id="@+id/tv_day_7_2"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="center|top"
+                            android:fontFamily="@font/noto_sans_kr_medium"
+                            android:textColor="@color/calendar_saturday_color_01"
+                            android:textSize="13sp" />
+
+                        <LinearLayout
+                            android:id="@+id/layout_event_7_2"
+                            android:orientation="vertical"
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent">
+
+
+                        </LinearLayout>
+
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:focusable="true"
+                        android:clickable="true"
+                        android:translationZ="10dp"
+                        android:id="@+id/layout_multi_check_7_2"
+                        android:visibility="gone"
+                        android:background="@color/transparent"
+                        android:gravity="center"
+                        android:orientation="vertical"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent">
+                        <ImageView
+                            android:adjustViewBounds="true"
+                            android:src="@drawable/bg_radio_unchecked_01"
+                            android:layout_width="20dp"
+                            android:layout_height="20dp"/>
+                    </LinearLayout>
+
+
+                </RelativeLayout>
+
+
+            </LinearLayout>
+            <View
+                app:layout_constraintBottom_toBottomOf="parent"
+                android:background="@color/calendar_line_color_01"
+                android:layout_width="match_parent"
+                android:layout_height="0.5dp"/>
+            <LinearLayout
+
+                android:layout_weight="1"
+                android:orientation="horizontal"
+                android:layout_width="match_parent"
+                android:layout_height="0dp">
+
+                <RelativeLayout
+                    android:id="@+id/layout_day_1_3"
+                    android:layout_weight="1"
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent">
+                    <LinearLayout
+                        android:orientation="vertical"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent">
+                        <TextView
+                            android:layout_marginTop="4dp"
+                            android:layout_marginBottom="4dp"
+                            android:id="@+id/tv_day_1_3"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="center|top"
+                            android:fontFamily="@font/noto_sans_kr_medium"
+                            android:textColor="@color/calendar_sunday_color_01"
+                            android:textSize="13sp" />
+
+                        <LinearLayout
+                            android:id="@+id/layout_event_1_3"
+                            android:orientation="vertical"
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent">
+
+
+                        </LinearLayout>
+
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:focusable="true"
+                        android:clickable="true"
+                        android:translationZ="10dp"
+                        android:id="@+id/layout_multi_check_1_3"
+                        android:visibility="gone"
+                        android:background="@color/transparent"
+                        android:gravity="center"
+                        android:orientation="vertical"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent">
+                        <ImageView
+                            android:adjustViewBounds="true"
+                            android:src="@drawable/bg_radio_unchecked_01"
+                            android:layout_width="20dp"
+                            android:layout_height="20dp"/>
+                    </LinearLayout>
+
+
+                </RelativeLayout>
+                <RelativeLayout
+                    android:id="@+id/layout_day_2_3"
+                    android:layout_weight="1"
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent">
+                    <LinearLayout
+                        android:orientation="vertical"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent">
+                        <TextView
+                            android:layout_marginTop="4dp"
+                            android:layout_marginBottom="4dp"
+                            android:id="@+id/tv_day_2_3"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="center|top"
+                            android:fontFamily="@font/noto_sans_kr_medium"
+                            android:textColor="@color/black"
+                            android:textSize="13sp" />
+
+                        <LinearLayout
+                            android:id="@+id/layout_event_2_3"
+                            android:orientation="vertical"
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent">
+
+
+                        </LinearLayout>
+
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:focusable="true"
+                        android:clickable="true"
+                        android:translationZ="10dp"
+                        android:id="@+id/layout_multi_check_2_3"
+                        android:visibility="gone"
+                        android:background="@color/transparent"
+                        android:gravity="center"
+                        android:orientation="vertical"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent">
+                        <ImageView
+                            android:adjustViewBounds="true"
+                            android:src="@drawable/bg_radio_unchecked_01"
+                            android:layout_width="20dp"
+                            android:layout_height="20dp"/>
+                    </LinearLayout>
+
+
+                </RelativeLayout>
+                <RelativeLayout
+                    android:id="@+id/layout_day_3_3"
+                    android:layout_weight="1"
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent">
+                    <LinearLayout
+                        android:orientation="vertical"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent">
+                        <TextView
+                            android:layout_marginTop="4dp"
+                            android:layout_marginBottom="4dp"
+                            android:id="@+id/tv_day_3_3"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="center|top"
+                            android:fontFamily="@font/noto_sans_kr_medium"
+                            android:textColor="@color/black"
+                            android:textSize="13sp" />
+
+                        <LinearLayout
+                            android:id="@+id/layout_event_3_3"
+                            android:orientation="vertical"
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent">
+
+
+                        </LinearLayout>
+
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:focusable="true"
+                        android:clickable="true"
+                        android:translationZ="10dp"
+                        android:id="@+id/layout_multi_check_3_3"
+                        android:visibility="gone"
+                        android:background="@color/transparent"
+                        android:gravity="center"
+                        android:orientation="vertical"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent">
+                        <ImageView
+                            android:adjustViewBounds="true"
+                            android:src="@drawable/bg_radio_unchecked_01"
+                            android:layout_width="20dp"
+                            android:layout_height="20dp"/>
+                    </LinearLayout>
+
+
+                </RelativeLayout>
+                <RelativeLayout
+                    android:id="@+id/layout_day_4_3"
+                    android:layout_weight="1"
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent">
+                    <LinearLayout
+                        android:orientation="vertical"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent">
+                        <TextView
+                            android:layout_marginTop="4dp"
+                            android:layout_marginBottom="4dp"
+                            android:id="@+id/tv_day_4_3"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="center|top"
+                            android:fontFamily="@font/noto_sans_kr_medium"
+                            android:textColor="@color/black"
+                            android:textSize="13sp" />
+
+                        <LinearLayout
+                            android:id="@+id/layout_event_4_3"
+                            android:orientation="vertical"
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent">
+
+
+                        </LinearLayout>
+
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:focusable="true"
+                        android:clickable="true"
+                        android:translationZ="10dp"
+                        android:id="@+id/layout_multi_check_4_3"
+                        android:visibility="gone"
+                        android:background="@color/transparent"
+                        android:gravity="center"
+                        android:orientation="vertical"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent">
+                        <ImageView
+                            android:adjustViewBounds="true"
+                            android:src="@drawable/bg_radio_unchecked_01"
+                            android:layout_width="20dp"
+                            android:layout_height="20dp"/>
+                    </LinearLayout>
+
+
+                </RelativeLayout>
+                <RelativeLayout
+                    android:id="@+id/layout_day_5_3"
+                    android:layout_weight="1"
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent">
+                    <LinearLayout
+                        android:orientation="vertical"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent">
+                        <TextView
+                            android:layout_marginTop="4dp"
+                            android:layout_marginBottom="4dp"
+                            android:id="@+id/tv_day_5_3"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="center|top"
+                            android:fontFamily="@font/noto_sans_kr_medium"
+                            android:textColor="@color/black"
+                            android:textSize="13sp" />
+
+                        <LinearLayout
+                            android:id="@+id/layout_event_5_3"
+                            android:orientation="vertical"
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent">
+
+
+                        </LinearLayout>
+
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:focusable="true"
+                        android:clickable="true"
+                        android:translationZ="10dp"
+                        android:id="@+id/layout_multi_check_5_3"
+                        android:visibility="gone"
+                        android:background="@color/transparent"
+                        android:gravity="center"
+                        android:orientation="vertical"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent">
+                        <ImageView
+                            android:adjustViewBounds="true"
+                            android:src="@drawable/bg_radio_unchecked_01"
+                            android:layout_width="20dp"
+                            android:layout_height="20dp"/>
+                    </LinearLayout>
+
+
+                </RelativeLayout>
+                <RelativeLayout
+                    android:id="@+id/layout_day_6_3"
+                    android:layout_weight="1"
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent">
+                    <LinearLayout
+                        android:orientation="vertical"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent">
+                        <TextView
+                            android:layout_marginTop="4dp"
+                            android:layout_marginBottom="4dp"
+                            android:id="@+id/tv_day_6_3"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="center|top"
+                            android:fontFamily="@font/noto_sans_kr_medium"
+                            android:textColor="@color/black"
+                            android:textSize="13sp" />
+
+                        <LinearLayout
+                            android:id="@+id/layout_event_6_3"
+                            android:orientation="vertical"
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent">
+
+
+                        </LinearLayout>
+
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:focusable="true"
+                        android:clickable="true"
+                        android:translationZ="10dp"
+                        android:id="@+id/layout_multi_check_6_3"
+                        android:visibility="gone"
+                        android:background="@color/transparent"
+                        android:gravity="center"
+                        android:orientation="vertical"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent">
+                        <ImageView
+                            android:adjustViewBounds="true"
+                            android:src="@drawable/bg_radio_unchecked_01"
+                            android:layout_width="20dp"
+                            android:layout_height="20dp"/>
+                    </LinearLayout>
+
+
+                </RelativeLayout>
+                <RelativeLayout
+                    android:id="@+id/layout_day_7_3"
+                    android:layout_weight="1"
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent">
+                    <LinearLayout
+                        android:orientation="vertical"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent">
+                        <TextView
+                            android:layout_marginTop="4dp"
+                            android:layout_marginBottom="4dp"
+                            android:id="@+id/tv_day_7_3"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="center|top"
+                            android:fontFamily="@font/noto_sans_kr_medium"
+                            android:textColor="@color/calendar_saturday_color_01"
+                            android:textSize="13sp" />
+
+                        <LinearLayout
+                            android:id="@+id/layout_event_7_3"
+                            android:orientation="vertical"
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent">
+
+
+                        </LinearLayout>
+
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:focusable="true"
+                        android:clickable="true"
+                        android:translationZ="10dp"
+                        android:id="@+id/layout_multi_check_7_3"
+                        android:visibility="gone"
+                        android:background="@color/transparent"
+                        android:gravity="center"
+                        android:orientation="vertical"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent">
+                        <ImageView
+                            android:adjustViewBounds="true"
+                            android:src="@drawable/bg_radio_unchecked_01"
+                            android:layout_width="20dp"
+                            android:layout_height="20dp"/>
+                    </LinearLayout>
+
+
+                </RelativeLayout>
+
+
+            </LinearLayout>
+            <View
+                app:layout_constraintBottom_toBottomOf="parent"
+                android:background="@color/calendar_line_color_01"
+                android:layout_width="match_parent"
+                android:layout_height="0.5dp"/>
+            <LinearLayout
+
+                android:layout_weight="1"
+                android:orientation="horizontal"
+                android:layout_width="match_parent"
+                android:layout_height="0dp">
+
+                <RelativeLayout
+                    android:id="@+id/layout_day_1_4"
+                    android:layout_weight="1"
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent">
+                    <LinearLayout
+                        android:orientation="vertical"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent">
+                        <TextView
+                            android:layout_marginTop="4dp"
+                            android:layout_marginBottom="4dp"
+                            android:id="@+id/tv_day_1_4"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="center|top"
+                            android:fontFamily="@font/noto_sans_kr_medium"
+                            android:textColor="@color/calendar_sunday_color_01"
+                            android:textSize="13sp" />
+
+                        <LinearLayout
+                            android:id="@+id/layout_event_1_4"
+                            android:orientation="vertical"
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent">
+
+
+                        </LinearLayout>
+
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:focusable="true"
+                        android:clickable="true"
+                        android:translationZ="10dp"
+                        android:id="@+id/layout_multi_check_1_4"
+                        android:visibility="gone"
+                        android:background="@color/transparent"
+                        android:gravity="center"
+                        android:orientation="vertical"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent">
+                        <ImageView
+                            android:adjustViewBounds="true"
+                            android:src="@drawable/bg_radio_unchecked_01"
+                            android:layout_width="20dp"
+                            android:layout_height="20dp"/>
+                    </LinearLayout>
+
+
+                </RelativeLayout>
+                <RelativeLayout
+                    android:id="@+id/layout_day_2_4"
+                    android:layout_weight="1"
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent">
+                    <LinearLayout
+                        android:orientation="vertical"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent">
+                        <TextView
+                            android:layout_marginTop="4dp"
+                            android:layout_marginBottom="4dp"
+                            android:id="@+id/tv_day_2_4"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="center|top"
+                            android:fontFamily="@font/noto_sans_kr_medium"
+                            android:textColor="@color/black"
+                            android:textSize="13sp" />
+
+                        <LinearLayout
+                            android:id="@+id/layout_event_2_4"
+                            android:orientation="vertical"
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent">
+
+
+                        </LinearLayout>
+
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:focusable="true"
+                        android:clickable="true"
+                        android:translationZ="10dp"
+                        android:id="@+id/layout_multi_check_2_4"
+                        android:visibility="gone"
+                        android:background="@color/transparent"
+                        android:gravity="center"
+                        android:orientation="vertical"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent">
+                        <ImageView
+                            android:adjustViewBounds="true"
+                            android:src="@drawable/bg_radio_unchecked_01"
+                            android:layout_width="20dp"
+                            android:layout_height="20dp"/>
+                    </LinearLayout>
+
+
+                </RelativeLayout>
+                <RelativeLayout
+                    android:id="@+id/layout_day_3_4"
+                    android:layout_weight="1"
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent">
+                    <LinearLayout
+                        android:orientation="vertical"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent">
+                        <TextView
+                            android:layout_marginTop="4dp"
+                            android:layout_marginBottom="4dp"
+                            android:id="@+id/tv_day_3_4"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="center|top"
+                            android:fontFamily="@font/noto_sans_kr_medium"
+                            android:textColor="@color/black"
+                            android:textSize="13sp" />
+
+                        <LinearLayout
+                            android:id="@+id/layout_event_3_4"
+                            android:orientation="vertical"
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent">
+
+
+                        </LinearLayout>
+
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:focusable="true"
+                        android:clickable="true"
+                        android:translationZ="10dp"
+                        android:id="@+id/layout_multi_check_3_4"
+                        android:visibility="gone"
+                        android:background="@color/transparent"
+                        android:gravity="center"
+                        android:orientation="vertical"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent">
+                        <ImageView
+                            android:adjustViewBounds="true"
+                            android:src="@drawable/bg_radio_unchecked_01"
+                            android:layout_width="20dp"
+                            android:layout_height="20dp"/>
+                    </LinearLayout>
+
+
+                </RelativeLayout>
+                <RelativeLayout
+                    android:id="@+id/layout_day_4_4"
+                    android:layout_weight="1"
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent">
+                    <LinearLayout
+                        android:orientation="vertical"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent">
+                        <TextView
+                            android:layout_marginTop="4dp"
+                            android:layout_marginBottom="4dp"
+                            android:id="@+id/tv_day_4_4"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="center|top"
+                            android:fontFamily="@font/noto_sans_kr_medium"
+                            android:textColor="@color/black"
+                            android:textSize="13sp" />
+
+                        <LinearLayout
+                            android:id="@+id/layout_event_4_4"
+                            android:orientation="vertical"
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent">
+
+
+                        </LinearLayout>
+
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:focusable="true"
+                        android:clickable="true"
+                        android:translationZ="10dp"
+                        android:id="@+id/layout_multi_check_4_4"
+                        android:visibility="gone"
+                        android:background="@color/transparent"
+                        android:gravity="center"
+                        android:orientation="vertical"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent">
+                        <ImageView
+                            android:adjustViewBounds="true"
+                            android:src="@drawable/bg_radio_unchecked_01"
+                            android:layout_width="20dp"
+                            android:layout_height="20dp"/>
+                    </LinearLayout>
+
+
+                </RelativeLayout>
+                <RelativeLayout
+                    android:id="@+id/layout_day_5_4"
+                    android:layout_weight="1"
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent">
+                    <LinearLayout
+                        android:orientation="vertical"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent">
+                        <TextView
+                            android:layout_marginTop="4dp"
+                            android:layout_marginBottom="4dp"
+                            android:id="@+id/tv_day_5_4"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="center|top"
+                            android:fontFamily="@font/noto_sans_kr_medium"
+                            android:textColor="@color/black"
+                            android:textSize="13sp" />
+
+                        <LinearLayout
+                            android:id="@+id/layout_event_5_4"
+                            android:orientation="vertical"
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent">
+
+
+                        </LinearLayout>
+
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:focusable="true"
+                        android:clickable="true"
+                        android:translationZ="10dp"
+                        android:id="@+id/layout_multi_check_5_4"
+                        android:visibility="gone"
+                        android:background="@color/transparent"
+                        android:gravity="center"
+                        android:orientation="vertical"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent">
+                        <ImageView
+                            android:adjustViewBounds="true"
+                            android:src="@drawable/bg_radio_unchecked_01"
+                            android:layout_width="20dp"
+                            android:layout_height="20dp"/>
+                    </LinearLayout>
+
+
+                </RelativeLayout>
+                <RelativeLayout
+                    android:id="@+id/layout_day_6_4"
+                    android:layout_weight="1"
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent">
+                    <LinearLayout
+                        android:orientation="vertical"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent">
+                        <TextView
+                            android:layout_marginTop="4dp"
+                            android:layout_marginBottom="4dp"
+                            android:id="@+id/tv_day_6_4"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="center|top"
+                            android:fontFamily="@font/noto_sans_kr_medium"
+                            android:textColor="@color/black"
+                            android:textSize="13sp" />
+
+                        <LinearLayout
+                            android:id="@+id/layout_event_6_4"
+                            android:orientation="vertical"
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent">
+
+
+                        </LinearLayout>
+
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:focusable="true"
+                        android:clickable="true"
+                        android:translationZ="10dp"
+                        android:id="@+id/layout_multi_check_6_4"
+                        android:visibility="gone"
+                        android:background="@color/transparent"
+                        android:gravity="center"
+                        android:orientation="vertical"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent">
+                        <ImageView
+                            android:adjustViewBounds="true"
+                            android:src="@drawable/bg_radio_unchecked_01"
+                            android:layout_width="20dp"
+                            android:layout_height="20dp"/>
+                    </LinearLayout>
+
+
+                </RelativeLayout>
+                <RelativeLayout
+                    android:id="@+id/layout_day_7_4"
+                    android:layout_weight="1"
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent">
+                    <LinearLayout
+                        android:orientation="vertical"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent">
+                        <TextView
+                            android:layout_marginTop="4dp"
+                            android:layout_marginBottom="4dp"
+                            android:id="@+id/tv_day_7_4"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="center|top"
+                            android:fontFamily="@font/noto_sans_kr_medium"
+                            android:textColor="@color/calendar_saturday_color_01"
+                            android:textSize="13sp" />
+
+                        <LinearLayout
+                            android:id="@+id/layout_event_7_4"
+                            android:orientation="vertical"
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent">
+
+
+                        </LinearLayout>
+
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:focusable="true"
+                        android:clickable="true"
+                        android:translationZ="10dp"
+                        android:id="@+id/layout_multi_check_7_4"
+                        android:visibility="gone"
+                        android:background="@color/transparent"
+                        android:gravity="center"
+                        android:orientation="vertical"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent">
+                        <ImageView
+                            android:adjustViewBounds="true"
+                            android:src="@drawable/bg_radio_unchecked_01"
+                            android:layout_width="20dp"
+                            android:layout_height="20dp"/>
+                    </LinearLayout>
+
+
+                </RelativeLayout>
+
+
+            </LinearLayout>
+            <View
+                app:layout_constraintBottom_toBottomOf="parent"
+                android:background="@color/calendar_line_color_01"
+                android:layout_width="match_parent"
+                android:layout_height="0.5dp"/>
+            <LinearLayout
+
+                android:layout_weight="1"
+                android:orientation="horizontal"
+                android:layout_width="match_parent"
+                android:layout_height="0dp">
+
+                <RelativeLayout
+                    android:id="@+id/layout_day_1_5"
+                    android:layout_weight="1"
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent">
+                    <LinearLayout
+                        android:orientation="vertical"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent">
+                        <TextView
+                            android:layout_marginTop="4dp"
+                            android:layout_marginBottom="4dp"
+                            android:id="@+id/tv_day_1_5"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="center|top"
+                            android:fontFamily="@font/noto_sans_kr_medium"
+                            android:textColor="@color/calendar_sunday_color_01"
+                            android:textSize="13sp" />
+
+                        <LinearLayout
+                            android:id="@+id/layout_event_1_5"
+                            android:orientation="vertical"
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent">
+
+
+                        </LinearLayout>
+
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:focusable="true"
+                        android:clickable="true"
+                        android:translationZ="10dp"
+                        android:id="@+id/layout_multi_check_1_5"
+                        android:visibility="gone"
+                        android:background="@color/transparent"
+                        android:gravity="center"
+                        android:orientation="vertical"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent">
+                        <ImageView
+                            android:adjustViewBounds="true"
+                            android:src="@drawable/bg_radio_unchecked_01"
+                            android:layout_width="20dp"
+                            android:layout_height="20dp"/>
+                    </LinearLayout>
+
+
+                </RelativeLayout>
+                <RelativeLayout
+                    android:id="@+id/layout_day_2_5"
+                    android:layout_weight="1"
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent">
+                    <LinearLayout
+                        android:orientation="vertical"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent">
+                        <TextView
+                            android:layout_marginTop="4dp"
+                            android:layout_marginBottom="4dp"
+                            android:id="@+id/tv_day_2_5"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="center|top"
+                            android:fontFamily="@font/noto_sans_kr_medium"
+                            android:textColor="@color/black"
+                            android:textSize="13sp" />
+
+                        <LinearLayout
+                            android:id="@+id/layout_event_2_5"
+                            android:orientation="vertical"
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent">
+
+
+                        </LinearLayout>
+
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:focusable="true"
+                        android:clickable="true"
+                        android:translationZ="10dp"
+                        android:id="@+id/layout_multi_check_2_5"
+                        android:visibility="gone"
+                        android:background="@color/transparent"
+                        android:gravity="center"
+                        android:orientation="vertical"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent">
+                        <ImageView
+                            android:adjustViewBounds="true"
+                            android:src="@drawable/bg_radio_unchecked_01"
+                            android:layout_width="20dp"
+                            android:layout_height="20dp"/>
+                    </LinearLayout>
+
+
+                </RelativeLayout>
+                <RelativeLayout
+                    android:id="@+id/layout_day_3_5"
+                    android:layout_weight="1"
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent">
+                    <LinearLayout
+                        android:orientation="vertical"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent">
+                        <TextView
+                            android:layout_marginTop="4dp"
+                            android:layout_marginBottom="4dp"
+                            android:id="@+id/tv_day_3_5"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="center|top"
+                            android:fontFamily="@font/noto_sans_kr_medium"
+                            android:textColor="@color/black"
+                            android:textSize="13sp" />
+
+                        <LinearLayout
+                            android:id="@+id/layout_event_3_5"
+                            android:orientation="vertical"
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent">
+
+
+                        </LinearLayout>
+
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:focusable="true"
+                        android:clickable="true"
+                        android:translationZ="10dp"
+                        android:id="@+id/layout_multi_check_3_5"
+                        android:visibility="gone"
+                        android:background="@color/transparent"
+                        android:gravity="center"
+                        android:orientation="vertical"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent">
+                        <ImageView
+                            android:adjustViewBounds="true"
+                            android:src="@drawable/bg_radio_unchecked_01"
+                            android:layout_width="20dp"
+                            android:layout_height="20dp"/>
+                    </LinearLayout>
+
+
+                </RelativeLayout>
+                <RelativeLayout
+                    android:id="@+id/layout_day_4_5"
+                    android:layout_weight="1"
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent">
+                    <LinearLayout
+                        android:orientation="vertical"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent">
+                        <TextView
+                            android:layout_marginTop="4dp"
+                            android:layout_marginBottom="4dp"
+                            android:id="@+id/tv_day_4_5"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="center|top"
+                            android:fontFamily="@font/noto_sans_kr_medium"
+                            android:textColor="@color/black"
+                            android:textSize="13sp" />
+
+                        <LinearLayout
+                            android:id="@+id/layout_event_4_5"
+                            android:orientation="vertical"
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent">
+
+
+                        </LinearLayout>
+
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:focusable="true"
+                        android:clickable="true"
+                        android:translationZ="10dp"
+                        android:id="@+id/layout_multi_check_4_5"
+                        android:visibility="gone"
+                        android:background="@color/transparent"
+                        android:gravity="center"
+                        android:orientation="vertical"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent">
+                        <ImageView
+                            android:adjustViewBounds="true"
+                            android:src="@drawable/bg_radio_unchecked_01"
+                            android:layout_width="20dp"
+                            android:layout_height="20dp"/>
+                    </LinearLayout>
+
+
+                </RelativeLayout>
+                <RelativeLayout
+                    android:id="@+id/layout_day_5_5"
+                    android:layout_weight="1"
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent">
+                    <LinearLayout
+                        android:orientation="vertical"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent">
+                        <TextView
+                            android:layout_marginTop="4dp"
+                            android:layout_marginBottom="4dp"
+                            android:id="@+id/tv_day_5_5"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="center|top"
+                            android:fontFamily="@font/noto_sans_kr_medium"
+                            android:textColor="@color/black"
+                            android:textSize="13sp" />
+
+                        <LinearLayout
+                            android:id="@+id/layout_event_5_5"
+                            android:orientation="vertical"
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent">
+
+
+                        </LinearLayout>
+
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:focusable="true"
+                        android:clickable="true"
+                        android:translationZ="10dp"
+                        android:id="@+id/layout_multi_check_5_5"
+                        android:visibility="gone"
+                        android:background="@color/transparent"
+                        android:gravity="center"
+                        android:orientation="vertical"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent">
+                        <ImageView
+                            android:adjustViewBounds="true"
+                            android:src="@drawable/bg_radio_unchecked_01"
+                            android:layout_width="20dp"
+                            android:layout_height="20dp"/>
+                    </LinearLayout>
+
+
+                </RelativeLayout>
+                <RelativeLayout
+                    android:id="@+id/layout_day_6_5"
+                    android:layout_weight="1"
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent">
+                    <LinearLayout
+                        android:orientation="vertical"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent">
+                        <TextView
+                            android:layout_marginTop="4dp"
+                            android:layout_marginBottom="4dp"
+                            android:id="@+id/tv_day_6_5"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="center|top"
+                            android:fontFamily="@font/noto_sans_kr_medium"
+                            android:textColor="@color/black"
+                            android:textSize="13sp" />
+
+                        <LinearLayout
+                            android:id="@+id/layout_event_6_5"
+                            android:orientation="vertical"
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent">
+
+
+                        </LinearLayout>
+
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:focusable="true"
+                        android:clickable="true"
+                        android:translationZ="10dp"
+                        android:id="@+id/layout_multi_check_6_5"
+                        android:visibility="gone"
+                        android:background="@color/transparent"
+                        android:gravity="center"
+                        android:orientation="vertical"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent">
+                        <ImageView
+                            android:adjustViewBounds="true"
+                            android:src="@drawable/bg_radio_unchecked_01"
+                            android:layout_width="20dp"
+                            android:layout_height="20dp"/>
+                    </LinearLayout>
+
+
+                </RelativeLayout>
+                <RelativeLayout
+                    android:id="@+id/layout_day_7_5"
+                    android:layout_weight="1"
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent">
+                    <LinearLayout
+                        android:orientation="vertical"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent">
+                        <TextView
+                            android:layout_marginTop="4dp"
+                            android:layout_marginBottom="4dp"
+                            android:id="@+id/tv_day_7_5"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="center|top"
+                            android:fontFamily="@font/noto_sans_kr_medium"
+                            android:textColor="@color/calendar_saturday_color_01"
+                            android:textSize="13sp" />
+
+                        <LinearLayout
+                            android:id="@+id/layout_event_7_5"
+                            android:orientation="vertical"
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent">
+
+
+                        </LinearLayout>
+
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:focusable="true"
+                        android:clickable="true"
+                        android:translationZ="10dp"
+                        android:id="@+id/layout_multi_check_7_5"
+                        android:visibility="gone"
+                        android:background="@color/transparent"
+                        android:gravity="center"
+                        android:orientation="vertical"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent">
+                        <ImageView
+                            android:adjustViewBounds="true"
+                            android:src="@drawable/bg_radio_unchecked_01"
+                            android:layout_width="20dp"
+                            android:layout_height="20dp"/>
+                    </LinearLayout>
+
+
+                </RelativeLayout>
+
+
+            </LinearLayout>
+            <View
+                app:layout_constraintBottom_toBottomOf="parent"
+                android:background="@color/calendar_line_color_01"
+                android:layout_width="match_parent"
+                android:layout_height="0.5dp"/>
+            <LinearLayout
+
+                android:layout_weight="1"
+                android:orientation="horizontal"
+                android:layout_width="match_parent"
+                android:layout_height="0dp">
+
+                <RelativeLayout
+                    android:id="@+id/layout_day_1_6"
+                    android:layout_weight="1"
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent">
+                    <LinearLayout
+                        android:orientation="vertical"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent">
+                        <TextView
+                            android:layout_marginTop="4dp"
+                            android:layout_marginBottom="4dp"
+                            android:id="@+id/tv_day_1_6"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="center|top"
+                            android:fontFamily="@font/noto_sans_kr_medium"
+                            android:textColor="@color/calendar_sunday_color_01"
+                            android:textSize="13sp" />
+
+                        <LinearLayout
+                            android:id="@+id/layout_event_1_6"
+                            android:orientation="vertical"
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent">
+
+
+                        </LinearLayout>
+
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:focusable="true"
+                        android:clickable="true"
+                        android:translationZ="10dp"
+                        android:id="@+id/layout_multi_check_1_6"
+                        android:visibility="gone"
+                        android:background="@color/transparent"
+                        android:gravity="center"
+                        android:orientation="vertical"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent">
+                        <ImageView
+                            android:adjustViewBounds="true"
+                            android:src="@drawable/bg_radio_unchecked_01"
+                            android:layout_width="20dp"
+                            android:layout_height="20dp"/>
+                    </LinearLayout>
+
+
+                </RelativeLayout>
+                <RelativeLayout
+                    android:id="@+id/layout_day_2_6"
+                    android:layout_weight="1"
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent">
+                    <LinearLayout
+                        android:orientation="vertical"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent">
+                        <TextView
+                            android:layout_marginTop="4dp"
+                            android:layout_marginBottom="4dp"
+                            android:id="@+id/tv_day_2_6"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="center|top"
+                            android:fontFamily="@font/noto_sans_kr_medium"
+                            android:textColor="@color/black"
+                            android:textSize="13sp" />
+
+                        <LinearLayout
+                            android:id="@+id/layout_event_2_6"
+                            android:orientation="vertical"
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent">
+
+
+                        </LinearLayout>
+
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:focusable="true"
+                        android:clickable="true"
+                        android:translationZ="10dp"
+                        android:id="@+id/layout_multi_check_2_6"
+                        android:visibility="gone"
+                        android:background="@color/transparent"
+                        android:gravity="center"
+                        android:orientation="vertical"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent">
+                        <ImageView
+                            android:adjustViewBounds="true"
+                            android:src="@drawable/bg_radio_unchecked_01"
+                            android:layout_width="20dp"
+                            android:layout_height="20dp"/>
+                    </LinearLayout>
+
+
+                </RelativeLayout>
+                <RelativeLayout
+                    android:id="@+id/layout_day_3_6"
+                    android:layout_weight="1"
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent">
+                    <LinearLayout
+                        android:orientation="vertical"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent">
+                        <TextView
+                            android:layout_marginTop="4dp"
+                            android:layout_marginBottom="4dp"
+                            android:id="@+id/tv_day_3_6"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="center|top"
+                            android:fontFamily="@font/noto_sans_kr_medium"
+                            android:textColor="@color/black"
+                            android:textSize="13sp" />
+
+                        <LinearLayout
+                            android:id="@+id/layout_event_3_6"
+                            android:orientation="vertical"
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent">
+
+
+                        </LinearLayout>
+
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:focusable="true"
+                        android:clickable="true"
+                        android:translationZ="10dp"
+                        android:id="@+id/layout_multi_check_3_6"
+                        android:visibility="gone"
+                        android:background="@color/transparent"
+                        android:gravity="center"
+                        android:orientation="vertical"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent">
+                        <ImageView
+                            android:adjustViewBounds="true"
+                            android:src="@drawable/bg_radio_unchecked_01"
+                            android:layout_width="20dp"
+                            android:layout_height="20dp"/>
+                    </LinearLayout>
+
+
+                </RelativeLayout>
+                <RelativeLayout
+                    android:id="@+id/layout_day_4_6"
+                    android:layout_weight="1"
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent">
+                    <LinearLayout
+                        android:orientation="vertical"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent">
+                        <TextView
+                            android:layout_marginTop="4dp"
+                            android:layout_marginBottom="4dp"
+                            android:id="@+id/tv_day_4_6"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="center|top"
+                            android:fontFamily="@font/noto_sans_kr_medium"
+                            android:textColor="@color/black"
+                            android:textSize="13sp" />
+
+                        <LinearLayout
+                            android:id="@+id/layout_event_4_6"
+                            android:orientation="vertical"
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent">
+
+
+                        </LinearLayout>
+
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:focusable="true"
+                        android:clickable="true"
+                        android:translationZ="10dp"
+                        android:id="@+id/layout_multi_check_4_6"
+                        android:visibility="gone"
+                        android:background="@color/transparent"
+                        android:gravity="center"
+                        android:orientation="vertical"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent">
+                        <ImageView
+                            android:adjustViewBounds="true"
+                            android:src="@drawable/bg_radio_unchecked_01"
+                            android:layout_width="20dp"
+                            android:layout_height="20dp"/>
+                    </LinearLayout>
+
+
+                </RelativeLayout>
+                <RelativeLayout
+                    android:id="@+id/layout_day_5_6"
+                    android:layout_weight="1"
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent">
+                    <LinearLayout
+                        android:orientation="vertical"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent">
+                        <TextView
+                            android:layout_marginTop="4dp"
+                            android:layout_marginBottom="4dp"
+                            android:id="@+id/tv_day_5_6"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="center|top"
+                            android:fontFamily="@font/noto_sans_kr_medium"
+                            android:textColor="@color/black"
+                            android:textSize="13sp" />
+
+                        <LinearLayout
+                            android:id="@+id/layout_event_5_6"
+                            android:orientation="vertical"
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent">
+
+
+                        </LinearLayout>
+
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:focusable="true"
+                        android:clickable="true"
+                        android:translationZ="10dp"
+                        android:id="@+id/layout_multi_check_5_6"
+                        android:visibility="gone"
+                        android:background="@color/transparent"
+                        android:gravity="center"
+                        android:orientation="vertical"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent">
+                        <ImageView
+                            android:adjustViewBounds="true"
+                            android:src="@drawable/bg_radio_unchecked_01"
+                            android:layout_width="20dp"
+                            android:layout_height="20dp"/>
+                    </LinearLayout>
+
+
+                </RelativeLayout>
+                <RelativeLayout
+                    android:id="@+id/layout_day_6_6"
+                    android:layout_weight="1"
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent">
+                    <LinearLayout
+                        android:orientation="vertical"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent">
+                        <TextView
+                            android:layout_marginTop="4dp"
+                            android:layout_marginBottom="4dp"
+                            android:id="@+id/tv_day_6_6"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="center|top"
+                            android:fontFamily="@font/noto_sans_kr_medium"
+                            android:textColor="@color/black"
+                            android:textSize="13sp" />
+
+                        <LinearLayout
+                            android:id="@+id/layout_event_6_6"
+                            android:orientation="vertical"
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent">
+
+
+                        </LinearLayout>
+
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:focusable="true"
+                        android:clickable="true"
+                        android:translationZ="10dp"
+                        android:id="@+id/layout_multi_check_6_6"
+                        android:visibility="gone"
+                        android:background="@color/transparent"
+                        android:gravity="center"
+                        android:orientation="vertical"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent">
+                        <ImageView
+                            android:adjustViewBounds="true"
+                            android:src="@drawable/bg_radio_unchecked_01"
+                            android:layout_width="20dp"
+                            android:layout_height="20dp"/>
+                    </LinearLayout>
+
+
+                </RelativeLayout>
+                <RelativeLayout
+                    android:id="@+id/layout_day_7_6"
+                    android:layout_weight="1"
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent">
+                    <LinearLayout
+                        android:orientation="vertical"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent">
+                        <TextView
+                            android:layout_marginTop="4dp"
+                            android:layout_marginBottom="4dp"
+                            android:id="@+id/tv_day_7_6"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="center|top"
+                            android:fontFamily="@font/noto_sans_kr_medium"
+                            android:textColor="@color/calendar_saturday_color_01"
+                            android:textSize="13sp" />
+
+                        <LinearLayout
+                            android:id="@+id/layout_event_7_6"
+                            android:orientation="vertical"
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent">
+
+
+                        </LinearLayout>
+
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:focusable="true"
+                        android:clickable="true"
+                        android:translationZ="10dp"
+                        android:id="@+id/layout_multi_check_7_6"
+                        android:visibility="gone"
+                        android:background="@color/transparent"
+                        android:gravity="center"
+                        android:orientation="vertical"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent">
+                        <ImageView
+                            android:adjustViewBounds="true"
+                            android:src="@drawable/bg_radio_unchecked_01"
+                            android:layout_width="20dp"
+                            android:layout_height="20dp"/>
+                    </LinearLayout>
+
+
+                </RelativeLayout>
+
+
+            </LinearLayout>
+        </LinearLayout>
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

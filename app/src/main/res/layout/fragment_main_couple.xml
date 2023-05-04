@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <data>
+        <variable
+            name="viewModel"
+            type="kr.co.devjsky.android.bobjo.ui.main.viewmodel.MainViewModel" />
+
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <LinearLayout
+            android:layout_marginTop="20dp"
+            app:layout_constraintTop_toTopOf="parent"
+            android:orientation="horizontal"
+            android:gravity="center"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+            <ImageView
+                android:layout_marginEnd="10dp"
+                android:id="@+id/iv_top_dday_ico"
+                android:src="@drawable/ico_heart_01"
+                android:adjustViewBounds="true"
+                android:layout_width="60dp"
+                android:layout_height="60dp"/>
+            <TextView
+                android:id="@+id/tv_dday"
+
+                android:letterSpacing="-0.03"
+                android:textColor="@color/black"
+                android:fontFamily="@font/noto_sans_kr_bold"
+                android:textSize="70sp"
+                android:gravity="center"
+                android:text="10일"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"/>
+
+
+        </LinearLayout>
+
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

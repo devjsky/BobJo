@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+        <data>
+                <variable
+                    name="viewModel"
+                    type="kr.co.devjsky.android.bobjo.ui.base.BaseViewModel" />
+        </data>
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/top_menu_height"
+            android:gravity="center"
+            android:translationZ="10dp"
+            android:visibility="gone"
+            android:id="@+id/layout_body"
+            android:orientation="horizontal"
+            android:background="@drawable/bg_top_menu">
+                <View
+                    android:visibility="invisible"
+                    android:layout_marginStart="10dp"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    android:id="@+id/iv_empty_01"
+                    android:layout_width="30dp"
+                    android:layout_height="30dp"/>
+
+                <TextView
+                    android:letterSpacing="-0.03"
+                    app:layout_constraintStart_toEndOf="@id/iv_empty_01"
+                    app:layout_constraintEnd_toStartOf="@id/iv_sub_menu"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    android:fontFamily="@font/noto_sans_kr_bold"
+                    android:id="@+id/tv_top_menu_title"
+                    android:gravity="center"
+                    android:textSize="18sp"
+                    android:textColor="@color/black"
+                    android:text="title"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content" />
+<ImageView
+    android:visibility="invisible"
+    android:layout_marginEnd="10dp"
+    app:layout_constraintBottom_toBottomOf="parent"
+    app:layout_constraintTop_toTopOf="parent"
+    app:layout_constraintEnd_toEndOf="parent"
+    android:src="@drawable/ico_sub_menu_01"
+    android:id="@+id/iv_sub_menu"
+    android:layout_width="30dp"
+    android:layout_height="30dp"/>
+        </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

@@ -1,0 +1,174 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+        <variable
+            name="viewModel"
+            type="kr.co.devjsky.android.bobjo.ui.main.viewmodel.MainViewModel" />
+
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:background="@color/default_page_color"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        tools:context=".ui.main.activity.MainActivity">
+
+        <include layout="@layout/view_top_menu"
+            android:id="@+id/layout_top_menu"/>
+        <LinearLayout
+            android:visibility="gone"
+            android:gravity="center"
+            android:orientation="horizontal"
+            android:id="@+id/layout_sub_menu_top_menu"
+            android:translationZ="10dp"
+            android:focusable="true"
+            android:clickable="true"
+            android:background="@drawable/bg_top_menu"
+            app:layout_constraintTop_toTopOf="parent"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/top_menu_height">
+            <TextView
+                android:letterSpacing="-0.03"
+                app:layout_constraintStart_toEndOf="@id/iv_empty_01"
+                app:layout_constraintEnd_toStartOf="@id/iv_sub_menu"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                android:fontFamily="@font/noto_sans_kr_bold"
+                android:id="@+id/tv_top_menu_title"
+                android:gravity="center"
+                android:textSize="18sp"
+                android:textColor="@color/black"
+                android:text="추가할 날짜를 선택해 주세요."
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content" />
+        </LinearLayout>
+
+
+        <FrameLayout
+            app:layout_constraintTop_toBottomOf="@+id/layout_top_menu"
+            app:layout_constraintBottom_toTopOf="@+id/layout_bottom_menu"
+            android:id="@+id/layout_body"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"/>
+
+
+
+
+        <LinearLayout
+            android:paddingEnd="14dp"
+            android:paddingStart="14dp"
+            android:gravity="center|start"
+            android:id="@+id/layout_bottom_menu"
+            android:background="@drawable/bg_bottom_menu"
+            app:layout_constraintBottom_toBottomOf="parent"
+            android:orientation="horizontal"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/bottom_menu_height">
+
+            <ImageView
+                android:layout_weight="1"
+                android:adjustViewBounds="true"
+
+                android:padding="14dp"
+                android:src="@drawable/ico_dashboard_01"
+                android:id="@+id/iv_bottom_menu_01"
+                android:background="@color/transparent"
+                android:layout_width="0dp"
+                android:layout_height="50dp"
+                app:tint="@color/bottom_menu_selected_color" />
+            <ImageView
+                android:layout_weight="1"
+                android:adjustViewBounds="true"
+
+                android:padding="11dp"
+                android:src="@drawable/ico_heart_01"
+                android:id="@+id/iv_bottom_menu_02"
+                android:background="@color/transparent"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+        />
+            <ImageView
+                android:adjustViewBounds="true"
+                android:src="@drawable/ico_calendar_01"
+                android:layout_weight="1"
+                android:padding="12dp"
+                app:tint="@color/bottom_menu_unselected_color"
+                android:id="@+id/iv_bottom_menu_03"
+                android:background="@color/transparent"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"/>
+            <ImageView
+                android:adjustViewBounds="true"
+                android:layout_weight="1"
+                android:padding="12dp"
+                android:src="@drawable/ico_cash_01"
+                android:id="@+id/iv_bottom_menu_04"
+                android:background="@color/transparent"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                app:tint="@color/bottom_menu_unselected_color" />
+            <RelativeLayout
+                android:layout_weight="1"
+                android:layout_width="0dp"
+                android:layout_height="match_parent">
+                <com.makeramen.roundedimageview.RoundedImageView
+                    android:layout_centerInParent="true"
+                    app:riv_oval="true"
+                    android:padding="12dp"
+                    android:scaleType="centerCrop"
+                    app:riv_border_width="1dp"
+                    app:riv_border_color="@color/bottom_menu_profile_line_color_01"
+                    android:adjustViewBounds="true"
+
+                    android:src="@drawable/ico_user_01"
+                    android:id="@+id/iv_bottom_menu_05"
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    />
+
+            </RelativeLayout>
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:visibility="gone"
+            android:translationZ="10dp"
+            android:focusable="true"
+            android:clickable="true"
+            android:background="@drawable/bg_bottom_menu"
+            android:orientation="horizontal"
+            android:id="@+id/layout_sub_menu_bottom_menu"
+            app:layout_constraintBottom_toBottomOf="parent"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/bottom_menu_height">
+            <Button
+                android:letterSpacing="-0.03"
+                android:id="@+id/btn_sub_menu_bottom_cancel"
+                android:gravity="center"
+                android:textSize="18sp"
+                android:textColor="@color/dialog_button_text_color_01"
+                android:fontFamily="@font/noto_sans_kr_bold"
+                android:background="@color/dialog_submenu_button_bg_color_01"
+                android:layout_weight="1"
+                android:text="취소"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"/>
+            <Button
+                android:letterSpacing="-0.03"
+                android:id="@+id/btn_sub_menu_bottom_confirm"
+                android:gravity="center"
+                android:textSize="18sp"
+                android:textColor="@color/white"
+                android:fontFamily="@font/noto_sans_kr_bold"
+                android:background="@color/main_color"
+                android:layout_weight="1"
+                android:text="추가"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"/>
+        </LinearLayout>
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

@@ -1,0 +1,86 @@
+plugins {
+    id 'com.android.application'
+    id 'org.jetbrains.kotlin.android'
+}
+
+android {
+    compileSdk 33
+
+    defaultConfig {
+        applicationId "kr.co.devjsky.android.bobjo"
+        minSdk 24
+        targetSdk 33
+        versionCode 10000
+        versionName "1.0.0"
+        multiDexEnabled true
+        testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
+    }
+
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+        }
+    }
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_1_8
+        targetCompatibility JavaVersion.VERSION_1_8
+    }
+    kotlinOptions {
+        jvmTarget = '1.8'
+    }
+    dataBinding {
+        enabled true
+    }
+    buildToolsVersion '33.0.2'
+    namespace 'kr.co.devjsky.android.bobjo'
+}
+
+dependencies {
+
+    implementation 'androidx.core:core-ktx:1.9.0'
+    implementation 'androidx.appcompat:appcompat:1.6.1'
+    implementation 'com.google.android.material:material:1.8.0'
+    implementation 'androidx.constraintlayout:constraintlayout:2.1.4'
+    testImplementation 'junit:junit:4.13.2'
+    androidTestImplementation 'androidx.test.ext:junit:1.1.5'
+    androidTestImplementation 'androidx.test.espresso:espresso-core:3.5.1'
+
+
+    // add
+
+
+    // multidex
+    implementation 'androidx.multidex:multidex:2.0.1'
+
+    // retrofit, okhttp
+    implementation 'com.squareup.okhttp3:okhttp:4.9.1'
+    implementation 'com.squareup.okhttp3:logging-interceptor:4.8.0'
+    implementation "com.squareup.okhttp3:okhttp-urlconnection:4.9.1"
+    implementation 'com.squareup.retrofit2:retrofit:2.9.0'
+    implementation 'com.squareup.retrofit2:converter-gson:2.6.4'
+
+
+    // Glide
+    implementation 'com.github.bumptech.glide:glide:4.13.2'
+    annotationProcessor 'com.github.bumptech.glide:compiler:4.13.2'
+
+
+    // Koin main features for Android
+    implementation "io.insert-koin:koin-core:3.2.0"
+    implementation "io.insert-koin:koin-android:3.2.0"
+    // Java Compatibility
+    implementation "io.insert-koin:koin-android-compat:3.2.0"
+    // Jetpack WorkManager
+    implementation "io.insert-koin:koin-androidx-workmanager:3.2.0"
+    // Navigation Graph
+    implementation "io.insert-koin:koin-androidx-navigation:3.2.0"
+    // Jetpack Compose
+    implementation "io.insert-koin:koin-androidx-compose:3.2.0"
+
+    // Rounded Image View
+    implementation 'com.makeramen:roundedimageview:2.3.0'
+
+    //datetime
+    implementation 'joda-time:joda-time:2.10.6'
+}
