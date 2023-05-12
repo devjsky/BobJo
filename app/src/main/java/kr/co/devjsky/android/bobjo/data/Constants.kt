@@ -16,6 +16,7 @@ interface Constants {
         const val FRAGMENT_MAIN_MY_PAGE = "FRAGMENT_MAIN_MY_PAGE"
 
 
+
         fun LOG_D(tag: String, msg: String){
             if(LOG_MODE){
                 Log.d(tag, msg)

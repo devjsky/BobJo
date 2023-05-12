@@ -11,7 +11,7 @@ class DataRepo {
     var selected_schedule_info_idx:Int = -1
     var selected_schedule_info_data:IFSchedule.ScheduleInfo? = null
 
-    var schedule_calendar_multi_check_list:ArrayList<String>? = null
+    var calendar_add_schedule_multi_check_list:ArrayList<String>? = null
 
 
 

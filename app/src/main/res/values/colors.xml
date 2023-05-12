@@ -17,24 +17,29 @@
     <color name="bottom_menu_unselected_color">#DDDDDD</color>
     <color name="bottom_menu_profile_line_color_01">#aaaaaa</color>
 
-
+    <color name="edit_text_focus_line_color">#2d44f7</color>
+    <color name="edit_text_focus_bg_color">#FFFFFF</color>
+    <color name="edit_text_default_line_color">#cbccda</color>
+    <color name="edit_text_default_bg_color">#FFFFFF</color>
+    <color name="edit_text_alert_line_color">#ff5943</color>
+    <color name="edit_text_alert_bg_color">#FFFFFF</color>
+    <color name="edit_text_disable_bg_color">#f9f9f9</color>
 
     <color name="calendar_line_color_01">#E0E0E0</color>
     <color name="calendar_title_color_01">#535353</color>
     <color name="calendar_day_color_01">#878787</color>
     <color name="calendar_sunday_color_01">#E67575</color>
     <color name="calendar_saturday_color_01">#88C8EF</color>
-    <color name="calendar_record_color_01">#72F44336</color>
-    <color name="calendar_record_color_02">#723F51B5</color>
-    <color name="calendar_record_color_03">#729C27B0</color>
-    <color name="calendar_record_color_04">#7200BCD4</color>
-    <color name="calendar_record_color_05">#724CAF50</color>
-    <color name="calendar_record_color_06">#72FFEB3B</color>
-    <color name="calendar_record_color_07">#9EFFA0A0</color>
-
-    <color name="calendar_record_memo_color">#D4DFFF</color>
-    <color name="calendar_record_dayoff_color">#FFC1C1</color>
-    <color name="calendar_record_anniversary_color">#F6E0FF</color>
+    <color name="calendar_event_color_01">#D4DFFF</color>
+    <color name="calendar_event_color_02">#FFBF00</color>
+    <color name="calendar_event_color_03">#9C27B0</color>
+    <color name="calendar_event_color_04">#00D4BB</color>
+    <color name="calendar_event_color_05">#00FF0A</color>
+    <color name="calendar_event_color_06">#FFEB3B</color>
+    <color name="calendar_event_color_07">#A0FFE9</color>
+    <color name="calendar_event_color_08">#F44336</color>
+    <color name="calendar_event_color_09">#FFC1C1</color>
+    <color name="calendar_event_color_10">#FFB3FB</color>
 
     <color name="dialog_content_color_01">#8a8b8f</color>
     <color name="dialog_button_text_color_01">#bcbed1</color>

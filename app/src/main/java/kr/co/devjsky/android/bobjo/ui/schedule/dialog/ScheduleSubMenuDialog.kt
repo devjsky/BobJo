@@ -22,7 +22,7 @@ class ScheduleSubMenuDialog() : DialogFragment() {
     val size = Point()
 
     interface OnBtnClickEventListener {
-        fun addDayOffBtnClick()
+        fun addScheduleMultiClick()
     }
     lateinit var onBtnClickEventListener: OnBtnClickEventListener
 
@@ -52,8 +52,8 @@ class ScheduleSubMenuDialog() : DialogFragment() {
         binding.ivClose.setOnClickListener {
             dismiss()
         }
-        binding.btnAddDayoff.setOnClickListener {
-            onBtnClickEventListener.addDayOffBtnClick()
+        binding.btnAddScheduleMulti.setOnClickListener {
+            onBtnClickEventListener.addScheduleMultiClick()
             dismiss()
         }
 

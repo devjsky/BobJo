@@ -32,10 +32,6 @@
             android:layout_height="@dimen/top_menu_height">
             <TextView
                 android:letterSpacing="-0.03"
-                app:layout_constraintStart_toEndOf="@id/iv_empty_01"
-                app:layout_constraintEnd_toStartOf="@id/iv_sub_menu"
-                app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintTop_toTopOf="parent"
                 android:fontFamily="@font/noto_sans_kr_bold"
                 android:id="@+id/tv_top_menu_title"
                 android:gravity="center"

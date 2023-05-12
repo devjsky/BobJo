@@ -3,6 +3,7 @@ package kr.co.devjsky.android.bobjo.utils.calendar
 import android.graphics.Color
 import androidx.annotation.ColorInt
 import androidx.annotation.IntRange
+import kr.co.devjsky.android.bobjo.R
 import org.joda.time.DateTime
 import org.joda.time.DateTimeConstants
 
@@ -65,6 +66,24 @@ class CalendarUtils {
                 /* 그 외 검정색 */
                 else -> Color.parseColor("#000000")
             }
+        }
+
+        fun getEventTagColor(tag_color: Int): Int{
+            return when(tag_color){
+                0 -> { R.color.calendar_event_color_01 }
+                1 -> { R.color.calendar_event_color_02 }
+                2 -> { R.color.calendar_event_color_03 }
+                3 -> { R.color.calendar_event_color_04 }
+                4 -> { R.color.calendar_event_color_05 }
+                5 -> { R.color.calendar_event_color_06 }
+                6 -> { R.color.calendar_event_color_07 }
+                7 -> { R.color.calendar_event_color_08 }
+                8 -> { R.color.calendar_event_color_09 }
+                9 -> { R.color.calendar_event_color_10 }
+                else -> { R.color.calendar_event_color_01 }
+
+            }
+
         }
     }
 }

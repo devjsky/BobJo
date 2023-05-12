@@ -1,5 +1,6 @@
 package kr.co.devjsky.android.bobjo.ui.schedule.viewmodel
 
+import android.widget.CompoundButton
 import androidx.lifecycle.MutableLiveData
 import kr.co.devjsky.android.bobjo.api.ApiCallback
 import kr.co.devjsky.android.bobjo.api.ResponseCode
@@ -17,12 +18,20 @@ class ScheduleViewModel(private val apiRepo: ApiRepo, private val userRepo:UserR
     var multiCheckLiveData = MutableLiveData<Boolean>()
     var scheduleLiveData = MutableLiveData<IFSchedule?>()
     var multiCheckAddFinLiveData = MutableLiveData<Boolean>()
-    var eventListClearLiveData = MutableLiveData<Boolean>()
+    var pageClearLiveData = MutableLiveData<Boolean>()
+    var alldayCheckLiveData = MutableLiveData<Boolean>()
+
+
+    var categoryGroupLiveData = MutableLiveData<String>()
+    var tagColorLiveData = MutableLiveData<Int>()
     init {
-        eventListClearLiveData.value = false
+        pageClearLiveData.value = false
         testLiveData.value = ""
         multiCheckLiveData.value = false
         multiCheckAddFinLiveData.value = false
+        alldayCheckLiveData.value = false
+        categoryGroupLiveData.value = "MEMO"
+        tagColorLiveData.value = 0
     }
 
 
@@ -63,8 +72,9 @@ class ScheduleViewModel(private val apiRepo: ApiRepo, private val userRepo:UserR
                          check_state: String,
                          top: String,
                          bigday: String,
-                         allday: String){
-        apiRepo.addScheduleMulti(action, dates, category_group, title, content, state, check_state, top, bigday, allday, object : ApiCallback{
+                         allday: String,
+                         tag_color: Int){
+        apiRepo.addScheduleMulti(action, dates, category_group, title, content, state, check_state, top, bigday, allday, tag_color, object : ApiCallback{
             override fun <T> result(isSuccess: Boolean, code: Int, msg: String, data: T?) {
 
                 multiCheckAddFinLiveData.value = isSuccess
@@ -84,5 +94,11 @@ class ScheduleViewModel(private val apiRepo: ApiRepo, private val userRepo:UserR
 
             }
         })
+    }
+
+
+    fun onSwitchCheckedChanged(switch: CompoundButton, checked: Boolean){
+
+        alldayCheckLiveData.value = checked
     }
 }

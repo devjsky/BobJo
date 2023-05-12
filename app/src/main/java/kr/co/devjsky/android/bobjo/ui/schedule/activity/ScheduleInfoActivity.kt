@@ -38,12 +38,17 @@ class ScheduleInfoActivity() : BaseActivity<ActivityScheduleInfoBinding, Schedul
     }
 
     override fun setTopMenu(visibleState: Boolean, title: String) {
-        binding.layoutTopMenu.isVisible = visibleState
-        binding.tvTopMenuTitle.text = title
+        binding.layoutTopMenu.layoutBody.isVisible = visibleState
+        binding.layoutTopMenu.tvTopMenuTitle.isVisible = true
+        binding.layoutTopMenu.ivBack.isVisible = false
+        binding.layoutTopMenu.ivSubMenu.isVisible = false
+        binding.layoutTopMenu.ivDelete.isVisible = true
+
+        binding.layoutTopMenu.tvTopMenuTitle.text = title
     }
 
     override fun setBindings() {
-        binding.ivDelete.setOnClickListener {
+        binding.layoutTopMenu.ivDelete.setOnClickListener {
             viewModel.removeSchedule("removeSchedule", scheduleInfo?.idx!!, object : ApiCallback{
                 override fun <T> result(isSuccess: Boolean, code: Int, msg: String, data: T?) {
                     if(isSuccess){

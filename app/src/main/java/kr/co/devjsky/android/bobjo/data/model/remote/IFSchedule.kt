@@ -33,7 +33,8 @@ data class IFSchedule (
             @SerializedName("updated_date" ) var updatedDate : String? = null,
             @SerializedName("start_date"   ) var startDate   : String? = null,
             @SerializedName("end_date"     ) var endDate     : String? = null,
-            @SerializedName("allday"     ) var allday     : String? = null
+            @SerializedName("allday"     ) var allday     : String? = null,
+            @SerializedName("tag_color"     ) var tag_color     : Int? = null
         )
 
 

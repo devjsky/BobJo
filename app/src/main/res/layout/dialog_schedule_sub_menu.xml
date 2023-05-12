@@ -45,7 +45,7 @@
     android:layout_width="wrap_content"
     android:layout_height="wrap_content"/>
             <TextView
-                android:text="추가할 종류를 선택해 주세요."
+                android:text="동작을 선택해 주세요."
                 android:lineSpacingExtra="10sp"
                 android:layout_marginTop="20dp"
                 android:layout_marginStart="20dp"
@@ -60,11 +60,11 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content" />
             <Button
-                android:id="@+id/btn_add_dayoff"
+                android:id="@+id/btn_add_schedule_multi"
                 android:textSize="18sp"
                 android:textColor="@color/white"
                 android:background="@drawable/bg_sub_menu_dialog_button_02"
-                android:text="휴일 추가"
+                android:text="일정 한 번에 추가하기"
                 android:fontFamily="@font/noto_sans_kr_bold"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"/>
@@ -73,11 +73,19 @@
                 android:textSize="18sp"
                 android:textColor="@color/dialog_button_text_color_01"
                 android:background="@drawable/bg_sub_menu_dialog_button_01"
-                android:text="오픈 출근 추가"
+                android:text="일정 한 번에 지우기"
                 android:fontFamily="@font/noto_sans_kr_bold"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"/>
-
+            <Button
+                android:layout_marginTop="10dp"
+                android:textSize="18sp"
+                android:textColor="@color/dialog_button_text_color_01"
+                android:background="@drawable/bg_sub_menu_dialog_button_01"
+                android:text="모든 나의 일정 지우기"
+                android:fontFamily="@font/noto_sans_kr_bold"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"/>
 
 
         </LinearLayout>

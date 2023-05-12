@@ -79,7 +79,7 @@ class MainScheduleFragment : BaseFragment<FragmentMainScheduleBinding, ScheduleV
             override fun onPageSelected(position: Int) {
                 super.onPageSelected(position)
                 LOG_D(TAG, "onPageSelected")
-                viewModel.eventListClearLiveData.value = true
+                viewModel.pageClearLiveData.value = true
 
                 viewModel.getSchedule("getMonthSchedule", DateTime(schduleCalendarAdapter.getItemId(position)).toString("yyyy"), DateTime(schduleCalendarAdapter.getItemId(position)).toString("MM"),"")
             }

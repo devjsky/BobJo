@@ -36,7 +36,8 @@ interface ApiService {
                          @Field("check_state") check_state: String,
                          @Field("top") top: String,
                          @Field("bigday") bigday: String,
-                         @Field("allday") allday: String
+                         @Field("allday") allday: String,
+                         @Field("tag_color") tag_color: Int
     ): Call<IFDefault>
 
     @FormUrlEncoded

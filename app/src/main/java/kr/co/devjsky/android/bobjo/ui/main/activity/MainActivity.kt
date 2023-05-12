@@ -102,8 +102,8 @@ class MainActivity : BaseActivity<ActivityMainBinding, MainViewModel>() {
             if(nowFragment != null){
                 if(nowFragment?.tag == FRAGMENT_MAIN_SCHEDULE){
                     (nowFragment as MainScheduleFragment).viewModel.multiCheckLiveData.value = false
-                    dataRepo.schedule_calendar_multi_check_list = null
-                    dataRepo.schedule_calendar_multi_check_list = ArrayList()
+                    dataRepo.calendar_add_schedule_multi_check_list = null
+                    dataRepo.calendar_add_schedule_multi_check_list = ArrayList()
                 }
             }
 
@@ -114,31 +114,32 @@ class MainActivity : BaseActivity<ActivityMainBinding, MainViewModel>() {
             if(nowFragment != null){
                 if(nowFragment?.tag == FRAGMENT_MAIN_SCHEDULE){
 
-                    if(dataRepo.schedule_calendar_multi_check_list != null && dataRepo.schedule_calendar_multi_check_list!!.size>0){
+                    if(dataRepo.calendar_add_schedule_multi_check_list != null && dataRepo.calendar_add_schedule_multi_check_list!!.size>0){
                         val sb = StringBuilder()
-                        sb.append(dataRepo.schedule_calendar_multi_check_list!![0])
-                        for (i in 1 until dataRepo.schedule_calendar_multi_check_list!!.size){
-                            sb.append(",${dataRepo.schedule_calendar_multi_check_list!![i]}")
+                        sb.append(dataRepo.calendar_add_schedule_multi_check_list!![0])
+                        for (i in 1 until dataRepo.calendar_add_schedule_multi_check_list!!.size){
+                            sb.append(",${dataRepo.calendar_add_schedule_multi_check_list!![i]}")
                         }
                         val dates = sb.toString()
-                        (nowFragment as MainScheduleFragment).viewModel.addScheduleMulti(
-                            "addScheduleMulti"
-                            ,dates
-                            ,"DAYOFF"
-                            ,"지호 휴무"
-                            ,"지호 쉬는날 입니당"
-                            , "Y"
-                            , "N"
-                            ,"N"
-                            ,"N"
-                            ,"Y")
+//                        (nowFragment as MainScheduleFragment).viewModel.addScheduleMulti(
+//                            "addScheduleMulti"
+//                            ,dates
+//                            ,"DAYOFF"
+//                            ,"지호 휴무"
+//                            ,"지호 쉬는날 입니당"
+//                            , "Y"
+//                            , "N"
+//                            ,"N"
+//                            ,"N"
+//                            ,"Y"
+//                            ,0)
                     }
 
 
 
                     (nowFragment as MainScheduleFragment).viewModel.multiCheckLiveData.value = false
-                    dataRepo.schedule_calendar_multi_check_list = null
-                    dataRepo.schedule_calendar_multi_check_list = ArrayList()
+                    dataRepo.calendar_add_schedule_multi_check_list = null
+                    dataRepo.calendar_add_schedule_multi_check_list = ArrayList()
 
                 }
             }
@@ -151,9 +152,15 @@ class MainActivity : BaseActivity<ActivityMainBinding, MainViewModel>() {
     }
     override fun setTopMenu(visibleState: Boolean, title: String) {
         binding.layoutTopMenu.layoutBody.isVisible = visibleState
-        binding.layoutTopMenu.tvTopMenuTitle.text = title
+        binding.layoutTopMenu.tvTopMenuTitle.isVisible = true
         binding.layoutSubMenuTopMenu.visibility = View.GONE
         binding.layoutSubMenuBottomMenu.visibility = View.GONE
+        binding.layoutTopMenu.ivBack.isVisible = false
+        binding.layoutTopMenu.ivSubMenu.isVisible = false
+        binding.layoutTopMenu.ivDelete.isVisible = false
+
+        binding.layoutTopMenu.tvTopMenuTitle.text = title
+
         if(nowFragment != null){
             if(nowFragment?.tag == FRAGMENT_MAIN_SCHEDULE){
                 binding.layoutTopMenu.ivSubMenu.visibility = View.VISIBLE
@@ -164,12 +171,14 @@ class MainActivity : BaseActivity<ActivityMainBinding, MainViewModel>() {
                 if(nowFragment?.tag == FRAGMENT_MAIN_SCHEDULE){
                     val fragmentMainScheduleSubMenuDialog = ScheduleSubMenuDialog()
                     fragmentMainScheduleSubMenuDialog.setOnBtnClickListener(object : ScheduleSubMenuDialog.OnBtnClickEventListener{
-                        override fun addDayOffBtnClick() {
-                            (nowFragment as MainScheduleFragment).viewModel.multiCheckLiveData.value = true
+                        override fun addScheduleMultiClick() {
+                            (nowFragment as MainScheduleFragment).viewModel.multiCheckLiveData.value =
+                                true
                             binding.layoutSubMenuTopMenu.visibility = View.VISIBLE
                             binding.layoutSubMenuBottomMenu.visibility = View.VISIBLE
-                            dataRepo.schedule_calendar_multi_check_list = null
-                            dataRepo.schedule_calendar_multi_check_list = ArrayList()
+                            dataRepo.calendar_add_schedule_multi_check_list = null
+                            dataRepo.calendar_add_schedule_multi_check_list = ArrayList()
+
                         }
                     })
                     fragmentMainScheduleSubMenuDialog.show(supportFragmentManager, "ScheduleSubMenuDialog")

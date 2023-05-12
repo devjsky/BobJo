@@ -6,7 +6,7 @@ import kr.co.devjsky.android.bobjo.data.model.local.UserInfo
 
 class UserRepo(private val apiService: ApiService) {
     var fcmToken: String? = null
-    var userInfo: UserInfo? = null
+    var userInfo: UserInfo? = UserInfo()
 
     fun isLogin(): Boolean{
         return userInfo != null && userInfo!!.userToken != null && userInfo!!.userToken != ""

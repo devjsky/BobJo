@@ -106,6 +106,7 @@ class ApiRepo(private val apiService: ApiService, private val userRepo: UserRepo
                          top: String,
                          bigday: String,
                          allday: String,
+                         tag_color: Int,
                          callback: ApiCallback){
 
         var user_token = ""
@@ -114,7 +115,7 @@ class ApiRepo(private val apiService: ApiService, private val userRepo: UserRepo
         }else{
             user_token = userRepo.userInfo?.userToken + ""
         }
-        apiService.addScheduleMulti(user_token, action, dates, category_group, title, content, state, check_state, top, bigday, allday).enqueue(object : Callback<IFDefault> {
+        apiService.addScheduleMulti(user_token, action, dates, category_group, title, content, state, check_state, top, bigday, allday, tag_color).enqueue(object : Callback<IFDefault> {
             override fun onResponse(call: Call<IFDefault>, response: Response<IFDefault>) {
                 LOG_D(TAG, "addScheduleMulti isSuccessful")
                 if (response.isSuccessful) {
