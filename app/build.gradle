@@ -1,6 +1,7 @@
 plugins {
     id 'com.android.application'
     id 'org.jetbrains.kotlin.android'
+
 }
 
 android {
@@ -83,4 +84,10 @@ dependencies {
 
     //datetime
     implementation 'joda-time:joda-time:2.10.6'
+
+    //flexbox
+    implementation 'com.google.android.flexbox:flexbox:3.0.0'
+
+    //gradient text view
+    implementation 'com.github.veeyaarVR:SuperGradientTextView:1.1'
 }

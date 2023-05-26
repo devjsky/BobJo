@@ -80,7 +80,8 @@ class ScheduleSubMenuDialog() : DialogFragment() {
         window?.setBackgroundDrawable(ColorDrawable(Color.TRANSPARENT))
         //   window?.clearFlags(WindowManager.LayoutParams.FLAG_DIM_BEHIND)
         val wlp: WindowManager.LayoutParams? = window?.attributes
-        wlp?.width = ViewGroup.LayoutParams.WRAP_CONTENT
+        val metrics = resources.displayMetrics
+        wlp?.width = metrics.widthPixels * 80 / 100
         wlp?.height = ViewGroup.LayoutParams.WRAP_CONTENT
         window?.attributes = wlp
 

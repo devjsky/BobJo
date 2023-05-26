@@ -13,6 +13,7 @@ class DataRepo {
 
     var calendar_add_schedule_multi_check_list:ArrayList<String>? = null
 
+    var schedule_sub_menu_selected_num:Int = -1
 
 
 

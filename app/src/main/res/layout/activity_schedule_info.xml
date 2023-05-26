@@ -10,7 +10,7 @@
 
     </data>
 
-    <RelativeLayout
+    <androidx.constraintlayout.widget.ConstraintLayout
         android:background="@color/default_page_color"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
@@ -18,14 +18,708 @@
 
         <include layout="@layout/view_top_menu"
             android:id="@+id/layout_top_menu"/>
-     <LinearLayout
-         android:background="@color/black"
-         android:layout_below="@id/layout_top_menu"
-         android:orientation="vertical"
-         android:layout_width="match_parent"
-         android:layout_height="match_parent">
+        <androidx.core.widget.NestedScrollView
+            app:layout_constraintTop_toBottomOf="@id/layout_top_menu"
+            app:layout_constraintBottom_toTopOf="@+id/layout_button_group"
+            android:id="@+id/sv_body"
+            android:layout_width="match_parent"
+            android:layout_height="0dp">
+            <LinearLayout
+                android:paddingBottom="20dp"
+                android:orientation="vertical"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+
+                <TextView
+                    android:layout_marginTop="20dp"
+                    android:layout_marginStart="20dp"
+                    android:textColor="@color/page_layout_group_subject_color_01"
+                    android:letterSpacing="-0.03"
+                    android:fontFamily="@font/noto_sans_kr_regular"
+                    android:text="그룹"
+                    android:textSize="14sp"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"/>
+                <HorizontalScrollView
+                    android:scrollbars="none"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+                    <LinearLayout
+                        android:paddingTop="10dp"
+                        android:paddingBottom="10dp"
+                        android:paddingEnd="20dp"
+                        android:paddingStart="20dp"
+                        android:gravity="center|start"
+                        android:orientation="horizontal"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content">
+                        <LinearLayout
+                            android:paddingStart="10dp"
+                            android:paddingEnd="10dp"
+                            android:paddingTop="4dp"
+                            android:paddingBottom="4dp"
+                            android:background="@drawable/bg_schedule_add_category_group_01"
+                            android:id="@+id/layout_category_group_memo"
+                            android:gravity="center"
+                            android:orientation="horizontal"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content">
 
 
-     </LinearLayout>
-    </RelativeLayout>
+                            <TextView
+                                android:letterSpacing="-0.03"
+                                android:fontFamily="@font/noto_sans_kr_regular"
+                                android:gravity="center"
+                                android:textSize="16sp"
+
+                                android:text="메모"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"/>
+
+
+
+                        </LinearLayout>
+                        <LinearLayout
+                            android:paddingStart="10dp"
+                            android:paddingEnd="10dp"
+                            android:paddingTop="4dp"
+                            android:paddingBottom="4dp"
+                            android:background="@drawable/bg_schedule_add_category_group_01"
+                            android:layout_marginStart="10dp"
+                            android:id="@+id/layout_category_group_dayoff"
+                            android:gravity="center"
+                            android:orientation="horizontal"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content">
+                            <TextView
+                                android:letterSpacing="-0.03"
+                                android:fontFamily="@font/noto_sans_kr_regular"
+                                android:gravity="center"
+                                android:textSize="16sp"
+                                android:text="휴무"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"/>
+
+                        </LinearLayout>
+                        <LinearLayout
+                            android:paddingStart="10dp"
+                            android:paddingEnd="10dp"
+                            android:paddingTop="4dp"
+                            android:paddingBottom="4dp"
+                            android:background="@drawable/bg_schedule_add_category_group_01"
+                            android:layout_marginStart="10dp"
+                            android:id="@+id/layout_category_group_anniversary"
+                            android:gravity="center"
+                            android:orientation="horizontal"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content">
+
+                            <TextView
+                                android:letterSpacing="-0.03"
+                                android:fontFamily="@font/noto_sans_kr_regular"
+                                android:gravity="center"
+                                android:textSize="16sp"
+                                android:text="기념일"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"/>
+
+                        </LinearLayout>
+
+                    </LinearLayout>
+
+                </HorizontalScrollView>
+                <TextView
+                    android:layout_marginTop="10dp"
+                    android:layout_marginStart="20dp"
+                    android:textColor="@color/page_layout_group_subject_color_01"
+                    android:letterSpacing="-0.03"
+                    android:fontFamily="@font/noto_sans_kr_regular"
+                    android:text="태그"
+                    android:textSize="14sp"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"/>
+                <HorizontalScrollView
+                    android:clipToPadding="false"
+                    android:paddingTop="10dp"
+                    android:paddingStart="20dp"
+                    android:paddingEnd="20dp"
+                    android:paddingBottom="10dp"
+                    android:scrollbars="none"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+                    <LinearLayout
+
+                        android:background="@drawable/bg_schedule_add_tag_01"
+                        android:padding="10dp"
+
+                        android:gravity="center|start"
+                        android:orientation="horizontal"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content">
+                        <LinearLayout
+                            android:id="@+id/layout_event_color_01"
+                            android:gravity="center"
+                            android:orientation="horizontal"
+                            android:layout_width="30dp"
+                            android:layout_height="30dp">
+                            <ImageView
+                                android:id="@+id/iv_event_color_01"
+                                android:padding="2dp"
+                                android:background="@drawable/bg_calendar_event_color_01"
+                                android:backgroundTint="@color/calendar_event_color_01"
+                                android:src="@drawable/ico_check_01"
+                                android:adjustViewBounds="true"
+                                android:layout_width="match_parent"
+                                android:layout_height="match_parent"
+                                app:tint="@color/main_color" />
+
+
+                        </LinearLayout>
+                        <LinearLayout
+                            android:layout_marginStart="10dp"
+                            android:id="@+id/layout_event_color_02"
+                            android:gravity="center"
+                            android:orientation="horizontal"
+                            android:layout_width="30dp"
+                            android:layout_height="30dp">
+                            <ImageView
+                                android:id="@+id/iv_event_color_02"
+                                android:backgroundTint="@color/calendar_event_color_02"
+                                android:padding="2dp"
+                                android:background="@drawable/bg_calendar_event_color_01"
+                                app:tint="@color/transparent"
+                                android:src="@drawable/ico_check_01"
+                                android:adjustViewBounds="true"
+                                android:layout_width="match_parent"
+                                android:layout_height="match_parent"/>
+
+
+                        </LinearLayout>
+                        <LinearLayout
+                            android:layout_marginStart="10dp"
+                            android:id="@+id/layout_event_color_03"
+                            android:gravity="center"
+                            android:orientation="horizontal"
+                            android:layout_width="30dp"
+                            android:layout_height="30dp">
+                            <ImageView
+                                android:id="@+id/iv_event_color_03"
+                                android:backgroundTint="@color/calendar_event_color_03"
+                                android:padding="2dp"
+                                android:background="@drawable/bg_calendar_event_color_01"
+                                app:tint="@color/transparent"
+                                android:src="@drawable/ico_check_01"
+                                android:adjustViewBounds="true"
+                                android:layout_width="match_parent"
+                                android:layout_height="match_parent"/>
+
+
+                        </LinearLayout>
+                        <LinearLayout
+                            android:layout_marginStart="10dp"
+                            android:id="@+id/layout_event_color_04"
+                            android:gravity="center"
+                            android:orientation="horizontal"
+                            android:layout_width="30dp"
+                            android:layout_height="30dp">
+                            <ImageView
+                                android:id="@+id/iv_event_color_04"
+                                android:backgroundTint="@color/calendar_event_color_04"
+                                android:padding="2dp"
+                                android:background="@drawable/bg_calendar_event_color_01"
+                                app:tint="@color/transparent"
+                                android:src="@drawable/ico_check_01"
+                                android:adjustViewBounds="true"
+                                android:layout_width="match_parent"
+                                android:layout_height="match_parent"/>
+
+
+                        </LinearLayout>
+                        <LinearLayout
+                            android:layout_marginStart="10dp"
+                            android:id="@+id/layout_event_color_05"
+                            android:gravity="center"
+                            android:orientation="horizontal"
+                            android:layout_width="30dp"
+                            android:layout_height="30dp">
+                            <ImageView
+                                android:id="@+id/iv_event_color_05"
+                                android:backgroundTint="@color/calendar_event_color_05"
+                                android:padding="2dp"
+                                android:background="@drawable/bg_calendar_event_color_01"
+                                app:tint="@color/transparent"
+                                android:src="@drawable/ico_check_01"
+                                android:adjustViewBounds="true"
+                                android:layout_width="match_parent"
+                                android:layout_height="match_parent"/>
+
+
+                        </LinearLayout>
+                        <LinearLayout
+                            android:layout_marginStart="10dp"
+                            android:id="@+id/layout_event_color_06"
+                            android:gravity="center"
+                            android:orientation="horizontal"
+                            android:layout_width="30dp"
+                            android:layout_height="30dp">
+                            <ImageView
+                                android:id="@+id/iv_event_color_06"
+                                android:backgroundTint="@color/calendar_event_color_06"
+                                android:padding="2dp"
+                                android:background="@drawable/bg_calendar_event_color_01"
+                                app:tint="@color/transparent"
+                                android:src="@drawable/ico_check_01"
+                                android:adjustViewBounds="true"
+                                android:layout_width="match_parent"
+                                android:layout_height="match_parent"/>
+
+
+                        </LinearLayout>
+                        <LinearLayout
+                            android:layout_marginStart="10dp"
+                            android:id="@+id/layout_event_color_07"
+                            android:gravity="center"
+                            android:orientation="horizontal"
+                            android:layout_width="30dp"
+                            android:layout_height="30dp">
+                            <ImageView
+                                android:id="@+id/iv_event_color_07"
+                                android:backgroundTint="@color/calendar_event_color_07"
+                                android:padding="2dp"
+                                android:background="@drawable/bg_calendar_event_color_01"
+                                app:tint="@color/transparent"
+                                android:src="@drawable/ico_check_01"
+                                android:adjustViewBounds="true"
+                                android:layout_width="match_parent"
+                                android:layout_height="match_parent"/>
+
+
+                        </LinearLayout>
+                        <LinearLayout
+                            android:layout_marginStart="10dp"
+                            android:id="@+id/layout_event_color_08"
+                            android:gravity="center"
+                            android:orientation="horizontal"
+                            android:layout_width="30dp"
+                            android:layout_height="30dp">
+                            <ImageView
+                                android:id="@+id/iv_event_color_08"
+                                android:backgroundTint="@color/calendar_event_color_08"
+                                android:padding="2dp"
+                                android:background="@drawable/bg_calendar_event_color_01"
+                                app:tint="@color/transparent"
+                                android:src="@drawable/ico_check_01"
+                                android:adjustViewBounds="true"
+                                android:layout_width="match_parent"
+                                android:layout_height="match_parent"/>
+
+
+                        </LinearLayout>
+                        <LinearLayout
+                            android:layout_marginStart="10dp"
+                            android:id="@+id/layout_event_color_09"
+                            android:gravity="center"
+                            android:orientation="horizontal"
+                            android:layout_width="30dp"
+                            android:layout_height="30dp">
+                            <ImageView
+                                android:id="@+id/iv_event_color_09"
+                                android:backgroundTint="@color/calendar_event_color_09"
+                                android:padding="2dp"
+                                android:background="@drawable/bg_calendar_event_color_01"
+                                app:tint="@color/transparent"
+                                android:src="@drawable/ico_check_01"
+                                android:adjustViewBounds="true"
+                                android:layout_width="match_parent"
+                                android:layout_height="match_parent"/>
+
+
+                        </LinearLayout>
+                        <LinearLayout
+                            android:layout_marginStart="10dp"
+                            android:id="@+id/layout_event_color_10"
+                            android:gravity="center"
+                            android:orientation="horizontal"
+                            android:layout_width="30dp"
+                            android:layout_height="30dp">
+                            <ImageView
+                                android:id="@+id/iv_event_color_10"
+                                android:backgroundTint="@color/calendar_event_color_10"
+                                android:padding="2dp"
+                                android:background="@drawable/bg_calendar_event_color_01"
+                                app:tint="@color/transparent"
+                                android:src="@drawable/ico_check_01"
+                                android:adjustViewBounds="true"
+                                android:layout_width="match_parent"
+                                android:layout_height="match_parent"/>
+
+
+                        </LinearLayout>
+
+                    </LinearLayout>
+
+                </HorizontalScrollView>
+                <TextView
+                    android:gravity="center"
+                    android:lineSpacingExtra="2sp"
+                    android:layout_marginTop="10dp"
+                    android:layout_marginStart="20dp"
+                    android:textColor="@color/page_layout_group_subject_color_01"
+                    android:letterSpacing="-0.03"
+                    android:fontFamily="@font/noto_sans_kr_regular"
+                    android:text="제목"
+                    android:textSize="14sp"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"/>
+
+                <EditText
+                    android:text="@={viewModel.titleLiveData}"
+                    android:lineSpacingExtra="2sp"
+                    android:textCursorDrawable="@color/transparent"
+                    android:letterSpacing="-0.03"
+                    android:textColor="@color/black"
+                    android:fontFamily="@font/noto_sans_kr_regular"
+                    android:gravity="center|start"
+                    android:textSize="18sp"
+                    android:background="@drawable/bg_edit_text_01"
+                    android:layout_marginTop="10dp"
+                    android:layout_marginEnd="20dp"
+                    android:layout_marginStart="20dp"
+                    android:paddingStart="10dp"
+                    android:paddingEnd="10dp"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:minHeight="44dp"/>
+                <TextView
+
+                    android:gravity="center"
+                    android:lineSpacingExtra="2sp"
+                    android:layout_marginTop="20dp"
+                    android:layout_marginStart="20dp"
+                    android:textColor="@color/page_layout_group_subject_color_01"
+                    android:letterSpacing="-0.03"
+                    android:fontFamily="@font/noto_sans_kr_regular"
+                    android:text="내용"
+                    android:textSize="14sp"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"/>
+
+                <EditText
+                    android:text="@={viewModel.contentLiveData}"
+                    android:textCursorDrawable="@color/transparent"
+                    android:lineSpacingExtra="2sp"
+                    android:letterSpacing="-0.03"
+                    android:textColor="@color/black"
+                    android:fontFamily="@font/noto_sans_kr_regular"
+                    android:ellipsize="end"
+                    android:gravity="center|start"
+                    android:textSize="18sp"
+                    android:background="@drawable/bg_edit_text_01"
+                    android:layout_marginTop="10dp"
+                    android:layout_marginEnd="20dp"
+                    android:layout_marginStart="20dp"
+                    android:paddingStart="10dp"
+                    android:paddingEnd="10dp"
+                    android:minHeight="44dp"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"/>
+                <TextView
+                    android:gravity="center"
+                    android:lineSpacingExtra="2sp"
+                    android:layout_marginTop="20dp"
+                    android:layout_marginStart="20dp"
+                    android:textColor="@color/page_layout_group_subject_color_01"
+                    android:letterSpacing="-0.03"
+                    android:fontFamily="@font/noto_sans_kr_regular"
+                    android:text="날짜 및 시간"
+                    android:textSize="14sp"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"/>
+                <androidx.constraintlayout.widget.ConstraintLayout
+                    android:layout_marginTop="10dp"
+                    android:layout_marginStart="20dp"
+                    android:layout_marginEnd="20dp"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+                    <TextView
+                        android:gravity="center"
+                        android:lineSpacingExtra="2sp"
+                        app:layout_constraintTop_toTopOf="@+id/sw_all_day"
+                        app:layout_constraintBottom_toBottomOf="@+id/sw_all_day"
+                        app:layout_constraintStart_toStartOf="parent"
+                        android:textColor="@color/black"
+                        android:letterSpacing="-0.03"
+                        android:fontFamily="@font/noto_sans_kr_regular"
+                        android:text="하루 종일"
+                        android:textSize="16sp"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"/>
+
+                    <androidx.appcompat.widget.SwitchCompat
+
+                        android:onCheckedChanged="@{viewModel::onSwitchCheckedChanged}"
+                        app:track="@drawable/switch_track_selector_01"
+                        android:thumb="@drawable/switch_thumb_selector_01"
+                        android:id="@+id/sw_all_day"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintTop_toTopOf="parent"
+                        app:layout_constraintEnd_toEndOf="parent"
+
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"/>
+
+                </androidx.constraintlayout.widget.ConstraintLayout>
+                <TextView
+                    android:layout_marginStart="20dp"
+
+                    android:layout_marginTop="10dp"
+                    android:gravity="center"
+                    android:lineSpacingExtra="2sp"
+                    android:textColor="@color/black"
+                    android:letterSpacing="-0.03"
+                    android:fontFamily="@font/noto_sans_kr_regular"
+                    android:text="날짜 선택"
+                    android:textSize="16sp"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"/>
+                <androidx.constraintlayout.widget.ConstraintLayout
+                    android:layout_marginTop="10dp"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+
+                    <ImageView
+                        android:layout_marginStart="20dp"
+                        android:layout_marginEnd="20dp"
+                        android:src="@drawable/bg_schedule_add_date_01"
+                        app:layout_constraintEnd_toStartOf="@id/divide_01"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toTopOf="parent"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        android:adjustViewBounds="true"
+                        android:layout_width="0dp"
+                        android:layout_height="0dp"/>
+
+
+                    <TextView
+                        android:layout_marginTop="10dp"
+                        android:layout_marginBottom="10dp"
+                        android:id="@+id/tv_start_date"
+                        app:layout_constraintTop_toTopOf="parent"
+                        app:layout_constraintBottom_toTopOf="@+id/layout_time_select"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintEnd_toStartOf="@id/divide_01"
+                        android:gravity="center"
+                        android:lineSpacingExtra="2sp"
+                        android:textColor="@color/black"
+                        android:letterSpacing="-0.03"
+                        android:fontFamily="@font/noto_sans_kr_regular"
+                        android:text="5월 25일 (목)"
+                        android:textSize="16sp"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"/>
+                    <ImageView
+                        android:src="@drawable/ico_arrow_right_01"
+                        android:id="@+id/divide_01"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toTopOf="parent"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        android:layout_width="20dp"
+                        android:layout_height="20dp"/>
+                    <ImageView
+                        android:layout_marginStart="20dp"
+                        android:layout_marginEnd="20dp"
+                        android:src="@drawable/bg_schedule_add_date_01"
+                        app:layout_constraintStart_toEndOf="@id/divide_01"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintTop_toTopOf="parent"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        android:adjustViewBounds="true"
+                        android:layout_width="0dp"
+                        android:layout_height="0dp"/>
+                    <TextView
+                        android:layout_marginTop="10dp"
+                        android:layout_marginBottom="10dp"
+                        android:id="@+id/tv_end_date"
+                        app:layout_constraintTop_toTopOf="parent"
+                        app:layout_constraintBottom_toTopOf="@+id/layout_time_select"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toEndOf="@id/divide_01"
+                        android:gravity="center"
+                        android:lineSpacingExtra="2sp"
+                        android:textColor="@color/black"
+                        android:letterSpacing="-0.03"
+                        android:fontFamily="@font/noto_sans_kr_regular"
+                        android:text="5월 25일 (목)"
+                        android:textSize="16sp"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"/>
+                    <androidx.constraintlayout.widget.ConstraintLayout
+                        android:visibility="visible"
+                        android:paddingTop="10dp"
+                        android:paddingBottom="10dp"
+                        android:id="@+id/layout_time_select"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content">
+                        <TextView
+                            android:id="@+id/tv_start_date_time"
+                            app:layout_constraintTop_toTopOf="parent"
+                            app:layout_constraintBottom_toBottomOf="parent"
+                            app:layout_constraintStart_toStartOf="parent"
+                            app:layout_constraintEnd_toStartOf="@id/divide_02"
+                            android:gravity="center"
+                            android:lineSpacingExtra="2sp"
+                            android:textColor="@color/black"
+                            android:letterSpacing="-0.03"
+                            android:fontFamily="@font/noto_sans_kr_regular"
+                            android:text="오전 08:00"
+                            android:textSize="16sp"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"/>
+                        <View
+                            android:id="@+id/divide_02"
+                            app:layout_constraintEnd_toEndOf="parent"
+                            app:layout_constraintStart_toStartOf="parent"
+                            app:layout_constraintTop_toTopOf="parent"
+                            app:layout_constraintBottom_toBottomOf="parent"
+                            android:layout_width="20dp"
+                            android:layout_height="20dp"/>
+                        <TextView
+                            android:id="@+id/tv_end_date_time"
+                            app:layout_constraintTop_toTopOf="parent"
+                            app:layout_constraintBottom_toBottomOf="parent"
+                            app:layout_constraintEnd_toEndOf="parent"
+                            app:layout_constraintStart_toEndOf="@id/divide_02"
+                            android:gravity="center"
+                            android:lineSpacingExtra="2sp"
+                            android:textColor="@color/black"
+                            android:letterSpacing="-0.03"
+                            android:fontFamily="@font/noto_sans_kr_regular"
+                            android:text="오전 09:00"
+                            android:textSize="16sp"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"/>
+                    </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+
+                </androidx.constraintlayout.widget.ConstraintLayout>
+
+                <TextView
+                    android:layout_marginTop="20dp"
+                    android:layout_marginStart="20dp"
+                    android:textColor="@color/page_layout_group_subject_color_01"
+                    android:letterSpacing="-0.03"
+                    android:fontFamily="@font/noto_sans_kr_regular"
+                    android:text="공개 설정"
+                    android:textSize="14sp"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"/>
+                <HorizontalScrollView
+                    android:scrollbars="none"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+                    <LinearLayout
+                        android:paddingTop="10dp"
+                        android:paddingBottom="10dp"
+                        android:paddingEnd="20dp"
+                        android:paddingStart="20dp"
+                        android:gravity="center|start"
+                        android:orientation="horizontal"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content">
+                        <LinearLayout
+                            android:paddingStart="10dp"
+                            android:paddingEnd="10dp"
+                            android:paddingTop="4dp"
+                            android:paddingBottom="4dp"
+                            android:background="@drawable/bg_schedule_add_state_02"
+                            android:id="@+id/layout_state_me"
+                            android:gravity="center"
+                            android:orientation="horizontal"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content">
+
+
+                            <TextView
+                                android:textColor="@color/white"
+                                android:letterSpacing="-0.03"
+                                android:fontFamily="@font/noto_sans_kr_regular"
+                                android:gravity="center"
+                                android:textSize="16sp"
+                                android:text="나만 보기"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"/>
+
+
+
+                        </LinearLayout>
+                        <LinearLayout
+                            android:paddingStart="10dp"
+                            android:paddingEnd="10dp"
+                            android:paddingTop="4dp"
+                            android:paddingBottom="4dp"
+                            android:background="@drawable/bg_schedule_add_state_01"
+                            android:layout_marginStart="10dp"
+                            android:id="@+id/layout_state_friends"
+                            android:gravity="center"
+                            android:orientation="horizontal"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content">
+
+                            <TextView
+                                android:letterSpacing="-0.03"
+                                android:fontFamily="@font/noto_sans_kr_regular"
+                                android:gravity="center"
+                                android:textSize="16sp"
+                                android:text="친구와 함께 보기"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"/>
+
+                        </LinearLayout>
+
+                    </LinearLayout>
+
+                </HorizontalScrollView>
+
+
+
+            </LinearLayout>
+
+
+        </androidx.core.widget.NestedScrollView>
+        <LinearLayout
+            android:id="@+id/layout_button_group"
+            app:layout_constraintTop_toBottomOf="@id/sv_body"
+            app:layout_constraintBottom_toBottomOf="parent"
+            android:orientation="horizontal"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/bottom_menu_height">
+            <Button
+                android:id="@+id/btn_delete"
+                android:textColor="@color/schedule_add_button_text_color_01"
+                android:textSize="18sp"
+                android:text="삭제"
+                android:fontFamily="@font/noto_sans_kr_regular"
+                android:letterSpacing="-0.03"
+                android:background="@color/schedule_add_button_bg_color_01"
+                android:layout_weight="1"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"/>
+            <Button
+                android:id="@+id/btn_modify"
+                android:textColor="@color/white"
+                android:textSize="18sp"
+                android:text="수정"
+                android:fontFamily="@font/noto_sans_kr_regular"
+                android:letterSpacing="-0.03"
+                android:background="@color/schedule_add_button_bg_color_02"
+                android:layout_weight="1"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"/>
+
+
+        </LinearLayout>
+    </androidx.constraintlayout.widget.ConstraintLayout>
 </layout>

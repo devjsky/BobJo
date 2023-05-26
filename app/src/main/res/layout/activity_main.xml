@@ -32,7 +32,7 @@
             android:layout_height="@dimen/top_menu_height">
             <TextView
                 android:letterSpacing="-0.03"
-                android:fontFamily="@font/noto_sans_kr_bold"
+                android:fontFamily="@font/noto_sans_kr_regular"
                 android:id="@+id/tv_top_menu_title"
                 android:gravity="center"
                 android:textSize="18sp"
@@ -146,7 +146,7 @@
                 android:gravity="center"
                 android:textSize="18sp"
                 android:textColor="@color/dialog_button_text_color_01"
-                android:fontFamily="@font/noto_sans_kr_bold"
+                android:fontFamily="@font/noto_sans_kr_regular"
                 android:background="@color/dialog_submenu_button_bg_color_01"
                 android:layout_weight="1"
                 android:text="취소"
@@ -158,7 +158,7 @@
                 android:gravity="center"
                 android:textSize="18sp"
                 android:textColor="@color/white"
-                android:fontFamily="@font/noto_sans_kr_bold"
+                android:fontFamily="@font/noto_sans_kr_regular"
                 android:background="@color/main_color"
                 android:layout_weight="1"
                 android:text="추가"

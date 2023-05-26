@@ -1,11 +1,13 @@
 package kr.co.devjsky.android.bobjo.ui.schedule.activity
 
+import android.annotation.SuppressLint
 import android.app.DatePickerDialog
 import android.app.TimePickerDialog
 import android.content.res.ColorStateList
 import android.icu.util.Calendar
 import android.os.Build
 import android.os.Bundle
+import android.view.LayoutInflater
 import android.widget.ImageView
 import android.widget.LinearLayout
 import android.widget.TextView
@@ -21,26 +23,21 @@ import kr.co.devjsky.android.bobjo.data.schedule.CalendarGroup.Companion.DAYOFF
 import kr.co.devjsky.android.bobjo.data.schedule.CalendarGroup.Companion.MEMO
 import kr.co.devjsky.android.bobjo.data.schedule.ScheduleState.Companion.FRIENDS
 import kr.co.devjsky.android.bobjo.data.schedule.ScheduleState.Companion.ME
-import kr.co.devjsky.android.bobjo.databinding.ActivityScheduleAddBinding
+import kr.co.devjsky.android.bobjo.databinding.ActivityScheduleAddMultiBinding
 import kr.co.devjsky.android.bobjo.ui.base.BaseActivity
 import kr.co.devjsky.android.bobjo.ui.base.PopUpDialog
 import kr.co.devjsky.android.bobjo.ui.schedule.viewmodel.ScheduleViewModel
 import kr.co.devjsky.android.bobjo.utils.DateUtils
-import java.text.SimpleDateFormat
-import java.time.OffsetDateTime
-import java.util.Date
+import kr.co.devjsky.android.bobjo.utils.SortUtils
 
-class ScheduleAddActivity() : BaseActivity<ActivityScheduleAddBinding, ScheduleViewModel>() {
+class ScheduleAddMultiActivity() : BaseActivity<ActivityScheduleAddMultiBinding, ScheduleViewModel>() {
     override val viewModel: ScheduleViewModel by viewModel()
     override fun getLayoutId(): Int {
-        return R.layout.activity_schedule_add
+        return R.layout.activity_schedule_add_multi
     }
     var scheduleInfo: IFSchedule.ScheduleInfo? = null
     val radioCheckedDrawable = R.drawable.bg_schedule_add_state_02
     val radioUnCheckedDrawable = R.drawable.bg_schedule_add_state_01
-    val radioCheckedTextColor = R.color.white
-    val radioUnCheckedTextColor = R.color.black
-    val calendar = Calendar.getInstance()
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -53,20 +50,15 @@ class ScheduleAddActivity() : BaseActivity<ActivityScheduleAddBinding, ScheduleV
 
     }
     fun setDefaultUI(){
-        val sdf = SimpleDateFormat("yyyy-MM-dd")
-        val date = sdf.parse(scheduleInfo?.startDate)
-        val scheduleDate = sdf.format(date)
-        calendar.time = date
-        binding.tvStartDate.text = SimpleDateFormat("M월 d일 (E)").format(date).toString()
-        binding.tvEndDate.text = SimpleDateFormat("M월 d일 (E)").format(date).toString()
-        viewModel.startDateLiveData.value = scheduleDate
-        viewModel.endDateLiveData.value = scheduleDate
-        binding.tvStartDateTime.text = DateUtils.getTimeString("2014-09-18 08:00:00", "a HH:mm")
-        binding.tvEndDateTime.text = DateUtils.getTimeString("2014-09-18 09:00:00", "a HH:mm")
-        viewModel.startTimeLiveData.value = "08:00:00"
-        viewModel.endTimeLiveData.value = "09:00:00"
 
-        setTopMenu(true, DateUtils.getDateString(scheduleInfo?.startDate.toString(), "yyyy-MM-dd (E)"))
+        setTopMenu(true, "일정 한 번에 추가하기")
+        val selectedDateList = SortUtils.sortStringDateList(dataRepo.calendar_add_schedule_multi_check_list!!)
+        for (selectedDate in selectedDateList){
+            val itemView = LayoutInflater.from(context).inflate(R.layout.view_schedule_selected_date, null)
+            val dateTextView = itemView.findViewById<TextView>(R.id.tv_selected_date)
+            dateTextView.text = selectedDate
+            binding.layoutSelectedDate.addView(itemView)
+        }
     }
 
     override fun setTopMenu(visibleState: Boolean, title: String) {
@@ -90,74 +82,11 @@ class ScheduleAddActivity() : BaseActivity<ActivityScheduleAddBinding, ScheduleV
         binding.btnCancel.setOnClickListener {
             finish()
         }
-        binding.tvStartDate.setOnClickListener {
-            val datePickerDialog = DatePickerDialog(
-                this,R.style.SpinnerDatePickerDialogStyle,
-                { datePicker, _year, _month, _day ->
-                    val tempMonth:String = if((_month + 1)/10 == 0){
-                        ("0"+(_month + 1))
-                    } else {
-                        (_month + 1).toString()
-                    }
-                    val dateTime = "$_year-$tempMonth-$_day"
-                    binding.tvStartDate.text = DateUtils.getDateString("$dateTime 00:00:00", "M월 d일 (E)")
-
-                    viewModel.startDateLiveData.value = dateTime
-                }, calendar.get(Calendar.YEAR), calendar.get(Calendar.MONTH), calendar.get(Calendar.DAY_OF_MONTH)
-            )
-            datePickerDialog.setButton(DatePickerDialog.BUTTON_POSITIVE, "선택", datePickerDialog)
-            datePickerDialog.setButton(DatePickerDialog.BUTTON_NEGATIVE, "닫기", datePickerDialog)
-            datePickerDialog.show()
-        }
-        binding.tvEndDate.setOnClickListener {
-            val datePickerDialog = DatePickerDialog(
-                this,R.style.SpinnerDatePickerDialogStyle,
-                { datePicker, _year, _month, _day ->
-                    val tempMonth:String = if((_month + 1)/10 == 0){
-                        ("0"+(_month + 1))
-                    } else {
-                        (_month + 1).toString()
-                    }
-                    val dateTime = "$_year-$tempMonth-$_day"
-                    binding.tvEndDate.text = DateUtils.getDateString("$dateTime 00:00:00", "M월 d일 (E)")
-                    viewModel.endDateLiveData.value = dateTime
-                }, calendar.get(Calendar.YEAR), calendar.get(Calendar.MONTH), calendar.get(Calendar.DAY_OF_MONTH)
-            )
-            datePickerDialog.setButton(DatePickerDialog.BUTTON_POSITIVE, "선택", datePickerDialog)
-            datePickerDialog.setButton(DatePickerDialog.BUTTON_NEGATIVE, "닫기", datePickerDialog)
-            datePickerDialog.show()
 
 
 
-        }
-        binding.tvStartDateTime.setOnClickListener {
-            val timePickerDialog = TimePickerDialog(
-                this,R.style.SpinnerTimePickerDialogStyle, {timePicker, _hourOfDay, _minute ->
-                    val dateTime = "$_hourOfDay:$_minute:00"
-                    binding.tvStartDateTime.text = DateUtils.getTimeString("2014-09-18 $dateTime", "a HH:mm")
-                    viewModel.startTimeLiveData.value = dateTime
-                },8,0, true)
-
-
-            timePickerDialog.setButton(DatePickerDialog.BUTTON_POSITIVE, "선택", timePickerDialog)
-            timePickerDialog.setButton(DatePickerDialog.BUTTON_NEGATIVE, "닫기", timePickerDialog)
-            timePickerDialog.show()
-        }
-        binding.tvEndDateTime.setOnClickListener {
-            val timePickerDialog = TimePickerDialog(
-                this,R.style.SpinnerTimePickerDialogStyle, {timePicker, _hourOfDay, _minute ->
-                    val dateTime = "$_hourOfDay:$_minute:00"
-                    binding.tvEndDateTime.text = DateUtils.getTimeString("2014-09-18 $dateTime", "a HH:mm")
-                    viewModel.endTimeLiveData.value = dateTime
-                },8,0, true)
-
-
-            timePickerDialog.setButton(DatePickerDialog.BUTTON_POSITIVE, "선택", timePickerDialog)
-            timePickerDialog.setButton(DatePickerDialog.BUTTON_NEGATIVE, "닫기", timePickerDialog)
-            timePickerDialog.show()
-        }
         binding.btnAddSchedule.setOnClickListener {
-            viewModel.addSchedule()
+            viewModel.addScheduleMulti()
         }
     }
 
@@ -174,9 +103,7 @@ class ScheduleAddActivity() : BaseActivity<ActivityScheduleAddBinding, ScheduleV
                 checkValidDialog.show(supportFragmentManager, "checkValidDialog")
             }
         })
-        viewModel.allDayCheckLiveData.observe(this, Observer {
-            binding.layoutTimeSelect.isVisible = !it
-        })
+
         viewModel.categoryGroupLiveData.observe(this, Observer {
             if(it != ""){
                 runOnUiThread {

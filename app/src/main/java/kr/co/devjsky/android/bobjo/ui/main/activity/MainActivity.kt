@@ -30,6 +30,7 @@ import kr.co.devjsky.android.bobjo.ui.main.fragment.MainMyPageFragment
 import kr.co.devjsky.android.bobjo.ui.main.fragment.MainScheduleFragment
 import kr.co.devjsky.android.bobjo.ui.main.viewmodel.MainViewModel
 import kr.co.devjsky.android.bobjo.ui.schedule.activity.ScheduleAddActivity
+import kr.co.devjsky.android.bobjo.ui.schedule.activity.ScheduleAddMultiActivity
 import kr.co.devjsky.android.bobjo.ui.schedule.activity.ScheduleInfoActivity
 import kr.co.devjsky.android.bobjo.ui.schedule.dialog.ScheduleSubMenuDialog
 import org.koin.androidx.viewmodel.ext.android.viewModel
@@ -113,14 +114,17 @@ class MainActivity : BaseActivity<ActivityMainBinding, MainViewModel>() {
             binding.layoutSubMenuBottomMenu.visibility = View.GONE
             if(nowFragment != null){
                 if(nowFragment?.tag == FRAGMENT_MAIN_SCHEDULE){
-
-                    if(dataRepo.calendar_add_schedule_multi_check_list != null && dataRepo.calendar_add_schedule_multi_check_list!!.size>0){
-                        val sb = StringBuilder()
-                        sb.append(dataRepo.calendar_add_schedule_multi_check_list!![0])
-                        for (i in 1 until dataRepo.calendar_add_schedule_multi_check_list!!.size){
-                            sb.append(",${dataRepo.calendar_add_schedule_multi_check_list!![i]}")
-                        }
-                        val dates = sb.toString()
+                    if(dataRepo.schedule_sub_menu_selected_num == 0){
+                        if(dataRepo.calendar_add_schedule_multi_check_list != null && dataRepo.calendar_add_schedule_multi_check_list!!.size>0){
+                            (nowFragment as MainScheduleFragment).viewModel.multiCheckLiveData.value = false
+                            val intent = Intent(this, ScheduleAddMultiActivity::class.java)
+                            startActivity(intent)
+//                            val sb = StringBuilder()
+//                            sb.append(dataRepo.calendar_add_schedule_multi_check_list!![0])
+//                            for (i in 1 until dataRepo.calendar_add_schedule_multi_check_list!!.size){
+//                                sb.append(",${dataRepo.calendar_add_schedule_multi_check_list!![i]}")
+//                            }
+//                            val dates = sb.toString()
 //                        (nowFragment as MainScheduleFragment).viewModel.addScheduleMulti(
 //                            "addScheduleMulti"
 //                            ,dates
@@ -133,13 +137,13 @@ class MainActivity : BaseActivity<ActivityMainBinding, MainViewModel>() {
 //                            ,"N"
 //                            ,"Y"
 //                            ,0)
+                        }
+
+
+
+
                     }
 
-
-
-                    (nowFragment as MainScheduleFragment).viewModel.multiCheckLiveData.value = false
-                    dataRepo.calendar_add_schedule_multi_check_list = null
-                    dataRepo.calendar_add_schedule_multi_check_list = ArrayList()
 
                 }
             }
@@ -178,9 +182,11 @@ class MainActivity : BaseActivity<ActivityMainBinding, MainViewModel>() {
                             binding.layoutSubMenuBottomMenu.visibility = View.VISIBLE
                             dataRepo.calendar_add_schedule_multi_check_list = null
                             dataRepo.calendar_add_schedule_multi_check_list = ArrayList()
+                            dataRepo.schedule_sub_menu_selected_num = 0
 
                         }
                     })
+                    dataRepo.schedule_sub_menu_selected_num = -1
                     fragmentMainScheduleSubMenuDialog.show(supportFragmentManager, "ScheduleSubMenuDialog")
 
 

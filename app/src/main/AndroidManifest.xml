@@ -36,6 +36,12 @@
             android:screenOrientation="portrait"
             android:windowSoftInputMode="adjustNothing"/>
         <activity
+            android:name=".ui.schedule.activity.ScheduleAddMultiActivity"
+            android:exported="false"
+            android:configChanges="keyboardHidden|orientation|screenSize"
+            android:screenOrientation="portrait"
+            android:windowSoftInputMode="adjustNothing"/>
+        <activity
             android:name=".ui.schedule.activity.ScheduleAddActivity"
             android:exported="false"
             android:configChanges="keyboardHidden|orientation|screenSize"

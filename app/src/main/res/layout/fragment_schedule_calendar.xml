@@ -20,7 +20,7 @@
             android:textColor="@color/black"
             android:gravity="center"
             android:letterSpacing="-0.03"
-            android:fontFamily="@font/noto_sans_kr_bold"
+            android:fontFamily="@font/noto_sans_kr_regular"
             app:layout_constraintTop_toTopOf="parent"
             android:id="@+id/tv_millis"
             android:layout_width="wrap_content"
@@ -54,7 +54,7 @@
                         android:textColor="@color/calendar_sunday_color_01"
                         android:layout_gravity="center|top"
                         android:textSize="13sp"
-                        android:fontFamily="@font/noto_sans_kr_medium"
+                        android:fontFamily="@font/noto_sans_kr_regular"
                         android:text="일"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"/>
@@ -71,7 +71,7 @@
                         android:textColor="@color/black"
                         android:layout_gravity="center|top"
                         android:textSize="13sp"
-                        android:fontFamily="@font/noto_sans_kr_medium"
+                        android:fontFamily="@font/noto_sans_kr_regular"
                         android:text="월"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"/>
@@ -88,7 +88,7 @@
                         android:textColor="@color/black"
                         android:layout_gravity="center|top"
                         android:textSize="13sp"
-                        android:fontFamily="@font/noto_sans_kr_medium"
+                        android:fontFamily="@font/noto_sans_kr_regular"
                         android:text="화"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"/>
@@ -105,7 +105,7 @@
                         android:textColor="@color/black"
                         android:layout_gravity="center|top"
                         android:textSize="13sp"
-                        android:fontFamily="@font/noto_sans_kr_medium"
+                        android:fontFamily="@font/noto_sans_kr_regular"
                         android:text="수"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"/>
@@ -122,7 +122,7 @@
                         android:textColor="@color/black"
                         android:layout_gravity="center|top"
                         android:textSize="13sp"
-                        android:fontFamily="@font/noto_sans_kr_medium"
+                        android:fontFamily="@font/noto_sans_kr_regular"
                         android:text="목"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"/>
@@ -139,7 +139,7 @@
                         android:textColor="@color/black"
                         android:layout_gravity="center|top"
                         android:textSize="13sp"
-                        android:fontFamily="@font/noto_sans_kr_medium"
+                        android:fontFamily="@font/noto_sans_kr_regular"
                         android:text="금"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"/>
@@ -156,7 +156,7 @@
                         android:textColor="@color/calendar_saturday_color_01"
                         android:layout_gravity="center|top"
                         android:textSize="13sp"
-                        android:fontFamily="@font/noto_sans_kr_medium"
+                        android:fontFamily="@font/noto_sans_kr_regular"
                         android:text="토"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"/>
@@ -192,7 +192,7 @@
                        android:layout_width="wrap_content"
                        android:layout_height="wrap_content"
                        android:layout_gravity="center|top"
-                       android:fontFamily="@font/noto_sans_kr_medium"
+                       android:fontFamily="@font/noto_sans_kr_regular"
                        android:textColor="@color/calendar_sunday_color_01"
                        android:textSize="13sp" />
 
@@ -243,7 +243,7 @@
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:layout_gravity="center|top"
-                            android:fontFamily="@font/noto_sans_kr_medium"
+                            android:fontFamily="@font/noto_sans_kr_regular"
                             android:textColor="@color/black"
                             android:textSize="13sp" />
 
@@ -294,7 +294,7 @@
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:layout_gravity="center|top"
-                            android:fontFamily="@font/noto_sans_kr_medium"
+                            android:fontFamily="@font/noto_sans_kr_regular"
                             android:textColor="@color/black"
                             android:textSize="13sp" />
 
@@ -345,7 +345,7 @@
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:layout_gravity="center|top"
-                            android:fontFamily="@font/noto_sans_kr_medium"
+                            android:fontFamily="@font/noto_sans_kr_regular"
                             android:textColor="@color/black"
                             android:textSize="13sp" />
 
@@ -396,7 +396,7 @@
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:layout_gravity="center|top"
-                            android:fontFamily="@font/noto_sans_kr_medium"
+                            android:fontFamily="@font/noto_sans_kr_regular"
                             android:textColor="@color/black"
                             android:textSize="13sp" />
 
@@ -447,7 +447,7 @@
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:layout_gravity="center|top"
-                            android:fontFamily="@font/noto_sans_kr_medium"
+                            android:fontFamily="@font/noto_sans_kr_regular"
                             android:textColor="@color/black"
                             android:textSize="13sp" />
 
@@ -498,7 +498,7 @@
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:layout_gravity="center|top"
-                            android:fontFamily="@font/noto_sans_kr_medium"
+                            android:fontFamily="@font/noto_sans_kr_regular"
                             android:textColor="@color/calendar_saturday_color_01"
                             android:textSize="13sp" />
 
@@ -564,7 +564,7 @@
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:layout_gravity="center|top"
-                            android:fontFamily="@font/noto_sans_kr_medium"
+                            android:fontFamily="@font/noto_sans_kr_regular"
                             android:textColor="@color/calendar_sunday_color_01"
                             android:textSize="13sp" />
 
@@ -615,7 +615,7 @@
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:layout_gravity="center|top"
-                            android:fontFamily="@font/noto_sans_kr_medium"
+                            android:fontFamily="@font/noto_sans_kr_regular"
                             android:textColor="@color/black"
                             android:textSize="13sp" />
 
@@ -666,7 +666,7 @@
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:layout_gravity="center|top"
-                            android:fontFamily="@font/noto_sans_kr_medium"
+                            android:fontFamily="@font/noto_sans_kr_regular"
                             android:textColor="@color/black"
                             android:textSize="13sp" />
 
@@ -717,7 +717,7 @@
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:layout_gravity="center|top"
-                            android:fontFamily="@font/noto_sans_kr_medium"
+                            android:fontFamily="@font/noto_sans_kr_regular"
                             android:textColor="@color/black"
                             android:textSize="13sp" />
 
@@ -768,7 +768,7 @@
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:layout_gravity="center|top"
-                            android:fontFamily="@font/noto_sans_kr_medium"
+                            android:fontFamily="@font/noto_sans_kr_regular"
                             android:textColor="@color/black"
                             android:textSize="13sp" />
 
@@ -819,7 +819,7 @@
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:layout_gravity="center|top"
-                            android:fontFamily="@font/noto_sans_kr_medium"
+                            android:fontFamily="@font/noto_sans_kr_regular"
                             android:textColor="@color/black"
                             android:textSize="13sp" />
 
@@ -870,7 +870,7 @@
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:layout_gravity="center|top"
-                            android:fontFamily="@font/noto_sans_kr_medium"
+                            android:fontFamily="@font/noto_sans_kr_regular"
                             android:textColor="@color/calendar_saturday_color_01"
                             android:textSize="13sp" />
 
@@ -936,7 +936,7 @@
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:layout_gravity="center|top"
-                            android:fontFamily="@font/noto_sans_kr_medium"
+                            android:fontFamily="@font/noto_sans_kr_regular"
                             android:textColor="@color/calendar_sunday_color_01"
                             android:textSize="13sp" />
 
@@ -987,7 +987,7 @@
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:layout_gravity="center|top"
-                            android:fontFamily="@font/noto_sans_kr_medium"
+                            android:fontFamily="@font/noto_sans_kr_regular"
                             android:textColor="@color/black"
                             android:textSize="13sp" />
 
@@ -1038,7 +1038,7 @@
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:layout_gravity="center|top"
-                            android:fontFamily="@font/noto_sans_kr_medium"
+                            android:fontFamily="@font/noto_sans_kr_regular"
                             android:textColor="@color/black"
                             android:textSize="13sp" />
 
@@ -1089,7 +1089,7 @@
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:layout_gravity="center|top"
-                            android:fontFamily="@font/noto_sans_kr_medium"
+                            android:fontFamily="@font/noto_sans_kr_regular"
                             android:textColor="@color/black"
                             android:textSize="13sp" />
 
@@ -1140,7 +1140,7 @@
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:layout_gravity="center|top"
-                            android:fontFamily="@font/noto_sans_kr_medium"
+                            android:fontFamily="@font/noto_sans_kr_regular"
                             android:textColor="@color/black"
                             android:textSize="13sp" />
 
@@ -1191,7 +1191,7 @@
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:layout_gravity="center|top"
-                            android:fontFamily="@font/noto_sans_kr_medium"
+                            android:fontFamily="@font/noto_sans_kr_regular"
                             android:textColor="@color/black"
                             android:textSize="13sp" />
 
@@ -1242,7 +1242,7 @@
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:layout_gravity="center|top"
-                            android:fontFamily="@font/noto_sans_kr_medium"
+                            android:fontFamily="@font/noto_sans_kr_regular"
                             android:textColor="@color/calendar_saturday_color_01"
                             android:textSize="13sp" />
 
@@ -1308,7 +1308,7 @@
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:layout_gravity="center|top"
-                            android:fontFamily="@font/noto_sans_kr_medium"
+                            android:fontFamily="@font/noto_sans_kr_regular"
                             android:textColor="@color/calendar_sunday_color_01"
                             android:textSize="13sp" />
 
@@ -1359,7 +1359,7 @@
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:layout_gravity="center|top"
-                            android:fontFamily="@font/noto_sans_kr_medium"
+                            android:fontFamily="@font/noto_sans_kr_regular"
                             android:textColor="@color/black"
                             android:textSize="13sp" />
 
@@ -1410,7 +1410,7 @@
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:layout_gravity="center|top"
-                            android:fontFamily="@font/noto_sans_kr_medium"
+                            android:fontFamily="@font/noto_sans_kr_regular"
                             android:textColor="@color/black"
                             android:textSize="13sp" />
 
@@ -1461,7 +1461,7 @@
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:layout_gravity="center|top"
-                            android:fontFamily="@font/noto_sans_kr_medium"
+                            android:fontFamily="@font/noto_sans_kr_regular"
                             android:textColor="@color/black"
                             android:textSize="13sp" />
 
@@ -1512,7 +1512,7 @@
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:layout_gravity="center|top"
-                            android:fontFamily="@font/noto_sans_kr_medium"
+                            android:fontFamily="@font/noto_sans_kr_regular"
                             android:textColor="@color/black"
                             android:textSize="13sp" />
 
@@ -1563,7 +1563,7 @@
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:layout_gravity="center|top"
-                            android:fontFamily="@font/noto_sans_kr_medium"
+                            android:fontFamily="@font/noto_sans_kr_regular"
                             android:textColor="@color/black"
                             android:textSize="13sp" />
 
@@ -1614,7 +1614,7 @@
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:layout_gravity="center|top"
-                            android:fontFamily="@font/noto_sans_kr_medium"
+                            android:fontFamily="@font/noto_sans_kr_regular"
                             android:textColor="@color/calendar_saturday_color_01"
                             android:textSize="13sp" />
 
@@ -1680,7 +1680,7 @@
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:layout_gravity="center|top"
-                            android:fontFamily="@font/noto_sans_kr_medium"
+                            android:fontFamily="@font/noto_sans_kr_regular"
                             android:textColor="@color/calendar_sunday_color_01"
                             android:textSize="13sp" />
 
@@ -1731,7 +1731,7 @@
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:layout_gravity="center|top"
-                            android:fontFamily="@font/noto_sans_kr_medium"
+                            android:fontFamily="@font/noto_sans_kr_regular"
                             android:textColor="@color/black"
                             android:textSize="13sp" />
 
@@ -1782,7 +1782,7 @@
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:layout_gravity="center|top"
-                            android:fontFamily="@font/noto_sans_kr_medium"
+                            android:fontFamily="@font/noto_sans_kr_regular"
                             android:textColor="@color/black"
                             android:textSize="13sp" />
 
@@ -1833,7 +1833,7 @@
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:layout_gravity="center|top"
-                            android:fontFamily="@font/noto_sans_kr_medium"
+                            android:fontFamily="@font/noto_sans_kr_regular"
                             android:textColor="@color/black"
                             android:textSize="13sp" />
 
@@ -1884,7 +1884,7 @@
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:layout_gravity="center|top"
-                            android:fontFamily="@font/noto_sans_kr_medium"
+                            android:fontFamily="@font/noto_sans_kr_regular"
                             android:textColor="@color/black"
                             android:textSize="13sp" />
 
@@ -1935,7 +1935,7 @@
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:layout_gravity="center|top"
-                            android:fontFamily="@font/noto_sans_kr_medium"
+                            android:fontFamily="@font/noto_sans_kr_regular"
                             android:textColor="@color/black"
                             android:textSize="13sp" />
 
@@ -1986,7 +1986,7 @@
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:layout_gravity="center|top"
-                            android:fontFamily="@font/noto_sans_kr_medium"
+                            android:fontFamily="@font/noto_sans_kr_regular"
                             android:textColor="@color/calendar_saturday_color_01"
                             android:textSize="13sp" />
 
@@ -2052,7 +2052,7 @@
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:layout_gravity="center|top"
-                            android:fontFamily="@font/noto_sans_kr_medium"
+                            android:fontFamily="@font/noto_sans_kr_regular"
                             android:textColor="@color/calendar_sunday_color_01"
                             android:textSize="13sp" />
 
@@ -2103,7 +2103,7 @@
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:layout_gravity="center|top"
-                            android:fontFamily="@font/noto_sans_kr_medium"
+                            android:fontFamily="@font/noto_sans_kr_regular"
                             android:textColor="@color/black"
                             android:textSize="13sp" />
 
@@ -2154,7 +2154,7 @@
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:layout_gravity="center|top"
-                            android:fontFamily="@font/noto_sans_kr_medium"
+                            android:fontFamily="@font/noto_sans_kr_regular"
                             android:textColor="@color/black"
                             android:textSize="13sp" />
 
@@ -2205,7 +2205,7 @@
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:layout_gravity="center|top"
-                            android:fontFamily="@font/noto_sans_kr_medium"
+                            android:fontFamily="@font/noto_sans_kr_regular"
                             android:textColor="@color/black"
                             android:textSize="13sp" />
 
@@ -2256,7 +2256,7 @@
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:layout_gravity="center|top"
-                            android:fontFamily="@font/noto_sans_kr_medium"
+                            android:fontFamily="@font/noto_sans_kr_regular"
                             android:textColor="@color/black"
                             android:textSize="13sp" />
 
@@ -2307,7 +2307,7 @@
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:layout_gravity="center|top"
-                            android:fontFamily="@font/noto_sans_kr_medium"
+                            android:fontFamily="@font/noto_sans_kr_regular"
                             android:textColor="@color/black"
                             android:textSize="13sp" />
 
@@ -2358,7 +2358,7 @@
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:layout_gravity="center|top"
-                            android:fontFamily="@font/noto_sans_kr_medium"
+                            android:fontFamily="@font/noto_sans_kr_regular"
                             android:textColor="@color/calendar_saturday_color_01"
                             android:textSize="13sp" />
 

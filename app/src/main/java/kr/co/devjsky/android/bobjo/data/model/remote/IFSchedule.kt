@@ -38,9 +38,7 @@ data class IFSchedule (
         )
 
 
-
-
-    }
+}
 
 
 

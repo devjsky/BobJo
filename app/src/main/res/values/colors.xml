@@ -13,6 +13,8 @@
     <color name="black_trans_10">#1A000000</color>
     <color name="white_trans_50">#80FFFFFF</color>
 
+    <color name="page_layout_group_subject_color_01">#888888</color>
+
     <color name="bottom_menu_selected_color">#000000</color>
     <color name="bottom_menu_unselected_color">#DDDDDD</color>
     <color name="bottom_menu_profile_line_color_01">#aaaaaa</color>
@@ -32,19 +34,28 @@
     <color name="calendar_saturday_color_01">#88C8EF</color>
     <color name="calendar_event_color_01">#D4DFFF</color>
     <color name="calendar_event_color_02">#FFBF00</color>
-    <color name="calendar_event_color_03">#9C27B0</color>
+    <color name="calendar_event_color_03">#AF86CD</color>
     <color name="calendar_event_color_04">#00D4BB</color>
     <color name="calendar_event_color_05">#00FF0A</color>
     <color name="calendar_event_color_06">#FFEB3B</color>
     <color name="calendar_event_color_07">#A0FFE9</color>
     <color name="calendar_event_color_08">#F44336</color>
     <color name="calendar_event_color_09">#FFC1C1</color>
-    <color name="calendar_event_color_10">#FFB3FB</color>
+    <color name="calendar_event_color_10">#E4A0D9</color>
 
     <color name="dialog_content_color_01">#8a8b8f</color>
     <color name="dialog_button_text_color_01">#bcbed1</color>
     <color name="dialog_submenu_button_bg_color_01">#eeeef3</color>
     <color name="dialog_submenu_button_bg_color_02">#2d44f7</color>
+
+    <color name="schedule_add_button_bg_color_01">#eeeef3</color>
+    <color name="schedule_add_button_bg_color_02">#2d44f7</color>
+    <color name="schedule_add_button_text_color_01">#bcbed1</color>
+
+    <color name="schedule_list_shadow_color_01">#eeeef3</color>
+    <color name="schedule_list_title_color_01">#000000</color>
+    <color name="schedule_list_date_color_01">#838383</color>
+    <color name="schedule_list_button_bg_color_01">#2d44f7</color>
     <!-- METERIAL DESIGN COLORS -->
     <!-- RED -->
     <color name="red_50">#fde0dc</color>

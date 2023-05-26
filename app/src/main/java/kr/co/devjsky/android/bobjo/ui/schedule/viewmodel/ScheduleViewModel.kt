@@ -17,30 +17,52 @@ class ScheduleViewModel(private val apiRepo: ApiRepo, private val userRepo:UserR
     var testLiveData = MutableLiveData<String?>()
     var multiCheckLiveData = MutableLiveData<Boolean>()
     var scheduleLiveData = MutableLiveData<IFSchedule?>()
-    var multiCheckAddFinLiveData = MutableLiveData<Boolean>()
+    //var multiCheckAddFinLiveData = MutableLiveData<Boolean>()
     var pageClearLiveData = MutableLiveData<Boolean>()
-    var alldayCheckLiveData = MutableLiveData<Boolean>()
+    var allDayCheckLiveData = MutableLiveData<Boolean>()
 
-
+    var scheduleAddFinLiveData = MutableLiveData<Boolean>()
+    var scheduleModifyFinLiveData = MutableLiveData<Boolean>()
     var categoryGroupLiveData = MutableLiveData<String>()
     var tagColorLiveData = MutableLiveData<Int>()
+    var stateLiveData = MutableLiveData<String>()
+
+    var startDateLiveData = MutableLiveData<String>()
+    var endDateLiveData = MutableLiveData<String>()
+    var startTimeLiveData = MutableLiveData<String>()
+    var endTimeLiveData = MutableLiveData<String>()
+    var titleLiveData = MutableLiveData<String>()
+    var contentLiveData = MutableLiveData<String>()
+    var allDayLiveData = MutableLiveData<String>()
+
+    var checkValidAlertLiveData = MutableLiveData<String>()
     init {
         pageClearLiveData.value = false
         testLiveData.value = ""
         multiCheckLiveData.value = false
-        multiCheckAddFinLiveData.value = false
-        alldayCheckLiveData.value = false
+      //  multiCheckAddFinLiveData.value = false
+        allDayCheckLiveData.value = false
         categoryGroupLiveData.value = "MEMO"
         tagColorLiveData.value = 0
+        stateLiveData.value = "ME"
+        startDateLiveData.value = ""
+        endDateLiveData.value = ""
+        startTimeLiveData.value = ""
+        endTimeLiveData.value = ""
+        titleLiveData.value = ""
+        contentLiveData.value = ""
+        allDayLiveData.value = "N"
+        checkValidAlertLiveData.value = ""
+        scheduleAddFinLiveData.value = false
+        scheduleModifyFinLiveData.value = false
     }
 
 
 
-    fun getSchedule(action: String,
+    fun getMonthSchedule(action: String,
                     year: String,
-                    month: String,
-                    share_user_idx: String){
-        apiRepo.getSchedule(action, year, month, share_user_idx, object : ApiCallback {
+                    month: String){
+        apiRepo.getMonthSchedule(action, year, month, object : ApiCallback {
             override fun <T> result(isSuccess: Boolean, code: Int, msg: String, data: T?) {
                 if(isSuccess){
 
@@ -54,7 +76,7 @@ class ScheduleViewModel(private val apiRepo: ApiRepo, private val userRepo:UserR
 
 
                 }else{
-                    Constants.LOG_E(TAG, "$TAG getSchedule :: not Success")
+                    Constants.LOG_E(TAG, "$TAG getMonthSchedule :: not Success")
                     scheduleLiveData.value = null
                 }
 
@@ -63,25 +85,128 @@ class ScheduleViewModel(private val apiRepo: ApiRepo, private val userRepo:UserR
         })
     }
 
-    fun addScheduleMulti(action: String,
-                         dates: String,
-                         category_group: String,
-                         title: String,
-                         content: String,
-                         state: String,
-                         check_state: String,
-                         top: String,
-                         bigday: String,
-                         allday: String,
-                         tag_color: Int){
-        apiRepo.addScheduleMulti(action, dates, category_group, title, content, state, check_state, top, bigday, allday, tag_color, object : ApiCallback{
-            override fun <T> result(isSuccess: Boolean, code: Int, msg: String, data: T?) {
+    fun addScheduleMulti(){
+        if(checkAddScheduleMultiValid()) {
+            val category_group = categoryGroupLiveData.value!!
+            val title = titleLiveData.value!!
+            val content = contentLiveData.value!!
+            val state = stateLiveData.value!!
+            val tagColor = tagColorLiveData.value!!
 
-                multiCheckAddFinLiveData.value = isSuccess
-
-
+            val sb = StringBuilder()
+            sb.append(dataRepo.calendar_add_schedule_multi_check_list!![0])
+            for (i in 1 until dataRepo.calendar_add_schedule_multi_check_list!!.size){
+                sb.append(",${dataRepo.calendar_add_schedule_multi_check_list!![i]}")
             }
-        })
+            val dates = sb.toString()
+
+
+            apiRepo.addScheduleMulti(
+                "addScheduleMulti",
+                dates,
+                category_group,
+                title,
+                content,
+                state,
+                "N",
+                "N",
+                "N",
+                "Y",
+                tagColor,
+                object : ApiCallback {
+                    override fun <T> result(isSuccess: Boolean, code: Int, msg: String, data: T?) {
+
+                     //   multiCheckAddFinLiveData.value = isSuccess
+                        scheduleAddFinLiveData.value = isSuccess
+
+                    }
+                })
+        }
+    }
+    fun addSchedule(){
+
+        if(checkAddScheduleValid()){
+            val startDate = "${startDateLiveData.value} ${startTimeLiveData.value}"
+            var endDate = "${endDateLiveData.value} ${endTimeLiveData.value}"
+
+            val category_group = categoryGroupLiveData.value!!
+            val title = titleLiveData.value!!
+            val content = contentLiveData.value!!
+            val state = stateLiveData.value!!
+            val allDay = allDayLiveData.value!!
+            val tagColor = tagColorLiveData.value!!
+            if(allDay == "Y"){
+                endDate = startDate
+            }
+
+            apiRepo.addSchedule(
+                "addSchedule",
+                startDate,
+                endDate,
+                category_group,
+                title,
+                content,
+                state,
+                "N",
+                "N",
+                "N",
+                allDay,
+                tagColor,
+                object : ApiCallback{
+                    override fun <T> result(isSuccess: Boolean, code: Int, msg: String, data: T?) {
+
+                        scheduleAddFinLiveData.value = isSuccess
+
+
+                    }
+                })
+        }
+
+    }
+    fun modifySchedule(){
+
+        if(checkModifyScheduleValid()){
+            val startDate = "${startDateLiveData.value} ${startTimeLiveData.value}"
+            var endDate = "${endDateLiveData.value} ${endTimeLiveData.value}"
+
+            val category_group = categoryGroupLiveData.value!!
+            val title = titleLiveData.value!!
+            val content = contentLiveData.value!!
+            val state = stateLiveData.value!!
+            val allDay = allDayLiveData.value!!
+            val tagColor = tagColorLiveData.value!!
+            if(allDay == "Y"){
+                endDate = startDate
+            }
+            if(dataRepo.selected_schedule_info_data == null){
+                return
+            }
+            if(dataRepo.selected_schedule_info_data?.idx == null){
+                return
+            }
+            apiRepo.modifySchedule(
+                "modifySchedule",
+                startDate,
+                endDate,
+                category_group,
+                title,
+                content,
+                state,
+                "N",
+                "N",
+                "N",
+                allDay,
+                tagColor,
+                dataRepo.selected_schedule_info_data?.idx!!,
+                object : ApiCallback{
+                    override fun <T> result(isSuccess: Boolean, code: Int, msg: String, data: T?) {
+
+                        scheduleModifyFinLiveData.value = isSuccess
+
+                    }
+                })
+        }
+
     }
     fun removeSchedule(action: String,
                          schedule_idx: Int,
@@ -99,6 +224,112 @@ class ScheduleViewModel(private val apiRepo: ApiRepo, private val userRepo:UserR
 
     fun onSwitchCheckedChanged(switch: CompoundButton, checked: Boolean){
 
-        alldayCheckLiveData.value = checked
+        allDayCheckLiveData.value = checked
+        if(checked){
+            allDayLiveData.value = "Y"
+            startTimeLiveData.value = "00:00:00"
+            endDateLiveData.value = "00:00:00"
+        }else{
+            allDayLiveData.value = "N"
+            startTimeLiveData.value = ""
+            endDateLiveData.value = ""
+        }
+    }
+
+    fun checkAddScheduleValid():Boolean{
+        var result = true
+
+
+        if(titleLiveData.value == null || titleLiveData.value == ""){
+            checkValidAlertLiveData.value = "제목을 입력해 주세요."
+            result = false
+        }
+        else if(contentLiveData.value == null || contentLiveData.value == ""){
+            checkValidAlertLiveData.value = "내용을 입력해 주세요."
+            result = false
+        }
+        else if(startDateLiveData.value == null || startDateLiveData.value == ""){
+            checkValidAlertLiveData.value = "시작 날짜를 입력해 주세요."
+            result = false
+        }
+        else if(startTimeLiveData.value == null || startTimeLiveData.value == ""){
+            if(allDayLiveData.value != null && allDayLiveData.value == "N"){
+                checkValidAlertLiveData.value = "시작 시간을 입력해 주세요."
+                result = false
+            }
+
+        }
+        else if(endDateLiveData.value == null || endDateLiveData.value == ""){
+            checkValidAlertLiveData.value = "종료 날짜를 입력해 주세요."
+            result = false
+        }
+        else if(endTimeLiveData.value == null || endTimeLiveData.value == ""){
+            if(allDayLiveData.value != null && allDayLiveData.value == "N"){
+                checkValidAlertLiveData.value = "종료 시간을 입력해 주세요."
+                result = false
+            }
+
+        }
+
+
+        return result
+
+    }
+    fun checkAddScheduleMultiValid():Boolean{
+        var result = true
+
+
+        if(titleLiveData.value == null || titleLiveData.value == ""){
+            checkValidAlertLiveData.value = "제목을 입력해 주세요."
+            result = false
+        }
+        else if(contentLiveData.value == null || contentLiveData.value == ""){
+            checkValidAlertLiveData.value = "내용을 입력해 주세요."
+            result = false
+        }
+
+
+
+        return result
+
+    }
+    fun checkModifyScheduleValid():Boolean{
+        var result = true
+
+
+        if(titleLiveData.value == null || titleLiveData.value == ""){
+            checkValidAlertLiveData.value = "제목을 입력해 주세요."
+            result = false
+        }
+        else if(contentLiveData.value == null || contentLiveData.value == ""){
+            checkValidAlertLiveData.value = "내용을 입력해 주세요."
+            result = false
+        }
+        else if(startDateLiveData.value == null || startDateLiveData.value == ""){
+            checkValidAlertLiveData.value = "시작 날짜를 입력해 주세요."
+            result = false
+        }
+        else if(startTimeLiveData.value == null || startTimeLiveData.value == ""){
+            if(allDayLiveData.value != null && allDayLiveData.value == "N"){
+                checkValidAlertLiveData.value = "시작 시간을 입력해 주세요."
+                result = false
+            }
+
+        }
+        else if(endDateLiveData.value == null || endDateLiveData.value == ""){
+            checkValidAlertLiveData.value = "종료 날짜를 입력해 주세요."
+            result = false
+        }
+        else if(endTimeLiveData.value == null || endTimeLiveData.value == ""){
+            if(allDayLiveData.value != null && allDayLiveData.value == "N"){
+                checkValidAlertLiveData.value = "종료 시간을 입력해 주세요."
+                result = false
+            }
+
+        }
+
+
+        return result
+
     }
 }

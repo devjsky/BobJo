@@ -6,7 +6,7 @@
     <data>
         <variable
             name="viewModel"
-            type="kr.co.devjsky.android.bobjo.ui.base.DialogViewModel" />
+            type="kr.co.devjsky.android.bobjo.ui.schedule.viewmodel.ScheduleViewModel" />
 
     </data>
 
@@ -26,7 +26,7 @@
 
             android:orientation="vertical"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
+            android:layout_height="match_parent"
             android:padding="20dp"
 
             >
@@ -40,7 +40,7 @@
 
                 <TextView
                     android:layout_marginStart="50dp"
-                    android:text="빠른 동작"
+                    android:text="2023-05-01 (토)"
                     android:layout_marginEnd="20dp"
                     android:layout_weight="1"
                     android:lineSpacingExtra="2sp"
@@ -59,50 +59,33 @@
                     android:layout_width="30dp"
                     android:layout_height="30dp"/>
             </LinearLayout>
-            <TextView
-                android:text="동작을 선택해 주세요."
-                android:lineSpacingExtra="2sp"
-                android:layout_marginTop="14dp"
-                android:layout_marginBottom="20dp"
-                android:letterSpacing="-0.03"
-                android:fontFamily="@font/noto_sans_kr_regular"
-                android:textColor="@color/dialog_content_color_01"
-                android:gravity="center"
-                android:textSize="16sp"
-                android:id="@+id/tv_msg"
+
+            <View
+                android:layout_marginTop="20dp"
+                android:background="@color/schedule_list_shadow_color_01"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content" />
+                android:layout_height="1dp"/>
+
+            <androidx.recyclerview.widget.RecyclerView
+                android:clipToPadding="false"
+                android:paddingTop="20dp"
+                android:paddingBottom="20dp"
+                android:id="@+id/rv_list"
+                tools:listitem="@layout/item_schedule_list"
+                android:layout_weight="1"
+                android:layout_width="match_parent"
+                android:layout_height="0dp"/>
+
             <Button
-                android:letterSpacing="-0.03"
-                android:id="@+id/btn_add_schedule_multi"
+                android:id="@+id/btn_add_schedule"
+                android:fontFamily="@font/noto_sans_kr_regular"
                 android:textSize="18sp"
                 android:textColor="@color/white"
-                android:background="@drawable/bg_sub_menu_dialog_button_02"
-                android:text="일정 한 번에 추가하기"
-                android:fontFamily="@font/noto_sans_kr_regular"
+                android:text="일정 추가"
+                android:background="@drawable/bg_schedule_list_button_01"
+                android:layout_marginTop="20dp"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"/>
-            <Button
-                android:letterSpacing="-0.03"
-                android:layout_marginTop="10dp"
-                android:textSize="18sp"
-                android:textColor="@color/dialog_button_text_color_01"
-                android:background="@drawable/bg_sub_menu_dialog_button_01"
-                android:text="일정 한 번에 지우기"
-                android:fontFamily="@font/noto_sans_kr_regular"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"/>
-            <Button
-                android:letterSpacing="-0.03"
-                android:layout_marginTop="10dp"
-                android:textSize="18sp"
-                android:textColor="@color/dialog_button_text_color_01"
-                android:background="@drawable/bg_sub_menu_dialog_button_01"
-                android:text="일정 모두 지우기"
-                android:fontFamily="@font/noto_sans_kr_regular"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"/>
-
+                android:layout_height="@dimen/button_height"/>
 
         </LinearLayout>
 

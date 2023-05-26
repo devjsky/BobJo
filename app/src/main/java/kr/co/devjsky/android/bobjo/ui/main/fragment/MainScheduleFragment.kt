@@ -81,7 +81,7 @@ class MainScheduleFragment : BaseFragment<FragmentMainScheduleBinding, ScheduleV
                 LOG_D(TAG, "onPageSelected")
                 viewModel.pageClearLiveData.value = true
 
-                viewModel.getSchedule("getMonthSchedule", DateTime(schduleCalendarAdapter.getItemId(position)).toString("yyyy"), DateTime(schduleCalendarAdapter.getItemId(position)).toString("MM"),"")
+                viewModel.getMonthSchedule("getMonthSchedule", DateTime(schduleCalendarAdapter.getItemId(position)).toString("yyyy"), DateTime(schduleCalendarAdapter.getItemId(position)).toString("MM"))
             }
 
             override fun onPageScrollStateChanged(state: Int) {

@@ -66,9 +66,11 @@ class PopUpDialog() : DialogFragment() {
 //        setCancelable(false)
 
         if(isToast){
-            binding.btnClose.visibility = View.INVISIBLE
+            binding.ivClose.visibility = View.INVISIBLE
+            binding.btnGroup.visibility = View.GONE
         }else{
-            binding.btnClose.visibility = View.VISIBLE
+            binding.ivClose.visibility = View.VISIBLE
+            binding.btnGroup.visibility = View.VISIBLE
         }
         val windowManager = context?.getSystemService(Context.WINDOW_SERVICE) as WindowManager
         val display = windowManager.defaultDisplay
@@ -112,7 +114,7 @@ class PopUpDialog() : DialogFragment() {
             }
         }
 
-        binding.btnClose.setOnClickListener {
+        binding.ivClose.setOnClickListener {
             dismiss()
         }
 
@@ -148,9 +150,10 @@ class PopUpDialog() : DialogFragment() {
         val window: Window? = dialog?.window
         window?.setGravity(Gravity.CENTER)
         window?.setBackgroundDrawable(ColorDrawable(Color.TRANSPARENT))
-     //   window?.clearFlags(WindowManager.LayoutParams.FLAG_DIM_BEHIND)
+        //   window?.clearFlags(WindowManager.LayoutParams.FLAG_DIM_BEHIND)
         val wlp: WindowManager.LayoutParams? = window?.attributes
-        wlp?.width = ViewGroup.LayoutParams.WRAP_CONTENT
+        val metrics = resources.displayMetrics
+        wlp?.width = metrics.widthPixels * 80 / 100
         wlp?.height = ViewGroup.LayoutParams.WRAP_CONTENT
         window?.attributes = wlp
 

@@ -55,10 +55,9 @@ class ApiRepo(private val apiService: ApiService, private val userRepo: UserRepo
 
     }
 
-    fun getSchedule(action: String,
+    fun getMonthSchedule(action: String,
                     year: String,
                     month: String,
-                    share_user_idx: String,
                     callback: ApiCallback){
 
         var user_token = ""
@@ -67,9 +66,9 @@ class ApiRepo(private val apiService: ApiService, private val userRepo: UserRepo
         }else{
             user_token = userRepo.userInfo?.userToken + ""
         }
-        apiService.getSchedule(user_token, action, year, month, share_user_idx).enqueue(object : Callback<IFSchedule> {
+        apiService.getMonthSchedule(user_token, action, year, month).enqueue(object : Callback<IFSchedule> {
             override fun onResponse(call: Call<IFSchedule>, response: Response<IFSchedule>) {
-                LOG_D(TAG, "getSchedule isSuccessful")
+                LOG_D(TAG, "getMonthSchedule isSuccessful")
                 if (response.isSuccessful) {
                     response.body()?.let {
 
@@ -90,7 +89,46 @@ class ApiRepo(private val apiService: ApiService, private val userRepo: UserRepo
             }
 
             override fun onFailure(call: Call<IFSchedule>, t: Throwable) {
-                LOG_D(TAG, "getSchedule onFailure : " + t.toString())
+                LOG_D(TAG, "getMonthSchedule onFailure : " + t.toString())
+                callback.result(false, ResponseCode.API_ERROR, t.toString(), null)
+            }
+        })
+
+    }
+    fun getDaySchedule(action: String,
+                         start_date: String,
+                         callback: ApiCallback){
+
+        var user_token = ""
+        if(DEBUG_MODE){
+            user_token = "test"
+        }else{
+            user_token = userRepo.userInfo?.userToken + ""
+        }
+        apiService.getDaySchedule(user_token, action, start_date).enqueue(object : Callback<IFSchedule> {
+            override fun onResponse(call: Call<IFSchedule>, response: Response<IFSchedule>) {
+                LOG_D(TAG, "getDaySchedule isSuccessful")
+                if (response.isSuccessful) {
+                    response.body()?.let {
+
+                        val data: IFSchedule = response.body()!!
+                        val code: Int = data.header?.code!!
+                        val msg: String = data.header?.message+""
+
+                        if(code == ResponseCode.OK){
+
+                            callback.result(true, code, msg, data)
+
+                        }else{
+                            callback.result(false, code, msg, null)
+                        }
+
+                    }
+                }
+            }
+
+            override fun onFailure(call: Call<IFSchedule>, t: Throwable) {
+                LOG_D(TAG, "getDaySchedule onFailure : " + t.toString())
                 callback.result(false, ResponseCode.API_ERROR, t.toString(), null)
             }
         })
@@ -139,6 +177,113 @@ class ApiRepo(private val apiService: ApiService, private val userRepo: UserRepo
 
             override fun onFailure(call: Call<IFDefault>, t: Throwable) {
                 LOG_D(TAG, "addScheduleMulti onFailure : " + t.toString())
+                callback.result(false, ResponseCode.API_ERROR, t.toString(), null)
+            }
+        })
+
+    }
+    fun addSchedule(action: String,
+                    start_date: String,
+                    end_date: String,
+                         category_group: String,
+                         title: String,
+                         content: String,
+                         state: String,
+                         check_state: String,
+                         top: String,
+                         bigday: String,
+                         allday: String,
+                         tag_color: Int,
+                         callback: ApiCallback){
+
+        var user_token = ""
+        if(DEBUG_MODE){
+            user_token = "test"
+        }else{
+            user_token = userRepo.userInfo?.userToken + ""
+        }
+        var endDate = end_date
+        if(allday == "Y"){
+            endDate = start_date
+        }
+        apiService.addSchedule(user_token, action, start_date, endDate, category_group, title, content, state, check_state, top, bigday, allday, tag_color).enqueue(object : Callback<IFDefault> {
+            override fun onResponse(call: Call<IFDefault>, response: Response<IFDefault>) {
+                LOG_D(TAG, "addScheduleMulti isSuccessful")
+                if (response.isSuccessful) {
+                    response.body()?.let {
+
+                        val data: IFDefault = response.body()!!
+                        val code: Int = data.header?.code!!
+                        val msg: String = data.header?.message+""
+
+                        if(code == ResponseCode.OK){
+
+                            callback.result(true, code, msg, data)
+
+                        }else{
+                            callback.result(false, code, msg, null)
+                        }
+
+                    }
+                }
+            }
+
+            override fun onFailure(call: Call<IFDefault>, t: Throwable) {
+                LOG_D(TAG, "addScheduleMulti onFailure : " + t.toString())
+                callback.result(false, ResponseCode.API_ERROR, t.toString(), null)
+            }
+        })
+
+    }
+    fun modifySchedule(action: String,
+                    start_date: String,
+                    end_date: String,
+                    category_group: String,
+                    title: String,
+                    content: String,
+                    state: String,
+                    check_state: String,
+                    top: String,
+                    bigday: String,
+                    allday: String,
+                    tag_color: Int,
+                       schedule_idx: Int,
+                    callback: ApiCallback){
+
+        var user_token = ""
+        if(DEBUG_MODE){
+            user_token = "test"
+        }else{
+            user_token = userRepo.userInfo?.userToken + ""
+        }
+        var endDate = end_date
+        if(allday == "Y"){
+            endDate = start_date
+        }
+        apiService.modifySchedule(user_token, action, start_date, endDate, category_group, title, content, state, check_state, top, bigday, allday, tag_color,schedule_idx).enqueue(object : Callback<IFDefault> {
+            override fun onResponse(call: Call<IFDefault>, response: Response<IFDefault>) {
+                LOG_D(TAG, "modifySchedule isSuccessful")
+                if (response.isSuccessful) {
+                    response.body()?.let {
+
+                        val data: IFDefault = response.body()!!
+                        val code: Int = data.header?.code!!
+                        val msg: String = data.header?.message+""
+
+                        if(code == ResponseCode.OK){
+
+                            callback.result(true, code, msg, data)
+
+                        }else{
+                            callback.result(false, code, msg, null)
+                        }
+
+                    }
+                }
+            }
+
+            override fun onFailure(call: Call<IFDefault>, t: Throwable) {
+                LOG_D(TAG, "modifySchedule onFailure : " + t.toString())
                 callback.result(false, ResponseCode.API_ERROR, t.toString(), null)
             }
         })

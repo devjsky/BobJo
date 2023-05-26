@@ -21,6 +21,7 @@ import kr.co.devjsky.android.bobjo.databinding.FragmentScheduleCalendarBinding
 import kr.co.devjsky.android.bobjo.ui.base.BaseFragment
 import kr.co.devjsky.android.bobjo.ui.schedule.activity.ScheduleAddActivity
 import kr.co.devjsky.android.bobjo.ui.schedule.activity.ScheduleInfoActivity
+import kr.co.devjsky.android.bobjo.ui.schedule.dialog.ScheduleListDialog
 import kr.co.devjsky.android.bobjo.ui.schedule.viewmodel.ScheduleViewModel
 import kr.co.devjsky.android.bobjo.utils.calendar.CalendarUtils
 import kr.co.devjsky.android.bobjo.utils.calendar.CalendarUtils.Companion.getMonthList
@@ -72,7 +73,7 @@ class ScheduleCalendarFragment : BaseFragment<FragmentScheduleCalendarBinding, S
         binding.viewModel = viewModel
         setBindings()
         setObservers()
-        viewModel.getSchedule("getMonthSchedule", DateTime(millis).toString("yyyy"), DateTime(millis).toString("MM"),"")
+        viewModel.getMonthSchedule("getMonthSchedule", DateTime(millis).toString("yyyy"), DateTime(millis).toString("MM"))
 
     }
 
@@ -109,23 +110,10 @@ class ScheduleCalendarFragment : BaseFragment<FragmentScheduleCalendarBinding, S
                             val itemView = LayoutInflater.from(context).inflate(R.layout.view_calendar_event, null)
                             val recordTextView = itemView.findViewById<TextView>(R.id.tv_title)
                             recordTextView.text = scheduleData.title
-                            when(scheduleData.category_group){
-                                CalendarGroup.MEMO -> {
-                                    if(scheduleData.tag_color != null){
-                                        recordTextView.backgroundTintList = ColorStateList.valueOf(
-                                            ContextCompat.getColor(context, CalendarUtils.getEventTagColor(
-                                                scheduleData.tag_color!!)))
-                                    }
-
-                                }
-                                CalendarGroup.DAYOFF->{
-                                    recordTextView.backgroundTintList = ColorStateList.valueOf(
-                                        ContextCompat.getColor(context, R.color.calendar_event_color_09))
-                                }
-                                CalendarGroup.ANNIVERSARY->{
-                                    recordTextView.backgroundTintList = ColorStateList.valueOf(
-                                        ContextCompat.getColor(context, R.color.calendar_event_color_10))
-                                }
+                            if(scheduleData.tag_color != null){
+                                recordTextView.backgroundTintList = ColorStateList.valueOf(
+                                    ContextCompat.getColor(context, CalendarUtils.getEventTagColor(
+                                        scheduleData.tag_color!!)))
                             }
                             val sdf2 = SimpleDateFormat("MM")
 
@@ -180,11 +168,11 @@ class ScheduleCalendarFragment : BaseFragment<FragmentScheduleCalendarBinding, S
 
 
         })
-        viewModel.multiCheckAddFinLiveData.observe(this, Observer {
-            if(it){
-                viewModel.getSchedule("getMonthSchedule", DateTime(millis).toString("yyyy"), DateTime(millis).toString("MM"),"")
-            }
-        })
+//        viewModel.multiCheckAddFinLiveData.observe(this, Observer {
+//            if(it){
+//                viewModel.getSchedule("getMonthSchedule", DateTime(millis).toString("yyyy"), DateTime(millis).toString("MM"),"")
+//            }
+//        })
     }
 
     fun setLayoutDayListBindings(){
@@ -282,54 +270,42 @@ class ScheduleCalendarFragment : BaseFragment<FragmentScheduleCalendarBinding, S
 
                     if (it.tag != null) {
                         val tags = it.tag as Array<String>
-                        LOG_D(TAG, "tag : ${tags[0]}, ${tags[1]}, ${tags[2]}, ${tags[3]} ")
-                        if(selectedDate != tags[2] ){
-                            selectedDate = tags[2]
-                            layoutDay.setBackgroundResource(R.drawable.bg_calendar_day_selected_01)
-                        }else{
-                            if (tags[2] != null) {
-                                var scheduleInfoData = IFSchedule.ScheduleInfo()
-                                scheduleInfoData.startDate = tags[2]
+                        if (tags[2] != null) {
+
+                            LOG_D(TAG, "tag : ${tags[0]}, ${tags[1]}, ${tags[2]}, ${tags[3]} ")
+                            if (selectedDate != tags[2]) {
+                                selectedDate = tags[2]
+                                layoutDay.setBackgroundResource(R.drawable.bg_calendar_day_selected_01)
+                            } else {
+                                val scheduleInfoData = IFSchedule.ScheduleInfo()
+                                scheduleInfoData.startDate = "${tags[2]} 00:00:00"
                                 dataRepo.selected_schedule_info_data = scheduleInfoData
-                                if (tags[3] != null && tags[3] != "") {
-                                    val selected_schedule_info_idx = tags[3].toInt()
-                                    if (selected_schedule_info_idx != null && selected_schedule_info_idx != -1) {
-                                        dataRepo.selected_schedule_info_idx = selected_schedule_info_idx
-                                        if (viewModel.scheduleLiveData.value != null) {
-                                            val scheduleInfo =
-                                                viewModel.scheduleLiveData.value?.schedule_info
-                                            if (scheduleInfo != null && scheduleInfo.size > 0) {
-                                                LOG_D(TAG, "selected_schedule_info_idx : $selected_schedule_info_idx")
-                                                if(scheduleInfo.find { x -> x.idx == selected_schedule_info_idx } != null){
-                                                    scheduleInfoData =
-                                                        scheduleInfo.find { x -> x.idx == selected_schedule_info_idx }!!
-                                                    if (scheduleInfoData != null) {
-                                                        dataRepo.selected_schedule_info_data =
-                                                            scheduleInfoData
-                                                        val intent = Intent(
-                                                            context,
-                                                            ScheduleInfoActivity::class.java
-                                                        )
-                                                        startActivity(intent)
-                                                    } else {
-                                                        val intent =
-                                                            Intent(context, ScheduleAddActivity::class.java)
-                                                        startActivity(intent)
-                                                    }
-                                                }else{
-                                                    val intent =
-                                                        Intent(context, ScheduleAddActivity::class.java)
-                                                    startActivity(intent)
+
+                                if (viewModel.scheduleLiveData.value != null) {
+                                    val scheduleInfo =
+                                        viewModel.scheduleLiveData.value?.schedule_info
+                                    if (scheduleInfo != null && scheduleInfo.size > 0) {
+
+                                        if (scheduleInfo.find { x -> x.startDate!!.contains(tags[2]) } != null) {
+                                            val scheduleInfoList =
+                                                ArrayList<IFSchedule.ScheduleInfo>()
+                                            for (schedule in scheduleInfo) {
+                                                if (schedule.startDate!!.contains(tags[2])) {
+                                                    scheduleInfoList.add(schedule)
                                                 }
 
-
-                                            } else {
-                                                val intent =
-                                                    Intent(context, ScheduleAddActivity::class.java)
-                                                startActivity(intent)
                                             }
 
+                                            val scheduleListDialog = ScheduleListDialog()
+                                            //scheduleListDialog.setData(scheduleInfoList)
+                                            scheduleListDialog.show(
+                                                parentFragmentManager,
+                                                "scheduleListDialog"
+                                            )
+
                                         } else {
+
+
                                             val intent =
                                                 Intent(context, ScheduleAddActivity::class.java)
                                             startActivity(intent)
@@ -337,20 +313,27 @@ class ScheduleCalendarFragment : BaseFragment<FragmentScheduleCalendarBinding, S
 
 
                                     } else {
-                                        val intent = Intent(context, ScheduleAddActivity::class.java)
+                                        val intent =
+                                            Intent(context, ScheduleAddActivity::class.java)
                                         startActivity(intent)
                                     }
+
                                 } else {
-                                    val intent = Intent(context, ScheduleAddActivity::class.java)
+                                    val intent =
+                                        Intent(context, ScheduleAddActivity::class.java)
                                     startActivity(intent)
                                 }
                             }
+
+
                         }
 
-
-
-
                     }
+
+
+
+
+
 
                 }
             }
@@ -365,9 +348,8 @@ class ScheduleCalendarFragment : BaseFragment<FragmentScheduleCalendarBinding, S
         }
         for(tempLayoutDay in layoutDayListSetFinList){
             tempLayoutDay.setBackgroundResource(R.color.transparent)
-            val tags = tempLayoutDay.tag as Array<String>
-            tags[4] = "unselected"
         }
+        selectedDate = ""
     }
 
 

@@ -44,7 +44,7 @@
                     app:layout_constraintEnd_toStartOf="@id/layout_right"
                     app:layout_constraintBottom_toBottomOf="parent"
                     app:layout_constraintTop_toTopOf="parent"
-                    android:fontFamily="@font/noto_sans_kr_bold"
+                    android:fontFamily="@font/noto_sans_kr_regular"
                     android:id="@+id/tv_top_menu_title"
                     android:gravity="center"
                     android:textSize="18sp"
