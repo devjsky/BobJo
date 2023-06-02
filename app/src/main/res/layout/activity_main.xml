@@ -99,9 +99,19 @@
             <ImageView
                 android:adjustViewBounds="true"
                 android:layout_weight="1"
+                android:padding="9dp"
+                android:src="@drawable/ico_sns_01"
+                android:id="@+id/iv_bottom_menu_04"
+                android:background="@color/transparent"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                app:tint="@color/bottom_menu_unselected_color" />
+            <ImageView
+                android:adjustViewBounds="true"
+                android:layout_weight="1"
                 android:padding="12dp"
                 android:src="@drawable/ico_cash_01"
-                android:id="@+id/iv_bottom_menu_04"
+                android:id="@+id/iv_bottom_menu_05"
                 android:background="@color/transparent"
                 android:layout_width="0dp"
                 android:layout_height="match_parent"
@@ -120,7 +130,7 @@
                     android:adjustViewBounds="true"
 
                     android:src="@drawable/ico_user_01"
-                    android:id="@+id/iv_bottom_menu_05"
+                    android:id="@+id/iv_bottom_menu_06"
                     android:layout_width="wrap_content"
                     android:layout_height="match_parent"
                     />

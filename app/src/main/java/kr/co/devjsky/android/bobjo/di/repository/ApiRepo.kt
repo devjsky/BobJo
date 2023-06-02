@@ -5,6 +5,7 @@ import kr.co.devjsky.android.bobjo.api.ApiService
 import kr.co.devjsky.android.bobjo.api.ResponseCode
 import kr.co.devjsky.android.bobjo.data.Constants.Companion.DEBUG_MODE
 import kr.co.devjsky.android.bobjo.data.Constants.Companion.LOG_D
+import kr.co.devjsky.android.bobjo.data.model.remote.IFMainStory
 import kr.co.devjsky.android.bobjo.data.model.remote.IFSchedule
 import kr.co.soundleader.android.lesson1vs5.data.model.api.IFDefault
 import kr.co.soundleader.android.lesson1vs5.data.model.api.IFTEST
@@ -208,7 +209,7 @@ class ApiRepo(private val apiService: ApiService, private val userRepo: UserRepo
         }
         apiService.addSchedule(user_token, action, start_date, endDate, category_group, title, content, state, check_state, top, bigday, allday, tag_color).enqueue(object : Callback<IFDefault> {
             override fun onResponse(call: Call<IFDefault>, response: Response<IFDefault>) {
-                LOG_D(TAG, "addScheduleMulti isSuccessful")
+                LOG_D(TAG, "addSchedule isSuccessful")
                 if (response.isSuccessful) {
                     response.body()?.let {
 
@@ -229,7 +230,7 @@ class ApiRepo(private val apiService: ApiService, private val userRepo: UserRepo
             }
 
             override fun onFailure(call: Call<IFDefault>, t: Throwable) {
-                LOG_D(TAG, "addScheduleMulti onFailure : " + t.toString())
+                LOG_D(TAG, "addSchedule onFailure : " + t.toString())
                 callback.result(false, ResponseCode.API_ERROR, t.toString(), null)
             }
         })
@@ -301,7 +302,7 @@ class ApiRepo(private val apiService: ApiService, private val userRepo: UserRepo
         }
         apiService.removeSchedule(user_token, action, schedule_idx).enqueue(object : Callback<IFDefault> {
             override fun onResponse(call: Call<IFDefault>, response: Response<IFDefault>) {
-                LOG_D(TAG, "addScheduleMulti isSuccessful")
+                LOG_D(TAG, "removeSchedule isSuccessful")
                 if (response.isSuccessful) {
                     response.body()?.let {
 
@@ -322,7 +323,45 @@ class ApiRepo(private val apiService: ApiService, private val userRepo: UserRepo
             }
 
             override fun onFailure(call: Call<IFDefault>, t: Throwable) {
-                LOG_D(TAG, "addScheduleMulti onFailure : " + t.toString())
+                LOG_D(TAG, "removeSchedule onFailure : " + t.toString())
+                callback.result(false, ResponseCode.API_ERROR, t.toString(), null)
+            }
+        })
+
+    }
+
+    fun getMainStory(callback: ApiCallback){
+
+        var user_token = ""
+        if(DEBUG_MODE){
+            user_token = "test"
+        }else{
+            user_token = userRepo.userInfo?.userToken + ""
+        }
+        apiService.getMainStory(user_token).enqueue(object : Callback<IFMainStory> {
+            override fun onResponse(call: Call<IFMainStory>, response: Response<IFMainStory>) {
+                LOG_D(TAG, "getMainStory isSuccessful")
+                if (response.isSuccessful) {
+                    response.body()?.let {
+
+                        val data: IFMainStory = response.body()!!
+                        val code: Int = data.header?.code!!
+                        val msg: String = data.header?.message+""
+
+                        if(code == ResponseCode.OK){
+
+                            callback.result(true, code, msg, data)
+
+                        }else{
+                            callback.result(false, code, msg, null)
+                        }
+
+                    }
+                }
+            }
+
+            override fun onFailure(call: Call<IFMainStory>, t: Throwable) {
+                LOG_D(TAG, "getMainStory onFailure : " + t.toString())
                 callback.result(false, ResponseCode.API_ERROR, t.toString(), null)
             }
         })

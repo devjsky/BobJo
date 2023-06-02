@@ -1,6 +1,7 @@
 package kr.co.devjsky.android.bobjo.api
 
 
+import kr.co.devjsky.android.bobjo.data.model.remote.IFMainStory
 import kr.co.devjsky.android.bobjo.data.model.remote.IFSchedule
 import kr.co.soundleader.android.lesson1vs5.data.model.api.IFDefault
 import kr.co.soundleader.android.lesson1vs5.data.model.api.IFTEST
@@ -87,4 +88,9 @@ interface ApiService {
                     @Field("tag_color") tag_color: Int,
                        @Field("schedule_idx") schedule_idx: Int
     ): Call<IFDefault>
+
+    @FormUrlEncoded
+    @POST("story/getMainStoryList.php")
+    fun getMainStory(@Field("user_token") user_token: String
+    ): Call<IFMainStory>
 }

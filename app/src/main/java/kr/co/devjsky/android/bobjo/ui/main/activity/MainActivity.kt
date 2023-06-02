@@ -1,8 +1,6 @@
 package kr.co.devjsky.android.bobjo.ui.main.activity
 
 import android.content.Intent
-import android.content.res.ColorStateList
-import android.graphics.Color
 import android.os.Bundle
 import android.util.Log
 import android.view.View
@@ -20,21 +18,19 @@ import kr.co.devjsky.android.bobjo.data.Constants.Companion.FRAGMENT_MAIN_DASHBO
 import kr.co.devjsky.android.bobjo.data.Constants.Companion.FRAGMENT_MAIN_MY_PAGE
 import kr.co.devjsky.android.bobjo.data.Constants.Companion.FRAGMENT_MAIN_SCHEDULE
 import kr.co.devjsky.android.bobjo.data.Constants.Companion.FRAGMENT_MAIN_SPENDING
+import kr.co.devjsky.android.bobjo.data.Constants.Companion.FRAGMENT_MAIN_STORY
 import kr.co.devjsky.android.bobjo.data.Constants.Companion.LOG_D
 import kr.co.devjsky.android.bobjo.databinding.ActivityMainBinding
 import kr.co.devjsky.android.bobjo.ui.base.BaseActivity
-import kr.co.devjsky.android.bobjo.ui.base.PopUpDialog
 import kr.co.devjsky.android.bobjo.ui.main.fragment.MainCoupleFragment
 import kr.co.devjsky.android.bobjo.ui.main.fragment.MainDashboardFragment
 import kr.co.devjsky.android.bobjo.ui.main.fragment.MainMyPageFragment
 import kr.co.devjsky.android.bobjo.ui.main.fragment.MainScheduleFragment
+import kr.co.devjsky.android.bobjo.ui.main.fragment.MainStoryFragment
 import kr.co.devjsky.android.bobjo.ui.main.viewmodel.MainViewModel
-import kr.co.devjsky.android.bobjo.ui.schedule.activity.ScheduleAddActivity
 import kr.co.devjsky.android.bobjo.ui.schedule.activity.ScheduleAddMultiActivity
-import kr.co.devjsky.android.bobjo.ui.schedule.activity.ScheduleInfoActivity
 import kr.co.devjsky.android.bobjo.ui.schedule.dialog.ScheduleSubMenuDialog
 import org.koin.androidx.viewmodel.ext.android.viewModel
-import java.lang.StringBuilder
 
 class MainActivity : BaseActivity<ActivityMainBinding, MainViewModel>() {
     override val viewModel: MainViewModel by viewModel()
@@ -228,38 +224,45 @@ class MainActivity : BaseActivity<ActivityMainBinding, MainViewModel>() {
                     setBottomMenuTint(binding.ivBottomMenu03)
                     setTopMenu(true, "일정")
                 }
+                FRAGMENT_MAIN_STORY -> {
+                    fragment = MainStoryFragment()
+                    nowFragment = fragment
+                    setFragment(fragment, fragmentTag)
+                    setBottomMenuTint(binding.ivBottomMenu04)
+                    setTopMenu(true, "일정")
+                }
                 FRAGMENT_MAIN_SPENDING -> {
                     fragment = MainCoupleFragment()
                     nowFragment = fragment
                     setFragment(fragment, fragmentTag)
-                    setBottomMenuTint(binding.ivBottomMenu04)
+                    setBottomMenuTint(binding.ivBottomMenu05)
 
                 }
                 FRAGMENT_MAIN_MY_PAGE -> {
                     fragment = MainMyPageFragment()
                     nowFragment = fragment
                     setFragment(fragment, fragmentTag)
-                    setBottomMenuTint(binding.ivBottomMenu05)
+                    setBottomMenuTint(binding.ivBottomMenu06)
 
                 }
             }
 
         })
-        viewModel.testDataLiveData.observe(this, Observer {
-            Log.e(TAG, it.toString())
-        })
+
 
         binding.ivBottomMenu01.setOnClickListener { viewModel.setBottomMenu(FRAGMENT_MAIN_DASHBOARD) }
         binding.ivBottomMenu02.setOnClickListener { viewModel.setBottomMenu(FRAGMENT_MAIN_COUPLE) }
         binding.ivBottomMenu03.setOnClickListener { viewModel.setBottomMenu(FRAGMENT_MAIN_SCHEDULE) }
-        binding.ivBottomMenu04.setOnClickListener { viewModel.setBottomMenu(FRAGMENT_MAIN_SPENDING) }
-        binding.ivBottomMenu05.setOnClickListener { viewModel.setBottomMenu(FRAGMENT_MAIN_MY_PAGE) }
+        binding.ivBottomMenu04.setOnClickListener { viewModel.setBottomMenu(FRAGMENT_MAIN_STORY) }
+        binding.ivBottomMenu05.setOnClickListener { viewModel.setBottomMenu(FRAGMENT_MAIN_SPENDING) }
+        binding.ivBottomMenu06.setOnClickListener { viewModel.setBottomMenu(FRAGMENT_MAIN_MY_PAGE) }
 
         bottomMenuList.add(binding.ivBottomMenu01)
         bottomMenuList.add(binding.ivBottomMenu02)
         bottomMenuList.add(binding.ivBottomMenu03)
         bottomMenuList.add(binding.ivBottomMenu04)
         bottomMenuList.add(binding.ivBottomMenu05)
+        bottomMenuList.add(binding.ivBottomMenu06)
         runOnUiThread {
             bottomMenuList[1].setImageResource(dataRepo.getBottomMenuCoupleIconImage())
         }

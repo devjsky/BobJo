@@ -8,6 +8,7 @@ import kr.co.devjsky.android.bobjo.data.Constants
 import kr.co.devjsky.android.bobjo.data.Constants.Companion.FRAGMENT_MAIN_DASHBOARD
 import kr.co.devjsky.android.bobjo.data.Constants.Companion.LOG_D
 import kr.co.devjsky.android.bobjo.data.Constants.Companion.LOG_E
+import kr.co.devjsky.android.bobjo.data.model.remote.IFMainStory
 import kr.co.devjsky.android.bobjo.data.model.remote.IFSchedule
 import kr.co.devjsky.android.bobjo.di.repository.ApiRepo
 import kr.co.devjsky.android.bobjo.di.repository.DataRepo
@@ -26,6 +27,8 @@ class MainViewModel(private val apiRepo: ApiRepo, private val userRepo:UserRepo,
     var mainActivity:MainActivity? = null
 
     var scheduleLiveData = MutableLiveData<IFSchedule>()
+
+    var refreshMainStoryStateLiveData = MutableLiveData<Boolean>()
 
     init {
         bottomMenuLiveData.value = FRAGMENT_MAIN_DASHBOARD
@@ -53,5 +56,8 @@ class MainViewModel(private val apiRepo: ApiRepo, private val userRepo:UserRepo,
         testDataLiveData.value = dday.toString()
     }
 
+    fun refreshMainStory(){
+        refreshMainStoryStateLiveData.value = true
+    }
 
 }

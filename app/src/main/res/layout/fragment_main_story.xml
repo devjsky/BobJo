@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+        <variable
+            name="viewModel"
+            type="kr.co.devjsky.android.bobjo.ui.main.viewmodel.MainViewModel" />
+
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+        <com.google.android.material.tabs.TabLayout
+            app:layout_constraintTop_toTopOf="parent"
+            android:id="@+id/layout_tab"
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:overScrollMode="never"
+            android:scrollbars="none"
+            app:tabIndicatorColor="@color/story_tab_indicator_color_01"
+            app:tabIndicatorHeight="4dp"
+            app:tabRippleColor="@color/transparent"
+            app:tabSelectedTextColor="@color/black"
+            app:tabTextAppearance="@style/tabTextSize"
+            app:tabTextColor="@color/black" />
+        <androidx.recyclerview.widget.RecyclerView
+            app:layout_constraintTop_toBottomOf="@+id/layout_tab"
+            app:layout_constraintBottom_toBottomOf="parent"
+            android:clipToPadding="false"
+            android:id="@+id/rv_list"
+            tools:listitem="@layout/item_story_main_list"
+            android:layout_weight="1"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"/>
+
+<!--        <RelativeLayout-->
+<!--            android:gravity="center"-->
+<!--            android:layout_marginBottom="20dp"-->
+<!--            android:layout_marginEnd="20dp"-->
+<!--            app:layout_constraintEnd_toEndOf="parent"-->
+<!--            app:layout_constraintBottom_toBottomOf="parent"-->
+<!--            android:layout_width="40dp"-->
+<!--            android:layout_height="40dp">-->
+
+<!--            <com.makeramen.roundedimageview.RoundedImageView-->
+<!--                android:src="#80F3F3F3"-->
+<!--                app:riv_oval="true"-->
+<!--                app:riv_border_width="1dp"-->
+<!--                app:riv_border_color="#CCCCCC"-->
+<!--                android:adjustViewBounds="true"-->
+<!--                android:layout_width="match_parent"-->
+<!--                android:layout_height="match_parent" />-->
+<!--            <ImageView-->
+<!--                android:padding="10dp"-->
+<!--                android:src="@drawable/ico_story_menu_01"-->
+<!--                android:adjustViewBounds="true"-->
+<!--                android:layout_width="match_parent"-->
+<!--                android:layout_height="match_parent"-->
+<!--                app:tint="#aaaaaa" />-->
+<!--        </RelativeLayout>-->
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

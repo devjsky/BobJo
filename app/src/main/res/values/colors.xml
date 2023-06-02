@@ -56,6 +56,15 @@
     <color name="schedule_list_title_color_01">#000000</color>
     <color name="schedule_list_date_color_01">#838383</color>
     <color name="schedule_list_button_bg_color_01">#2d44f7</color>
+
+    <color name="skeleton_color_01">#eeeeee</color>
+
+    <color name="story_tab_indicator_color_01">#3EAAAAAA</color>
+    <color name="story_item_line_color_01">#C7C7C7</color>
+    <color name="story_item_date_color_01">#7A7A7A</color>
+    <color name="story_item_tag_color_01">#2D88F7</color>
+
+
     <!-- METERIAL DESIGN COLORS -->
     <!-- RED -->
     <color name="red_50">#fde0dc</color>

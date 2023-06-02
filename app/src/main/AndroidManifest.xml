@@ -5,6 +5,8 @@
     <uses-permission android:name="android.permission.INTERNET" />
     <uses-permission android:name="com.google.android.gms.permission.AD_ID" />
 
+
+
     <application
         android:name=".MyApplication"
         android:allowBackup="true"
@@ -17,6 +19,7 @@
         android:theme="@style/Theme.BobJo"
         android:usesCleartextTraffic="true"
         tools:targetApi="33">
+
         <activity
             android:name=".ui.splash.activity.SplashActivity"
             android:exported="true"
@@ -55,6 +58,7 @@
             android:windowSoftInputMode="adjustNothing">
 
         </activity>
+
     </application>
 
 </manifest>

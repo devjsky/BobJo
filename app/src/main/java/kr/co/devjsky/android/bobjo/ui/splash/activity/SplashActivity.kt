@@ -23,6 +23,9 @@ class SplashActivity : BaseActivity<ActivitySplashBinding, SplashViewModel>() {
         return R.layout.activity_splash
     }
 
+    override fun onResume() {
+        super.onResume()
+    }
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setBindings()
